@@ -1,0 +1,24 @@
+{
+  "name": "shegit",
+  "version": "1.0.0",
+  "description": "Shegit modular utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/or-temka/shegit.git"
+  },
+  "keywords": [
+    "modules",
+    "stdlib",
+    "util"
+  ],
+  "author": "Shchegortzov Artem Mikhailovich <tema.chegortzov@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/or-temka/shegit/issues"
+  },
+  "homepage": "https://github.com/or-temka/shegit#readme"
+}
