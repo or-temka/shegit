@@ -13,9 +13,6 @@
     "outDir": "./dist",
     "sourceMap": true,
     "baseUrl": "./src",
-    "paths": {
-      "@types/*": ["./src/types/*"],
-    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

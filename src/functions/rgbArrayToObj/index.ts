@@ -51,3 +51,5 @@ export function rgbArrayToObj(array: RgbArrayWithFuncVal | FuncRgbArray = DEFAUL
   const b = parseComponent(actual[2]);
   return { r, g, b };
 }
+
+export { RgbArrayWithFuncVal };
