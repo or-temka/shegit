@@ -24,6 +24,7 @@ function roundDownAbsolute(value: number): number {
 export function rgbArrayToObj(array: RgbArrayWithFuncVal | FuncRgbArray = DEFAULT.input): RgbObj {
   let actual = DEFAULT.input;
   const isArray = Array.isArray(array);
+
   if (!isArray) {
     const isFunction = typeof array === 'function';
     if (!isFunction) return DEFAULT.return;
@@ -31,12 +32,22 @@ export function rgbArrayToObj(array: RgbArrayWithFuncVal | FuncRgbArray = DEFAUL
   } else {
     actual = array;
   }
-  const r = Number(actual[0] || DEFAULT_COLOR_COMPONENT);
-  const g = Number(actual[1] || DEFAULT_COLOR_COMPONENT);
-  const b = Number(actual[2] || DEFAULT_COLOR_COMPONENT);
-  return {
-    r: Number.isNaN(r) || r < 0 ? DEFAULT_COLOR_COMPONENT : r <= 255 ? roundDownAbsolute(r) : 255,
-    g: Number.isNaN(g) || g < 0 ? DEFAULT_COLOR_COMPONENT : g <= 255 ? roundDownAbsolute(g) : 255,
-    b: Number.isNaN(b) || b < 0 ? DEFAULT_COLOR_COMPONENT : b <= 255 ? roundDownAbsolute(b) : 255,
+
+  const parseComponent = (component: any): number => {
+    if (typeof component === 'function') {
+      component = component();
+    }
+
+    const num = Number(component);
+    return Number.isNaN(num) || num < 0
+      ? DEFAULT_COLOR_COMPONENT
+      : num > 255
+      ? 255
+      : roundDownAbsolute(num);
   };
+
+  const r = parseComponent(actual[0]);
+  const g = parseComponent(actual[1]);
+  const b = parseComponent(actual[2]);
+  return { r, g, b };
 }
