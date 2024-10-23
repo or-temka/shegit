@@ -18,18 +18,14 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
-    // Overridden
-    "camelcase": ["error", { "properties": "never", "allow": [ "W[0-9]+_"] }],
+    "camelcase": ["error", { "properties": "never", "allow": ["W[0-9]+_"] }],
     "import/extensions": "off",
     "no-eval": "off",
     "no-self-compare": "off",
     "one-var": ["error", "never"],
-    // @TODO: Fix the following rules progressively.
     "arrow-body-style": "warn",
     "prefer-arrow-callback": "warn",
     "prefer-object-spread": "off",
@@ -53,20 +49,17 @@
     "no-prototype-builtins": "off",
     "no-continue": "off",
     "no-shadow": "off",
-    // Rules up for discussion.
     "no-multi-assign": "off",
-    "new-cap": "off"
+    "new-cap": "off",
+    "semi": ["error", "always"]
   },
   "overrides": [
     {
       "files": ["**/*.ts"],
       "parserOptions": {
-         "project": "./tsconfig.json"
+        "project": "./tsconfig.json"
       },
-      "extends": [
-        "airbnb-typescript/base",
-        "prettier"
-      ],
+      "extends": ["airbnb-typescript/base", "prettier"],
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/no-unused-vars": [
@@ -75,16 +68,16 @@
             "vars": "all",
             "args": "after-used",
             "ignoreRestSiblings": true,
-            "argsIgnorePattern": "^_" // For tsc compatibility.
+            "argsIgnorePattern": "^_"
           }
         ],
         "comma-dangle": "off",
-        "implicit-arrow-linebreak": "off", // Conflicts with prettier.
+        "implicit-arrow-linebreak": "off",
         "import/extensions": "off",
         "import/prefer-default-export": "off",
         "operator-linebreak": "off",
         "object-curly-newline": "off",
-        "prefer-rest-params": "off", // We need to use params.
+        "prefer-rest-params": "off",
         "prettier/prettier": "error",
         "@typescript-eslint/no-shadow": "warn",
         "@typescript-eslint/no-use-before-define": ["warn", { "functions": false }],
