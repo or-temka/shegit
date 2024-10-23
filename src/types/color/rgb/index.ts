@@ -1,6 +1,7 @@
-export type RgbArray = [number, number, number];
+export type RgbArrayComponentValue = number;
+export type RgbArray = [RgbArrayComponentValue?, RgbArrayComponentValue?, RgbArrayComponentValue?];
 export interface RgbObj {
-  r: number;
-  g: number;
-  b: number;
+  r: RgbArrayComponentValue;
+  g: RgbArrayComponentValue;
+  b: RgbArrayComponentValue;
 }

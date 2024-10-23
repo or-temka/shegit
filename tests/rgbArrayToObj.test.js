@@ -34,12 +34,14 @@ describe('RGB array to object', () => {
     { id: 20, input: () => [15, -26, '+64'], expected: { r: 15, g: 0, b: 64 } },
     { id: 21, input: true, expected: { r: 0, g: 0, b: 0 } },
     { id: 22, input: 35.345, expected: { r: 0, g: 0, b: 0 } },
-    { id: 23, input: ['--126', false, '+267'], expected: { r: 126, g: 0, b: 267 } },
+    { id: 23, input: ['--126', false, '+267'], expected: { r: 0, g: 0, b: 255 } },
   ];
   const lastCaseId = testCases[testCases.length - 1].id;
 
   testCases.forEach((test) => {
-    it(`(${test.id}/${lastCaseId}) input: ${test.input}, expected: ${test.expected}`, () => {
+    it(`(${test.id}/${lastCaseId}) input: ${test.input}, expected: ${JSON.stringify(
+      test.expected,
+    )}`, () => {
       const actual = _.rgbArrayToObj(test.input);
       expect(actual).toStrictEqual(test.expected);
     });

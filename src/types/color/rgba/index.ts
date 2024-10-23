@@ -1,7 +1,15 @@
-export type RgbaArray = [number, number, number, number];
+import { RgbArrayComponentValue } from 'types';
+
+export type RgbaArrayComponentAlfaValue = number;
+export type RgbaArray = [
+  RgbArrayComponentValue,
+  RgbArrayComponentValue,
+  RgbArrayComponentValue,
+  RgbaArrayComponentAlfaValue,
+];
 export interface RgbaObj {
-  r: number;
-  g: number;
-  b: number;
-  a: number;
+  r: RgbArrayComponentValue;
+  g: RgbArrayComponentValue;
+  b: RgbArrayComponentValue;
+  a: RgbaArrayComponentAlfaValue;
 }
