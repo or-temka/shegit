@@ -1,4 +1,4 @@
-import { rgbArray, rgbObj } from 'types';
+import { RgbArray, RgbObj } from 'types';
 
 /**
  * #### RGB color array to object
@@ -15,12 +15,10 @@ import { rgbArray, rgbObj } from 'types';
  * rgbArrayToObj([1, 2, 3])
  * // => {r: 1, g: 2, b: 3}
  */
-function rgbArrayToObj(array: rgbArray): rgbObj {
+export function rgbArrayToObj(array: RgbArray): RgbObj {
   return {
     r: array[0],
     g: array[1],
     b: array[2],
   };
 }
-
-export default rgbArrayToObj;

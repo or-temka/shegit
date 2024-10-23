@@ -18,12 +18,10 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "camelcase": ["error", { "properties": "never", "allow": [ "W[0-9]+_"] }],
+    "camelcase": ["error", { "properties": "never", "allow": ["W[0-9]+_"] }],
     "import/extensions": "off",
     "no-eval": "off",
     "no-self-compare": "off",
@@ -59,12 +57,9 @@
     {
       "files": ["**/*.ts"],
       "parserOptions": {
-         "project": "./tsconfig.json"
+        "project": "./tsconfig.json"
       },
-      "extends": [
-        "airbnb-typescript/base",
-        "prettier"
-      ],
+      "extends": ["airbnb-typescript/base", "prettier"],
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/no-unused-vars": [

@@ -1,5 +1,5 @@
-export type rgbArray = [number, number, number];
-export interface rgbObj {
+export type RgbArray = [number, number, number];
+export interface RgbObj {
   r: number;
   g: number;
   b: number;
