@@ -1,0 +1,5 @@
+{
+  "no-bare-urls": false,
+  "line-length": false,
+  "MD041": false
+}
