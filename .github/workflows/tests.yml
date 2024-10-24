@@ -15,13 +15,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: 1.0.2
+      - name: Install dependencies using npm
+        run: npm install
 
-      - name: Install dependencies using Bun
-        run: bun install
+      - name: Build the project
+        run: npm run build
 
       - name: Run tests with Jest
         run: npm test
