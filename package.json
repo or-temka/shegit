@@ -1,6 +1,6 @@
 {
   "name": "shegit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "private": true,
   "description": "Shegit modular utilities",
@@ -24,7 +24,7 @@
     "stdlib",
     "util"
   ],
-  "author": "Shchegortzov Artem Mikhailovich <tema.chegortzov@mail.ru>",
+  "author": "Shchegortsov Artem Mikhailovich <tema.chegortzov@mail.ru>",
   "bugs": {
     "url": "https://github.com/or-temka/shegit/issues"
   },
