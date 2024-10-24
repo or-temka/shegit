@@ -1,0 +1,25 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies using npm
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Run tests with Jest
+        run: npm test
