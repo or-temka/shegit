@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
-. "$(dirname "$0")/../scripts/branch-config.sh"
+. "$(dirname "$0")/../config/branch-config.sh"
 
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
