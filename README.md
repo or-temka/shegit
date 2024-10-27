@@ -1,44 +1,41 @@
-# Shegit
+# Website
 
-[![NPM Version](https://img.shields.io/npm/v/shegit?style=for-the-badge&label=version)](https://www.npmjs.com/package/shegit)
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-Shegit modular utilities. The handle makes JS user-friendly by providing helper functions for working with different types of data.
+### Installation
 
-[MIT lincese](./LICENSE)
+```
+$ yarn
+```
 
-[![NPM Downloads](https://img.shields.io/npm/dw/shegit?logo=npm&label=npm&labelColor=red&color=grey)](https://www.npmjs.com/package/shegit)
+### Local Development
 
-## Download
+```
+$ yarn start
+```
 
-* [Full build (~18.7 kB)](https://github.com/or-temka/shegit/archive/refs/heads/npm.zip)
-* [Source code](https://github.com/or-temka/shegit/archive/refs/heads/main.zip)
-* [Beta](https://github.com/or-temka/shegit/archive/refs/heads/dev.zip)
-* [Test field](https://github.com/or-temka/shegit/archive/refs/heads/test.zip)
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-Shegit is released under the [MIT license](./LICENSE) & supports modern environments.
+### Build
 
-## Installation
+```
+$ yarn build
+```
 
-### Using npm
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-1. Installation npm (global):
+### Deployment
 
-    ```shell
-    npm i -g npm
-    ```
+Using SSH:
 
-2. Installation `shegit` package last version:
+```
+$ USE_SSH=true yarn deploy
+```
 
-    ```shell
-    npm install --save shegit
-    ```
+Not using SSH:
 
-### In a browser
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
 
-1. Download source code
-
-2. Use in your html:
-
-    ```html
-    <script src="[your_lib_folder_path]/shegit"></script>
-    ```
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
