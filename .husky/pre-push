@@ -4,7 +4,7 @@
 
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
-wrong_name_msg = "Error: '$branch_name' branch name does not match the installed format.\nThe branch name should start with one of the following prefixes: $VALID_PREFIXES."
+wrong_name_msg="Error: '$branch_name' branch name does not match the installed format.\nThe branch name should start with one of the following prefixes: $VALID_PREFIXES."
 
 if [[ ! "$branch_name" =~ ^($VALID_PREFIXES)/.+ ]]; then
   echo "$wrong_name_msg"
