@@ -1,0 +1,15 @@
+name: Check Base Branch for pull request
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  check-base-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check base branch
+        if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref != 'dev'
+        run: |
+          echo "Base branch is not 'dev'. Please change the base branch to 'dev'."
+          exit 1
