@@ -1,4 +1,7 @@
-const { rgbArrayToObj } = require('shegit');
+import exec from './utils/exec.js';
+import { rgbArrayToObj } from '@shegit/rgb-array-to-obj';
+import { toColor } from '@shegit/to-color';
 
-const result = rgbArrayToObj([1, 2, 3]);
-console.log(result);
+const input = [1, 2, 3];
+exec(rgbArrayToObj, [input]);
+exec(toColor, [input]);
