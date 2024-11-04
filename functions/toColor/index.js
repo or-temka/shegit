@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toColor = toColor;
-const index_1 = require("../../index");
+const rgb_array_to_obj_1 = require("@shegit/rgb-array-to-obj");
 const constants_1 = require("./constants");
 /**
  * #### To color
@@ -31,7 +31,7 @@ function toColor(color = constants_1.DEFAULT.input, to = 'object') {
     if (typeof color === 'object') {
         const isArray = Array.isArray(color);
         if (isArray) {
-            const { r, g, b } = (0, index_1.rgbArrayToObj)(color);
+            const { r, g, b } = (0, rgb_array_to_obj_1.rgbArrayToObj)(color);
             Object.assign(c, { r, g, b, a: 1 });
         }
     }

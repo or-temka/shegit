@@ -2,8 +2,23 @@
   "name": "shegit",
   "version": "1.0.1",
   "license": "ISC",
+  "private": true,
   "description": "Shegit modular utilities",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "npm run install-all-src && tsc && npm run copy-packages && npm run install-all-dist",
+    "test": "jest",
+    "lint": "eslint ./src/**/*.ts",
+    "prepare": "husky install",
+    "copy-packages": "powershell -Command \"Get-ChildItem -Path src/functions -Recurse -Filter 'package.json' | ForEach-Object { $dest = 'dist/functions/' + $_.Directory.Name + '/package.json'; New-Item -ItemType Directory -Path (Split-Path $dest) -Force; Copy-Item $_.FullName -Destination $dest -Force; }\"",
+    "install-all-src": "powershell -Command \"Get-ChildItem -Path src/functions -Recurse -Filter package.json | ForEach-Object { Push-Location $_.DirectoryName; npm install; Pop-Location }\"",
+    "install-all-dist": "powershell -Command \"Get-ChildItem -Path dist/functions -Recurse -Filter package.json | ForEach-Object { Push-Location $_.DirectoryName; npm install; Pop-Location }\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/or-temka/shegit.git"
@@ -13,8 +28,36 @@
     "stdlib",
     "util"
   ],
-  "author": "Shchegortzov Artem Mikhailovich <tema.chegortzov@mail.ru>",
+  "author": "Shchegortsov Artem Mikhailovich <tema.chegortzov@mail.ru>",
   "bugs": {
     "url": "https://github.com/or-temka/shegit/issues"
-  }
+  },
+  "homepage": "https://github.com/or-temka/shegit#readme",
+  "devDependencies": {
+    "@commitlint/cli": "17.7.1",
+    "@commitlint/config-conventional": "17.7.0",
+    "@types/eslint": "8.44.2",
+    "@types/jest": "29.5.5",
+    "@types/node": "^22.7.9",
+    "@typescript-eslint/eslint-plugin": "6.7.0",
+    "@typescript-eslint/parser": "6.7.0",
+    "eslint": "8.49.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-prettier": "5.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.7.0",
+    "lint-staged": "14.0.1",
+    "prettier": "^3.0.3",
+    "shegit": "^1.0.0",
+    "typescript": "^5.6.3"
+  },
+  "lint-staged": {
+    "src/**/*.{ts}": [
+      "eslint --fix"
+    ]
+  },
+  "engineStrict": true
 }
