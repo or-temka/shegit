@@ -1,5 +1,5 @@
 import { RgbaObj } from 'types';
-import { rgbArrayToObj } from '../../index';
+import { rgbArrayToObj } from '@shegit/rgb-array-to-obj';
 import { DEFAULT } from './constants';
 import { ColorProp, ReturnColorType, To } from './types';
 

@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/or-temka/shegit/issues"
   },
-  "homepage": "https://github.com/or-temka/shegit#readme"
+  "homepage": "https://github.com/or-temka/shegit#readme",
+  "dependencies": {
+    "@shegit/rgb-array-to-obj": "^1.0.0"
+  }
 }
