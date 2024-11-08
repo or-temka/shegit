@@ -1,6 +1,6 @@
 {
   "name": "shegit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "ISC",
   "private": true,
   "description": "Shegit modular utilities",
@@ -11,11 +11,11 @@
   },
   "scripts": {
     "watch": "tsc --watch",
-    "build": "tsc && npm run copy-packages && npm run install-all-dist",
+    "build": "npm run install-all-src && tsc && npm run copy-packages && npm run install-all-dist",
     "test": "jest",
     "lint": "eslint ./src/**/*.ts",
     "prepare": "husky install",
-    "copy-packages": "powershell -Command \"Get-ChildItem -Path src/functions -Recurse -Filter 'package.json' | ForEach-Object { $dest = 'dist/functions/' + $_.Directory.Name + '/package.json'; New-Item -ItemType Directory -Path (Split-Path $dest) -Force; Copy-Item $_.FullName -Destination $dest -Force; }\"",
+    "copy-packages": "powershell -Command \"Get-ChildItem -Path src/functions -Recurse -Filter 'package.json' | Where-Object { $_.FullName -notmatch 'node_modules' } | ForEach-Object { $dest = 'dist/functions/' + $_.Directory.Name + '/package.json'; New-Item -ItemType Directory -Path (Split-Path $dest) -Force; Copy-Item $_.FullName -Destination $dest -Force; }\"",
     "install-all-src": "powershell -Command \"Get-ChildItem -Path src/functions -Recurse -Filter package.json | ForEach-Object { Push-Location $_.DirectoryName; npm install; Pop-Location }\"",
     "install-all-dist": "powershell -Command \"Get-ChildItem -Path dist/functions -Recurse -Filter package.json | ForEach-Object { Push-Location $_.DirectoryName; npm install; Pop-Location }\""
   },
