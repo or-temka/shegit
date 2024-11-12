@@ -18,7 +18,9 @@
     "copy-packages": "node scripts/copyPackages.js",
     "install-all-src": "node scripts/installPackages.js src/functions",
     "install-all-dist": "node scripts/installPackages.js dist/functions",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "clean": "npm run clean:dist",
+    "clean:dist": "node scripts/deleteFolder.js dist"
   },
   "repository": {
     "type": "git",
