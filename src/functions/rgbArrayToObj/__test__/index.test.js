@@ -1,4 +1,4 @@
-const _ = require('../dist');
+const _ = require('../../../../dist');
 
 describe('RGB array to object', () => {
   const testCases = [
