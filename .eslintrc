@@ -51,7 +51,8 @@
     "no-shadow": "off",
     "no-multi-assign": "off",
     "new-cap": "off",
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "linebreak-style": ["error", "unix"]
   },
   "overrides": [
     {
