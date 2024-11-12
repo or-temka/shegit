@@ -1,4 +1,4 @@
-const _ = require('../dist');
+const _ = require('../../../../dist');
 
 describe('To color - convert a color of one type to another', () => {
   const testCasesForObject = [
