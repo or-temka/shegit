@@ -10,15 +10,15 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint ./src/**/*.ts",
-    "prepare": "husky install",
+    "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
     "copy-packages": "node scripts/copyPackages.js",
     "install-all-src": "node scripts/installPackages.js src/functions",
     "install-all-dist": "node scripts/installPackages.js dist/functions",
-    "tsc": "tsc",
     "clean": "npm run clean:dist",
     "clean:dist": "node scripts/deleteFolder.js dist"
   },
