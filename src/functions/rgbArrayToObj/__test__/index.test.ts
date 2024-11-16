@@ -1,4 +1,4 @@
-const _ = require('../../../../dist');
+import { rgbArrayToObj } from '../../../../dist/functions/rgbArrayToObj';
 
 describe('RGB array to object', () => {
   const validCases = [
@@ -47,7 +47,7 @@ describe('RGB array to object', () => {
         it(`(${test.id}/${lastCaseId}) input: ${test.input}, expected: ${JSON.stringify(
           test.expected,
         )}`, () => {
-          const actual = _.rgbArrayToObj(test.input);
+          const actual = rgbArrayToObj(test.input);
           expect(actual).toStrictEqual(test.expected);
         });
       });

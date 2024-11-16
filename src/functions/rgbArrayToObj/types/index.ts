@@ -1,4 +1,4 @@
-import { RgbArray, RgbArrayComponentValue, RgbObj } from 'types';
+import { RgbArray, RgbArrayComponentValue, RgbObj } from '@types';
 
 export type RgbFuncComponent = (...args: any[]) => RgbArrayComponentValue;
 export type RgbArrayWithFuncValComponent = RgbArray[0] | RgbFuncComponent;

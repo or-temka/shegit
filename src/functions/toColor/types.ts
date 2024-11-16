@@ -1,5 +1,5 @@
-import { RgbArrayWithFuncVal } from 'functions';
-import { RgbaObj } from 'types';
+import { RgbArrayWithFuncVal } from '@functions';
+import { RgbaObj } from '@types';
 
 export type Color = RgbArrayWithFuncVal;
 

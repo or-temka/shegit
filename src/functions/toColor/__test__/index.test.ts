@@ -1,4 +1,4 @@
-const _ = require('../../../../dist');
+import { toColor } from '../../../../dist/functions/toColor';
 
 describe('To color - convert a color of one type to another', () => {
   const validArrayCases = [
@@ -90,6 +90,10 @@ describe('To color - convert a color of one type to another', () => {
     { name: 'Invalid inputs', cases: invalidInputCases },
   ];
 
+  // describeTestGroups({
+  //   testGroups,
+  // });
+
   testGroups.forEach((group, index) => {
     describe(`(${index}/${testGroups.length}) ${group.name}`, () => {
       const lastCaseId = group.cases[group.cases.length - 1]?.id;
@@ -98,7 +102,7 @@ describe('To color - convert a color of one type to another', () => {
         it(`(${test.id}/${lastCaseId}) input color: ${JSON.stringify(test.input.color)}, to: ${
           test.input.to
         }, expected: ${JSON.stringify(test.expected)}`, () => {
-          const actual = _.toColor(test.input.color, test.input.to);
+          const actual = toColor(test.input.color, test.input.to);
           expect(actual).toStrictEqual(test.expected);
         });
       });
