@@ -16,7 +16,7 @@
     "paths": {
       "*": ["../dist/*"],
       "@types": ["types"],
-      "@functions": ["functions"]
+      "@functions": ["functions"],
     }
   },
   "include": ["src/**/*"],

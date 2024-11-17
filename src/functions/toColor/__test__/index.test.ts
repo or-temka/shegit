@@ -1,7 +1,10 @@
+import { describeTestGroups } from '../../../../utils';
 import { toColor } from '../../../../dist/functions/toColor';
+import { TestGroups } from '../../../../utils/test/describeTestGroups/types';
+import { CaseElements, TestGroupCaseElementExpected, TestGroupCaseElementInput } from './types';
 
 describe('To color - convert a color of one type to another', () => {
-  const validArrayCases = [
+  const validArrayCases: CaseElements = [
     { id: 1, input: { color: [1, 2, 3], to: 'object' }, expected: { r: 1, g: 2, b: 3, a: 1 } },
     { id: 2, input: { color: [0, 0, 0], to: 'object' }, expected: { r: 0, g: 0, b: 0, a: 1 } },
     {
@@ -12,12 +15,12 @@ describe('To color - convert a color of one type to another', () => {
     { id: 4, input: { color: [53, 84, 2], to: 'object' }, expected: { r: 53, g: 84, b: 2, a: 1 } },
   ];
 
-  const incompleteArrayCases = [
+  const incompleteArrayCases: CaseElements = [
     { id: 5, input: { color: [234, 12], to: 'object' }, expected: { r: 234, g: 12, b: 0, a: 1 } },
     { id: 6, input: { color: [85], to: 'object' }, expected: { r: 85, g: 0, b: 0, a: 1 } },
   ];
 
-  const withAlphaArrayCases = [
+  const withAlphaArrayCases: CaseElements = [
     {
       id: 1,
       input: { color: [124, 62, 55, 0.5], to: 'object' },
@@ -30,7 +33,7 @@ describe('To color - convert a color of one type to another', () => {
     },
   ];
 
-  const nonStandartArrayCases = [
+  const nonStandartArrayCases: CaseElements = [
     {
       id: 1,
       input: { color: [63.3, 55.8, 0], to: 'object' },
@@ -53,7 +56,7 @@ describe('To color - convert a color of one type to another', () => {
     },
   ];
 
-  const invalidInputCases = [
+  const invalidInputCases: CaseElements = [
     { id: 1, input: { color: 5345, to: 'object' }, expected: { r: 0, g: 0, b: 0, a: 1 } },
     { id: 2, input: { color: '5876', to: 'object' }, expected: { r: 0, g: 0, b: 0, a: 1 } },
     {
@@ -82,7 +85,7 @@ describe('To color - convert a color of one type to another', () => {
     },
   ];
 
-  const testGroups = [
+  const testGroups: TestGroups<TestGroupCaseElementInput, TestGroupCaseElementExpected> = [
     { name: 'Valid RGB arrays', cases: validArrayCases },
     { name: 'Incomplete arrays', cases: incompleteArrayCases },
     { name: 'With alpha arrays', cases: withAlphaArrayCases },
@@ -90,22 +93,8 @@ describe('To color - convert a color of one type to another', () => {
     { name: 'Invalid inputs', cases: invalidInputCases },
   ];
 
-  // describeTestGroups({
-  //   testGroups,
-  // });
-
-  testGroups.forEach((group, index) => {
-    describe(`(${index}/${testGroups.length}) ${group.name}`, () => {
-      const lastCaseId = group.cases[group.cases.length - 1]?.id;
-
-      group.cases.forEach((test) => {
-        it(`(${test.id}/${lastCaseId}) input color: ${JSON.stringify(test.input.color)}, to: ${
-          test.input.to
-        }, expected: ${JSON.stringify(test.expected)}`, () => {
-          const actual = toColor(test.input.color, test.input.to);
-          expect(actual).toStrictEqual(test.expected);
-        });
-      });
-    });
+  describeTestGroups({
+    testGroups,
+    callback: (input) => toColor(input.color, input.to),
   });
 });

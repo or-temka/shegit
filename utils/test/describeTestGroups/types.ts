@@ -9,4 +9,7 @@ export type GroupElement<CaseElementInput, CaseElementExpected> = {
   cases: CaseElement<CaseElementInput, CaseElementExpected>[];
 };
 
-export type TestGroups = GroupElement<unknown, unknown>[];
+export type TestGroups<CaseElementInput, CaseElementExpected> = GroupElement<
+  CaseElementInput,
+  CaseElementExpected
+>[];
