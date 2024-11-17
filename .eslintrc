@@ -90,9 +90,23 @@
       }
     },
     {
-      "files": ["**/*.test.ts", "**/*.test.tsx", "**/__test__/**/*.ts", "**/__test__/**/*.tsx"],
+      "files": [
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx",
+        "src/**/__test__/**/*.ts",
+        "src/**/__test__/**/*.tsx"
+      ],
       "parserOptions": {
         "project": "./tsconfig.test.json"
+      },
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["utils/**/*"],
+      "parserOptions": {
+        "project": "./utils/tsconfig.json"
       },
       "rules": {
         "@typescript-eslint/no-unused-vars": "off"

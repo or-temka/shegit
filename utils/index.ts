@@ -1,1 +1,1 @@
-export * from './__test__';
+export * from './test';
