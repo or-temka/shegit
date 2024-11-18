@@ -1,4 +1,4 @@
-import { RgbArrayComponentValue } from 'types';
+import { RgbArrayComponentValue } from '@types';
 
 export type RgbaArrayComponentAlfaValue = number;
 export type RgbaArray = [

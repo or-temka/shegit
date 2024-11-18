@@ -1,4 +1,4 @@
-import { RgbObj } from 'types';
+import { RgbObj } from '@types';
 import { DEFAULT, DEFAULT_COLOR_COMPONENT } from './constants';
 import { FuncRgbArray, RgbArrayWithFuncVal } from './types';
 
