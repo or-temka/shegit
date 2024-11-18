@@ -10,7 +10,7 @@ export function describeTestGroups<CaseElementInput, CaseElementExpected>({
   callback,
 }: DescribeTestGroupsProps<CaseElementInput, CaseElementExpected>) {
   testGroups.forEach((group, index) => {
-    describe(`(${index}/${testGroups.length}) ${group.name}`, () => {
+    describe(`(${index + 1}/${testGroups.length}) ${group.name}`, () => {
       const lastCaseId = group.cases[group.cases.length - 1]?.id;
 
       group.cases.forEach((test) => {
