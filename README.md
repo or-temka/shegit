@@ -2,9 +2,11 @@
 
 [![NPM Version](https://img.shields.io/npm/v/shegit?style=for-the-badge&label=version)](https://www.npmjs.com/package/shegit)
 
-Shegit modular utilities. The handle makes JS user-friendly by providing helper functions for working with different types of data.
+Shegit modular utilities. Shegit makes JS user-friendly by providing helper functions for working with different types of data.
 
-[MIT lincese](./LICENSE)
+You can also read this `README` in [Русский](./RESOURCES/README/README.ru.md).
+
+[MIT license](./LICENSE)
 
 [![NPM Downloads](https://img.shields.io/npm/dw/shegit?logo=npm&label=npm&labelColor=red&color=grey)](https://www.npmjs.com/package/shegit)
 
