@@ -86,7 +86,8 @@
         "no-bitwise": "off",
         "no-unsafe-finally": "warn",
         "no-param-reassign": "off",
-        "no-shadow": "warn"
+        "no-shadow": "warn",
+        "import/no-relative-packages": "off"
       }
     },
     {

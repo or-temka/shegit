@@ -1,0 +1,18 @@
+{
+  "name": "shegit",
+  "version": "1.0.2",
+  "license": "ISC",
+  "description": "Shegit modular utilities.",
+  "main": "index.js",
+  "keywords": [
+    "modules",
+    "stdlib",
+    "util"
+  ],
+  "homepage": "https://github.com/or-temka/shegit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/or-temka/shegit.git"
+  },
+  "author": "Shchegortsov Artem Mikhailovich <tema.chegortzov@mail.ru>"
+}

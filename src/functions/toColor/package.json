@@ -1,6 +1,6 @@
 {
   "name": "@shegit/to-color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "function toColor from shegit library",
   "main": "index.js",
   "private": true,
@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/or-temka/shegit#readme",
   "dependencies": {
-    "@shegit/rgb-array-to-obj": "^1.0.0"
+    "@shegit/rgb-array-to-obj": "1.0.0"
   }
 }

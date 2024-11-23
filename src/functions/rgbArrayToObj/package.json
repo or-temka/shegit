@@ -1,6 +1,6 @@
 {
   "name": "@shegit/rgb-array-to-obj",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "function rgbArrayToObj from shegit library",
   "main": "index.js",
   "private": true,

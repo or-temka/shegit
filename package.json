@@ -16,11 +16,19 @@
     "test:watch": "jest --watch",
     "lint": "eslint ./src/**/*.ts",
     "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
-    "copy-packages": "node scripts/copyPackages.js",
+    "copy-packages": "npm run copy-packages:dist",
+    "copy-packages:dist": "node scripts/copyPackages.js",
+    "copy-packages:types": "node scripts/copyPackages.js types",
     "install-all-src": "node scripts/installPackages.js src/functions",
     "install-all-dist": "node scripts/installPackages.js dist/functions",
     "clean": "npm run clean:dist",
-    "clean:dist": "node scripts/deleteFolder.js dist"
+    "clean:dist": "node scripts/deleteFolder.js dist",
+    "clean:types": "node scripts/deleteFolder.js types",
+    "clean:node_modules": "node scripts/deleteFolder.js node_modules",
+    "clean:all": "npm-run-all clean clean:dist clean:types clean:node_modules",
+    "publish": "npm run publish:main",
+    "publish:main": "npm run prepublishOnly && npm publish --access public --prefix ./dist",
+    "publish:types": "npm run prepublishOnly && npm publish --access public --prefix ./types"
   },
   "repository": {
     "type": "git",
