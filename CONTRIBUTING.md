@@ -4,15 +4,27 @@ Thank you for your interest in contributing to our project! We welcome new contr
 
 ## How to Contribute
 
-1. **Fork the repository**: Click the "Fork" button in the upper right corner of the repository page.
+1. **Fork the repository**:
 
-2. **Install Dependencies**: Run:
+   Click the "Fork" button in the upper right corner of the repository page.
+
+2. **Clone your forked repository on your computer**:
+
+   ```bash
+   git clone <your-link-for-clone>
+   ```
+
+3. **Install Dependencies**:
+
+   Run in root directory:
 
    ```bash
    npm install
    ```
 
-3. **Create a branch**: Create a new branch for your changes.
+4. **Create a branch**:
+
+   Create a new branch for your changes.
 
    example:
 
@@ -23,25 +35,35 @@ Thank you for your interest in contributing to our project! We welcome new contr
    Always create a new branch for your feature or bugfix.
    Use the conventions outlined in the [Branch Naming Conventions](./RESOURCES/BRANCHING.md) file.
 
-4. **Make your changes**: Make your changes and commit them.
+5. **Make your changes**:
+
+   Make your changes and commit them.
 
    ```bash
+   git add .
    git commit -m "Add a new feature"
    ```
 
-5. **Write tests**: Ensure that you write tests for your functionality if it is a function, and run the tests using:
+6. **Write tests**:
+
+   Ensure that you write tests for your functionality if it is a function, then run build and run the tests using:
 
    ```bash
+   npm run build
    npm test
    ```
 
-6. **Push your changes**: Push your branch to GitHub.
+7. **Push your changes**:
+
+   Push your branch to GitHub.
 
    ```bash
    git push origin f/my-new-feature # Use your branch name
    ```
 
-7. **Create a Pull Request**: Go to the "Pull requests" section and click "New pull request" to `dev` branch.
+8. **Create a Pull Request**:
+
+   Go to the "Pull requests" section and click "New pull request" to `dev` branch.
 
 ## Coding Standards
 
