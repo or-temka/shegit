@@ -2,6 +2,8 @@
 
 Thank you for your interest in contributing to our project! We welcome new contributors and appreciate your help.
 
+You can also read this CONTRIBUTING in [Русский](./RESOURCES/CONTRIBUTING/CONTRIBUTING.ru.md).
+
 ## How to Contribute
 
 1. **Fork the repository**:
