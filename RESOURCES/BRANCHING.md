@@ -2,6 +2,8 @@
 
 This document outlines the naming conventions for branches in this project. Following these conventions helps maintain clarity and consistency in our version control.
 
+You can also read this CONTRIBUTING in [Русский](./BRANCHING/BRANCHING.ru.md).
+
 ## Branch Prefixes
 
 ### 1. Feature Branches (`f/`)
