@@ -1,6 +1,10 @@
-import { RgbObj } from '@types';
+import { RgbObj } from '../../types';
 import { DEFAULT, DEFAULT_COLOR_COMPONENT } from './constants';
-import { FuncRgbArray, RgbArrayWithFuncVal } from './types';
+import { Input } from './types';
+
+function roundDownAbsolute(value: number): number {
+  return Math.floor(Math.abs(value));
+}
 
 /**
  * #### RGB color array to object
@@ -10,18 +14,14 @@ import { FuncRgbArray, RgbArrayWithFuncVal } from './types';
  *
  * @since 1.0.1
  * @category Color
- * @param {rgbArray | FuncRgbArray} array RGB color array
- * @returns {rgbObj} RGB color object
+ * @param {Input} array RGB color array
+ * @returns {RgbObj} RGB color object
  * @example
  *
  * rgbArrayToObj([1, 2, 3])
  * // => {r: 1, g: 2, b: 3}
  */
-function roundDownAbsolute(value: number): number {
-  return Math.floor(Math.abs(value));
-}
-
-export function rgbArrayToObj(array: RgbArrayWithFuncVal | FuncRgbArray = DEFAULT.input): RgbObj {
+export function rgbArrayToObj(array: Input = DEFAULT.input): RgbObj {
   let actual = DEFAULT.input;
   const isArray = Array.isArray(array);
 
@@ -52,4 +52,4 @@ export function rgbArrayToObj(array: RgbArrayWithFuncVal | FuncRgbArray = DEFAUL
   return { r, g, b };
 }
 
-export { RgbArrayWithFuncVal };
+export { Input };

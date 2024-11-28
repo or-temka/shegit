@@ -1,4 +1,4 @@
-import { To } from '../../../../dist/functions/toColor/types';
+import { To } from '../types';
 import { CaseElement } from '../../../../utils/test/describeTestGroups/types';
 import { RgbaObj } from '../../../types';
 

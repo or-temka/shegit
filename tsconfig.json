@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
     "esModuleInterop": true,
     "target": "es2020",
     "module": "commonjs",
@@ -10,14 +8,10 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist",
     "outDir": "./dist",
-    "sourceMap": true,
     "baseUrl": "./src",
-    "paths": {
-      "*": ["../dist/*"],
-      "@types": ["types"],
-      "@functions": ["functions"],
-    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx", "src/**/__test__/**/*"]

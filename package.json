@@ -16,11 +16,15 @@
     "test:watch": "jest --watch",
     "lint": "eslint ./src/**/*.ts",
     "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
-    "copy-packages": "node scripts/copyPackages.js",
+    "copy-packages": "npm run copy-packages:dist",
+    "copy-packages:dist": "node scripts/copyPackages.js",
     "install-all-src": "node scripts/installPackages.js src/functions",
     "install-all-dist": "node scripts/installPackages.js dist/functions",
     "clean": "npm run clean:dist",
-    "clean:dist": "node scripts/deleteFolder.js dist"
+    "clean:dist": "node scripts/deleteFolder.js dist",
+    "clean:types": "node scripts/deleteFolder.js types",
+    "clean:node_modules": "node scripts/deleteFolder.js node_modules",
+    "clean:all": "npm-run-all clean clean:dist clean:types clean:node_modules"
   },
   "repository": {
     "type": "git",
@@ -58,7 +62,6 @@
     "lint-staged": "14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
-    "shegit": "^1.0.0",
     "typescript": "^5.6.3"
   },
   "lint-staged": {
