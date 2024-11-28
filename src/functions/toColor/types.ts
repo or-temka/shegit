@@ -1,4 +1,4 @@
-import { Input } from '..';
+import { Input } from '../rgbArrayToObj';
 import { RgbaObj } from '../../types';
 
 export type Color = Input;

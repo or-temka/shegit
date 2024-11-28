@@ -9,7 +9,7 @@
     "noUnusedLocals": true,
     "strict": true,
     "declaration": true,
-    "declarationDir": "./types",
+    "declarationDir": "./dist",
     "outDir": "./dist",
     "baseUrl": "./src",
   },

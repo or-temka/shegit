@@ -18,17 +18,13 @@
     "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
     "copy-packages": "npm run copy-packages:dist",
     "copy-packages:dist": "node scripts/copyPackages.js",
-    "copy-packages:types": "node scripts/copyPackages.js types",
     "install-all-src": "node scripts/installPackages.js src/functions",
     "install-all-dist": "node scripts/installPackages.js dist/functions",
     "clean": "npm run clean:dist",
     "clean:dist": "node scripts/deleteFolder.js dist",
     "clean:types": "node scripts/deleteFolder.js types",
     "clean:node_modules": "node scripts/deleteFolder.js node_modules",
-    "clean:all": "npm-run-all clean clean:dist clean:types clean:node_modules",
-    "publish": "npm run publish:main",
-    "publish:main": "npm run prepublishOnly && npm publish --access public --prefix ./dist",
-    "publish:types": "npm run prepublishOnly && npm publish --access public --prefix ./types"
+    "clean:all": "npm-run-all clean clean:dist clean:types clean:node_modules"
   },
   "repository": {
     "type": "git",
@@ -66,7 +62,6 @@
     "lint-staged": "14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
-    "shegit": "^1.0.0",
     "typescript": "^5.6.3"
   },
   "lint-staged": {
