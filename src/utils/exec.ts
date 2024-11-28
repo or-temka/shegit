@@ -13,7 +13,7 @@ const LOG_TEXT_STYLE = {
   gray: '\x1b[90m',
 };
 
-function exec(func, arrayOfParams) {
+function exec(func: any, arrayOfParams: any) {
   const functionName = toKebabCase(func.name);
   console.group(
     `${LOG_TEXT_STYLE.yellow}@shegit/${LOG_TEXT_STYLE.green}${functionName}${LOG_TEXT_STYLE.reset}`

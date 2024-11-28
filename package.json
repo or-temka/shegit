@@ -1,17 +1,20 @@
 {
   "name": "shegit",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./dist/index.js",
+    "tsc": "npx tsc",
+    "tsc:watch": "npx tsc -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@shegit/rgb-array-to-obj": "^1.0.0",
-    "@shegit/to-color": "^1.0.0",
-    "shegit": "^1.0.1"
+    "shegit": "^1.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
   }
 }
