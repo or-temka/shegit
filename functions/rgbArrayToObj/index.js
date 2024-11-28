@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rgbArrayToObj = rgbArrayToObj;
 const constants_1 = require("./constants");
+function roundDownAbsolute(value) {
+    return Math.floor(Math.abs(value));
+}
 /**
  * #### RGB color array to object
  *
@@ -10,16 +13,13 @@ const constants_1 = require("./constants");
  *
  * @since 1.0.1
  * @category Color
- * @param {rgbArray | FuncRgbArray} array RGB color array
- * @returns {rgbObj} RGB color object
+ * @param {Input} array RGB color array
+ * @returns {RgbObj} RGB color object
  * @example
  *
  * rgbArrayToObj([1, 2, 3])
  * // => {r: 1, g: 2, b: 3}
  */
-function roundDownAbsolute(value) {
-    return Math.floor(Math.abs(value));
-}
 function rgbArrayToObj(array = constants_1.DEFAULT.input) {
     let actual = constants_1.DEFAULT.input;
     const isArray = Array.isArray(array);
@@ -48,4 +48,3 @@ function rgbArrayToObj(array = constants_1.DEFAULT.input) {
     const b = parseComponent(actual[2]);
     return { r, g, b };
 }
-//# sourceMappingURL=index.js.map

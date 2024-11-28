@@ -1,11 +1,10 @@
-import { RgbArrayWithFuncVal } from 'functions';
-import { RgbaObj } from 'types';
-export type Color = RgbArrayWithFuncVal;
+import { Input } from '../rgbArrayToObj';
+import { RgbaObj } from '../../types';
+export type Color = Input;
 export type To = 'object';
 export type ColorProp = Color | ((...args: any[]) => Color);
 export type ReturnColorType<T extends To> = T extends 'object' ? RgbaObj : never;
 export interface Default {
-    input: RgbArrayWithFuncVal;
+    input: Input;
     return: RgbaObj;
 }
-//# sourceMappingURL=types.d.ts.map

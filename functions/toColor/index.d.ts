@@ -15,4 +15,3 @@ import { ColorProp, ReturnColorType, To } from './types';
  * // => {r: 1, g: 2, b: 3, a: 1}
  */
 export declare function toColor<T extends To>(color?: ColorProp, to?: T): ReturnColorType<T>;
-//# sourceMappingURL=index.d.ts.map

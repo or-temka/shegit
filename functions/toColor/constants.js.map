@@ -1,1 +1,0 @@
-{"version":3,"file":"constants.js","sourceRoot":"","sources":["../../../src/functions/toColor/constants.ts"],"names":[],"mappings":";;;AAEa,QAAA,uBAAuB,GAAG,CAAC,CAAC;AAE5B,QAAA,OAAO,GAAY;IAC9B,KAAK,EAAE,CAAC,+BAAuB,EAAE,+BAAuB,EAAE,+BAAuB,CAAC;IAClF,MAAM,EAAE;QACN,CAAC,EAAE,+BAAuB;QAC1B,CAAC,EAAE,+BAAuB;QAC1B,CAAC,EAAE,+BAAuB;QAC1B,CAAC,EAAE,CAAC;KACL;CACF,CAAC"}

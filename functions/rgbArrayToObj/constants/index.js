@@ -6,4 +6,3 @@ exports.DEFAULT = {
     input: [exports.DEFAULT_COLOR_COMPONENT, exports.DEFAULT_COLOR_COMPONENT, exports.DEFAULT_COLOR_COMPONENT],
     return: { r: exports.DEFAULT_COLOR_COMPONENT, g: exports.DEFAULT_COLOR_COMPONENT, b: exports.DEFAULT_COLOR_COMPONENT },
 };
-//# sourceMappingURL=index.js.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/functions/rgbArrayToObj/constants/index.ts"],"names":[],"mappings":";;;AAEa,QAAA,uBAAuB,GAAG,CAAC,CAAC;AAE5B,QAAA,OAAO,GAAY;IAC9B,KAAK,EAAE,CAAC,+BAAuB,EAAE,+BAAuB,EAAE,+BAAuB,CAAC;IAClF,MAAM,EAAE,EAAE,CAAC,EAAE,+BAAuB,EAAE,CAAC,EAAE,+BAAuB,EAAE,CAAC,EAAE,+BAAuB,EAAE;CAC/F,CAAC"}
