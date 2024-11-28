@@ -10,15 +10,21 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint ./src/**/*.ts",
-    "prepare": "husky install",
-    "copy-packages": "node scripts/copyPackages.js",
+    "build": "npm-run-all install-all-src tsc copy-packages install-all-dist",
+    "copy-packages": "npm run copy-packages:dist",
+    "copy-packages:dist": "node scripts/copyPackages.js",
     "install-all-src": "node scripts/installPackages.js src/functions",
     "install-all-dist": "node scripts/installPackages.js dist/functions",
-    "tsc": "tsc"
+    "clean": "npm run clean:dist",
+    "clean:dist": "node scripts/deleteFolder.js dist",
+    "clean:types": "node scripts/deleteFolder.js types",
+    "clean:node_modules": "node scripts/deleteFolder.js node_modules",
+    "clean:all": "npm-run-all clean clean:dist clean:types clean:node_modules"
   },
   "repository": {
     "type": "git",
@@ -35,6 +41,9 @@
   },
   "homepage": "https://github.com/or-temka/shegit#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
     "@types/eslint": "8.44.2",
@@ -53,7 +62,6 @@
     "lint-staged": "14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
-    "shegit": "^1.0.0",
     "typescript": "^5.6.3"
   },
   "lint-staged": {

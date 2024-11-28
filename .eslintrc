@@ -51,7 +51,8 @@
     "no-shadow": "off",
     "no-multi-assign": "off",
     "new-cap": "off",
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "linebreak-style": ["error", "unix"]
   },
   "overrides": [
     {
@@ -85,7 +86,33 @@
         "no-bitwise": "off",
         "no-unsafe-finally": "warn",
         "no-param-reassign": "off",
-        "no-shadow": "warn"
+        "no-shadow": "warn",
+        "import/no-relative-packages": "off"
+      }
+    },
+    {
+      "files": [
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx",
+        "src/**/__test__/**/*.ts",
+        "src/**/__test__/**/*.tsx"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.test.json",
+        "import/no-relative-packages": "off"
+      },
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
+        "import/no-relative-packages": "off"
+      }
+    },
+    {
+      "files": ["utils/**/*"],
+      "parserOptions": {
+        "project": "./utils/tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
       }
     }
   ]

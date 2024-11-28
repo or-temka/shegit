@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const { colorText } = require('./utils/colorText');
 
-const sourceDir = 'src/functions';
-const destDir = 'dist/functions';
+const sourceDir = 'src';
+const destDir = process.argv[2] || 'dist';
 
 function copyPackageFiles(src, dest) {
   try {
