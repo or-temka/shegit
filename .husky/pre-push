@@ -2,6 +2,12 @@
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/../config/branch-config.sh"
 
+# disable check for git tags push
+if git rev-parse --verify HEAD >/dev/null 2>&1 && git describe --exact-match --tags HEAD >/dev/null 2>&1; then
+  echo "Skipping branch name check for tag push."
+  exit 0
+fi
+
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
 wrong_name_msg="Error: '$branch_name' branch name does not match the installed format.\nThe branch name should start with one of the following prefixes: $VALID_PREFIXES."
