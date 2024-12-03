@@ -6,9 +6,9 @@ const sourceDir = 'src';
 const destDir = process.argv[2] || 'dist';
 
 try {
-  console.log(colorText('blue', 'Copying "package.json" and "package-lock.json"...'));
-  copyFiles({ src: sourceDir, dest: destDir, files: ['package.json', 'package-lock.json'] });
-  console.log('All package.json and package-lock.json files copied successfully.');
+  console.log(colorText('blue', 'Copying "README.md"...'));
+  copyFiles({ src: sourceDir, dest: destDir, files: ['README.md'] });
+  console.log('All README.md files copied successfully.');
 } catch (error) {
   console.error('An unexpected error occurred:', error.message);
   process.exit(1);
