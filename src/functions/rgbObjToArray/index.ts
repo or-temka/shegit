@@ -51,3 +51,5 @@ export function rgbObjToArray(obj: RgbObjToArrayInput = DEFAULT.input): RgbArray
   const b = parseComponent((actual as RgbObjFunc).b);
   return [r, g, b];
 }
+
+export { RgbObjToArrayInput };
