@@ -1,3 +1,3 @@
-export function noop(): undefined {
+export function noop(...args: any[]): undefined {
   return undefined;
 }
