@@ -8,8 +8,8 @@
  * @returns {undefined} `undefined`
  * @example
  *
- * rgbObjToArray() // undefined
- * rgbObjToArray("some") // undefined
+ * noop() // undefined
+ * noop("some") // undefined
  */
 export function noop(...args: any[]): undefined {
   return undefined;
