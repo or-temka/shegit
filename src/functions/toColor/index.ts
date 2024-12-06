@@ -1,6 +1,7 @@
+import { rgbObjToArray } from '../rgbObjToArray';
 import { rgbArrayToObj } from '../rgbArrayToObj';
 import { RgbaObj } from '../../types';
-import { DEFAULT } from './constants';
+import { DEFAULT, DEFAULT_COLOR_COMPONENT } from './constants';
 import { ColorProp, ReturnColorType, To } from './types';
 
 /**
@@ -29,21 +30,28 @@ export function toColor<T extends To>(
     a: 1,
   };
 
-  if (typeof color === 'function') {
-    color = color();
-  }
+  if (typeof color === 'function') color = color();
 
   if (typeof color === 'object') {
-    const isArray = Array.isArray(color);
-    if (isArray) {
+    if (Array.isArray(color)) {
       const { r, g, b } = rgbArrayToObj(color);
+      Object.assign(c, { r, g, b, a: 1 });
+    } else {
+      const {
+        r = DEFAULT_COLOR_COMPONENT,
+        g = DEFAULT_COLOR_COMPONENT,
+        b = DEFAULT_COLOR_COMPONENT,
+      } = color;
       Object.assign(c, { r, g, b, a: 1 });
     }
   }
 
   switch (to) {
     case 'object':
+    case 'rgb-object':
       return c as ReturnColorType<T>;
+    case 'rgb-array':
+      return rgbObjToArray(c) as ReturnColorType<T>;
     default:
       return c as ReturnColorType<T>;
   }

@@ -1,15 +1,23 @@
+import { RgbObjToArrayInput } from '../rgbObjToArray';
 import { Input } from '../rgbArrayToObj';
-import { RgbaObj } from '../../types';
+import { RgbaObj, RgbArray } from '../../types';
 
-export type Color = Input;
+export type Color = Input | RgbObjToArrayInput;
 
-export type To = 'object';
+// Delete 'object' when new major version
+export type To = 'object' | 'rgb-object' | 'rgb-array';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
 
-export type ReturnColorType<T extends To> = T extends 'object' ? RgbaObj : never;
+type DefaultReturn = RgbaObj;
+
+export type ReturnColorType<T extends To> = T extends 'object' | 'rgb-object'
+  ? RgbaObj
+  : T extends 'rgb-array'
+  ? RgbArray
+  : DefaultReturn;
 
 export interface Default {
   input: Input;
-  return: RgbaObj;
+  return: DefaultReturn;
 }
