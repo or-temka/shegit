@@ -60,6 +60,71 @@ export const rgbArrayToObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
       input: { color: ['--126', false, '+267'], to: EXPECTED_TYPE },
       expected: { r: 0, g: 0, b: 255, a: 1 },
     },
+    {
+      id: 14,
+      input: { color: [0], to: EXPECTED_TYPE },
+      expected: { r: 0, g: 0, b: 0, a: 1 },
+    },
+    {
+      id: 15,
+      input: { color: [66], to: EXPECTED_TYPE },
+      expected: { r: 66, g: 0, b: 0, a: 1 },
+    },
+    {
+      id: 16,
+      input: { color: ['+45'], to: EXPECTED_TYPE },
+      expected: { r: 45, g: 0, b: 0, a: 1 },
+    },
+    {
+      id: 17,
+      input: { color: ['-200'], to: EXPECTED_TYPE },
+      expected: { r: 0, g: 0, b: 0, a: 1 },
+    },
+    {
+      id: 18,
+      input: { color: ['+500'], to: EXPECTED_TYPE },
+      expected: { r: 255, g: 0, b: 0, a: 1 },
+    },
+    {
+      id: 19,
+      input: { color: ['+212.56', '+5.9', '+2.1'], to: EXPECTED_TYPE },
+      expected: { r: 212, g: 5, b: 2, a: 1 },
+    },
+    {
+      id: 20,
+      input: { color: () => [6], to: EXPECTED_TYPE },
+      expected: { r: 6, g: 0, b: 0, a: 1 },
+    },
+    {
+      id: 21,
+      input: { color: [() => 55, () => '+45', () => '++74'], to: EXPECTED_TYPE },
+      expected: { r: 55, g: 45, b: 0, a: 1 },
+    },
+    {
+      id: 22,
+      input: { color: [() => 0, () => 23.3, () => -200], to: EXPECTED_TYPE },
+      expected: { r: 0, g: 23, b: 0, a: 1 },
+    },
+    {
+      id: 23,
+      input: { color: [() => 500, () => false, () => true], to: EXPECTED_TYPE },
+      expected: { r: 255, g: 0, b: 1, a: 1 },
+    },
+    {
+      id: 24,
+      input: { color: () => [() => 55, () => '+45', () => '++74'], to: EXPECTED_TYPE },
+      expected: { r: 55, g: 45, b: 0, a: 1 },
+    },
+    {
+      id: 25,
+      input: { color: () => [() => 0, () => 23.3, () => -200], to: EXPECTED_TYPE },
+      expected: { r: 0, g: 23, b: 0, a: 1 },
+    },
+    {
+      id: 26,
+      input: { color: () => [() => 500, () => false, () => true], to: EXPECTED_TYPE },
+      expected: { r: 255, g: 0, b: 1, a: 1 },
+    },
   ],
 
   invalid: [
