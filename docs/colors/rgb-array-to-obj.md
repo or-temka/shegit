@@ -1,0 +1,45 @@
+---
+sidebar_position: 1
+---
+
+# rgbArrayToObj
+
+## Using
+
+Convert RGB color `[red, green, blue]` as an array to a format object `{r: red, g: green, b: blue}`
+
+rgbArrayToObj(`array`)
+
+### Arguments
+
+| Argument | Type       | Description      | Example         |
+| -------- | ---------- | ---------------- | --------------- |
+| `array`  | `number[]` | Rgb color array. | `[15, 76, 213]` |
+
+### Returns
+
+`object` — Returns RGB object in format `{r: red, g: green, b: blue}`.
+
+### Examples
+
+```js
+rgbArrayToObj([15, 76, 213]);
+// {r: 15, g: 76, b: 213}
+
+rgbArrayToObj(() => [500, () => 213, -1000]);
+// {r: 255, g: 213, b: 0}
+
+rgbArrayToObj(['99', '+245', false]);
+// {r: 15, g: 76, b: 213}
+
+rgbArrayToObj([99, 245, 0]);
+// {r: 15, g: 76, b: 213}
+```
+
+### Since
+
+[1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
+
+## Resources
+
+[Source code](https://github.com/or-temka/shegit/tree/dev/src/functions/rgbArrayToObj)
