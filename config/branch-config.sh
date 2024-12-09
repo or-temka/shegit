@@ -1,3 +1,3 @@
 #!/bin/sh
 
-VALID_PREFIXES="feature|bug|hotfix|chore|test|release|refactor|docs|style"
+VALID_PREFIXES="f|bug|hotfix|chore|test|release|refactor|docs|style"

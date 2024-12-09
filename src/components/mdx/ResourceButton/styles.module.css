@@ -1,0 +1,31 @@
+.resourceButton {
+  display: flex;
+  row-gap: 5px;
+  column-gap: 10px;
+  align-items: center;
+
+  background-color: var(--ifm-color-emphasis-900);
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  width: fit-content;
+  user-select: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.resourceButton:hover {
+  background-color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+}
+
+.resourceButton__icon {
+  color: var(--ifm-color-emphasis-0);
+}
+
+.resourceButton__text {
+  color: var(--ifm-color-emphasis-0);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-base);
+}
