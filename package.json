@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://github.com/or-temka/shegit/issues"
   },
-  "homepage": "https://github.com/or-temka/shegit#readme",
+  "homepage": "https://or-temka.github.io/shegit/",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.25.9",
     "@babel/preset-env": "^7.26.0",

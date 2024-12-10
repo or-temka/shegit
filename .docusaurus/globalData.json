@@ -1,0 +1,76 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/shegit/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": false,
+          "path": "/shegit/docs/next",
+          "mainDocId": "colors/to-color",
+          "docs": [
+            {
+              "id": "colors/rgb-array-to-obj",
+              "path": "/shegit/docs/next/colors/rgb-array-to-obj",
+              "sidebar": "shegitSidebar"
+            },
+            {
+              "id": "colors/to-color",
+              "path": "/shegit/docs/next/colors/to-color",
+              "sidebar": "shegitSidebar"
+            },
+            {
+              "id": "/category/colors",
+              "path": "/shegit/docs/next/category/colors",
+              "sidebar": "shegitSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "shegitSidebar": {
+              "link": {
+                "path": "/shegit/docs/next/category/colors",
+                "label": "Colors"
+              }
+            }
+          }
+        },
+        {
+          "name": "1.0.3",
+          "label": "1.0.3",
+          "isLast": true,
+          "path": "/shegit/docs",
+          "mainDocId": "colors/to-color",
+          "docs": [
+            {
+              "id": "colors/rgb-array-to-obj",
+              "path": "/shegit/docs/colors/rgb-array-to-obj",
+              "sidebar": "shegitSidebar"
+            },
+            {
+              "id": "colors/to-color",
+              "path": "/shegit/docs/colors/to-color",
+              "sidebar": "shegitSidebar"
+            },
+            {
+              "id": "/category/colors",
+              "path": "/shegit/docs/category/colors",
+              "sidebar": "shegitSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "shegitSidebar": {
+              "link": {
+                "path": "/shegit/docs/category/colors",
+                "label": "Colors"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
