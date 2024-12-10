@@ -49,6 +49,9 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: 'dark',
+    },
     navbar: {
       title: 'Shegit',
       logo: {
