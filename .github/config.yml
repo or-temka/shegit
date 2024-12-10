@@ -1,6 +1,0 @@
-# *Required* Comment to reply with
-requestInfoReplyComment: >
-  Please do not leave the `title` or `description` empty.
-
-# *OPTIONAL* Label to be added to Issues and Pull Requests with insufficient information given
-requestInfoLabelToAdd: "need:more-info"
