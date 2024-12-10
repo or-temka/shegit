@@ -27,6 +27,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/or-temka/shegit/tree/docs',
+          includeCurrentVersion: true,
         },
         // blog: {
         //   showReadingTime: true,
@@ -55,6 +56,10 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'shegitSidebar',
