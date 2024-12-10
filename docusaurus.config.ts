@@ -87,8 +87,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Colors',
+              to: '/docs/category/colors',
             },
           ],
         },
@@ -102,6 +102,10 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/or-temka/shegit',
+            },
+            {
+              label: 'npm',
+              href: 'https://www.npmjs.com/package/shegit',
             },
           ],
         },
