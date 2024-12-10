@@ -53,7 +53,8 @@ const config: Config = {
       title: 'Shegit',
       logo: {
         alt: 'Shegit Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo-dark.svg',
+        srcDark: 'img/logo.svg',
       },
       items: [
         {
