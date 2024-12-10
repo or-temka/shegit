@@ -8,9 +8,9 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
-  organizationName: 'shegit',
+  url: 'https://or-temka.github.io',
+  baseUrl: '/shegit/',
+  organizationName: 'or-temka',
   projectName: 'shegit',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
