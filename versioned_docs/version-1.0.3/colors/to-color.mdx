@@ -1,0 +1,60 @@
+---
+sidebar_position: 1
+description: Convert a color of one type to another.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, array, color, rgb]
+keywords: [shegit, rgb, array, object, color]
+version: 1.0.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# toColor
+
+## Using
+
+Convert a color of one type to another.
+
+toColor(`color`, `to`)
+
+### Arguments
+
+| Argument | Type                 | Description | Possible Values | Example                                          |
+| -------- | -------------------- | ----------- | --------------- | ------------------------------------------------ |
+| `color`  | `number[] \| object` | RGB color.  |                 | `[15, 76, 213]` <br/> `{r: 255, g: 14, b: 148 }` |
+| `to`     | `string`             | return type | `"object"`      | `"object"`                                       |
+
+### Returns
+
+`object` — Returns the color in one of the formats.
+
+### Examples
+
+```js
+toColor([93, 255, 101], 'object');
+// {r: 93, g: 255, b: 101}
+
+toColor(['+53', false, true], 'object');
+// {r: 53, g: 0, b: 1}
+
+toColor([500, 177, -100], 'object');
+// {r: 255, g: 177, b: 0}
+
+toColor(() => [156.9, () => '202', -100], 'object');
+// {r: 156, g: 202, b: 0}
+
+toColor({ r: 55, g: 55, b: 199 }, 'object');
+// {r: 55, g: 55, b: 199}
+```
+
+### Since
+
+[1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/toColor" />
+  <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/tocolor-rnlpvf" />
+</div>
