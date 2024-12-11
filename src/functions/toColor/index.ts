@@ -37,12 +37,14 @@ export function toColor<T extends To>(
       const { r, g, b } = rgbArrayToObj(color);
       Object.assign(c, { r, g, b, a: 1 });
     } else {
-      const {
-        r = DEFAULT_COLOR_COMPONENT,
-        g = DEFAULT_COLOR_COMPONENT,
-        b = DEFAULT_COLOR_COMPONENT,
-      } = color;
-      Object.assign(c, { r, g, b, a: 1 });
+      if (color !== null) {
+        const {
+          r = DEFAULT_COLOR_COMPONENT,
+          g = DEFAULT_COLOR_COMPONENT,
+          b = DEFAULT_COLOR_COMPONENT,
+        } = color;
+        Object.assign(c, { r, g, b, a: 1 });
+      }
     }
   }
 
