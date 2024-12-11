@@ -210,5 +210,7 @@ export const rgbObjectToArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
       expected: DEFAULT_EXPECTED_VALUE,
     },
     { id: 34, input: { color: () => 'John', to: EXPECTED_TYPE }, expected: DEFAULT_EXPECTED_VALUE },
+    { id: 35, input: { color: () => null, to: EXPECTED_TYPE }, expected: DEFAULT_EXPECTED_VALUE },
+    { id: 36, input: { color: null, to: EXPECTED_TYPE }, expected: DEFAULT_EXPECTED_VALUE },
   ],
 };
