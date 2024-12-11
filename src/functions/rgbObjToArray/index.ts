@@ -25,12 +25,15 @@ export function rgbObjToArray(obj: RgbObjToArrayInput = DEFAULT.input): RgbArray
   let actual = DEFAULT.input;
   const isObject = Object.prototype.toString.call(obj) === '[object Object]';
 
-  if (!isObject) {
-    const isFunction = typeof obj === 'function';
-    if (!isFunction) return DEFAULT.return;
-    actual = obj();
-  } else {
+  if (isObject) {
     actual = obj;
+  } else if (typeof obj === 'function') {
+    actual = obj();
+    if (actual === null) {
+      return DEFAULT.return;
+    }
+  } else {
+    return DEFAULT.return;
   }
 
   const parseComponent = (component: any): number => {
