@@ -207,4 +207,14 @@ export const invalidCases: CaseElements = [
     expected: DEFAULT_EXPECTED_VALUE,
   },
   { id: 34, input: () => 'John', expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 35,
+    input: null,
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 36,
+    input: () => null,
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
 ];
