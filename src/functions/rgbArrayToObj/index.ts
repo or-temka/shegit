@@ -12,7 +12,7 @@ function roundDownAbsolute(value: number): number {
  * Converts RGB color [red, green, blue] as an array
  * to a format object {r: [red], g: [green], b: [blue]}.
  *
- * @since 1.0.0
+ * @since 1.0.1
  * @category Color
  * @param {Input} array RGB color array
  * @returns {RgbObj} RGB color object
@@ -23,14 +23,16 @@ function roundDownAbsolute(value: number): number {
  */
 export function rgbArrayToObj(array: Input = DEFAULT.input): RgbObj {
   let actual = DEFAULT.input;
-  const isArray = Array.isArray(array);
 
-  if (!isArray) {
-    const isFunction = typeof array === 'function';
-    if (!isFunction) return DEFAULT.return;
-    actual = array();
-  } else {
+  if (Array.isArray(array)) {
     actual = array;
+  } else if (typeof array === 'function') {
+    actual = array();
+    if (actual === null) {
+      return DEFAULT.return;
+    }
+  } else {
+    return DEFAULT.return;
   }
 
   const parseComponent = (component: any): number => {
