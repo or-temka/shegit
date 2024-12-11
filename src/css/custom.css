@@ -32,3 +32,14 @@
 table td {
   vertical-align: top;
 }
+
+.navbar-icon-link svg {
+  display: flex;
+
+  color: var(--ifm-font-color-base);
+  transition: color 0.2s;
+}
+
+.navbar-icon-link:hover svg {
+  color: var(--ifm-color-primary);
+}
