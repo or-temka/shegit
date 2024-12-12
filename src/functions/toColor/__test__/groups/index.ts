@@ -1,2 +1,1 @@
-export * from './rgbArrayToObjectCases';
-export * from './rgbObjectToArrayCases';
+export * from './fromRgb';
