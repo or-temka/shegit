@@ -19,3 +19,6 @@ export type FuncRgbArray = (...args: any[]) => RgbArrayFunc;
 export type RgbObj = RgbObjTemplate<RgbComponent>;
 export type RgbObjFunc = RgbObjTemplate<RgbMultipleComponent>;
 export type FuncRgbObj = (...args: any[]) => RgbObjFunc;
+
+export type RgbString = string;
+export type FuncRgbString = (...args: any[]) => RgbString;
