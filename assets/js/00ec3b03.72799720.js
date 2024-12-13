@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshegit=self.webpackChunkshegit||[]).push([[79],{6431:e=>{e.exports=JSON.parse('{"tag":{"label":"util","permalink":"/shegit/docs/next/tags/util","allTagsPath":"/shegit/docs/next/tags","count":1,"items":[{"id":"util/noop","title":"noop","description":"This method returns undefined.","permalink":"/shegit/docs/next/util/noop"}],"unlisted":false}}')}}]);
