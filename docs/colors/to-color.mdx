@@ -20,14 +20,14 @@ toColor(`color`, `to`)
 
 ### Arguments
 
-| Argument | Type                 | Description | Possible Values                                     | Example                                          |
-| -------- | -------------------- | ----------- | --------------------------------------------------- | ------------------------------------------------ |
-| `color`  | `number[] \| object` | RGB color.  |                                                     | `[15, 76, 213]` <br/> `{r: 255, g: 14, b: 148 }` |
-| `to`     | `string`             | return type | `"object"` <br/> `"rgb-object"` <br/> `"rgb-array"` | `"rgb-array"`                                    |
+| Argument | Type                                     | Description | Possible Values                                                          | Example                                                                          |
+| -------- | ---------------------------------------- | ----------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| `color`  | `number[]` <br/> `object` <br/> `string` | RGB color.  |                                                                          | `[15, 76, 213]` <br/> `{r: 255, g: 14, b: 148 }` <br/> `"rgb(63, 69, 5.5, 0.5)"` |
+| `to`     | `string`                                 | return type | `"object"` <br/> `"rgb-object"` <br/> `"rgb-array"` <br/> `"rgb-string"` | `"rgb-array"`                                                                    |
 
 ### Returns
 
-`number[]` | `object` — Returns the color in one of the formats.
+`number[]` | `object` | `string` — Returns the color in one of the formats.
 
 ### Examples
 
@@ -39,11 +39,19 @@ toColor([93, 255, 101], 'rgb-object');
 
 toColor({ r: 74, g: 92, b: 140 }, 'rgb-array');
 // [74, 92, 140]
+
+toColor({ r: 9.8, g: 32, b: 11 }, 'rgb-string');
+// rgb(9, 32, 11)
+
+toColor('rgb(56, 234, 118.2)', 'rgb-array');
+// [56, 234, 118]
 ```
 
 #### To `"object"` or `"rgb-object"`
 
+:::caution
 Use `"rgb-object"` instead of `"object"`, as `"object"` will soon become obsolete.
+:::
 
 ```js
 toColor(['+53', false, true], 'object');
@@ -54,6 +62,9 @@ toColor([500, 177, -100], 'rgb-object');
 
 toColor(() => [156.9, () => '202', -100], 'rgb-object');
 // {r: 156, g: 202, b: 0}
+
+toColor('rgba(23, 44, 19)', 'rgb-object');
+// {r: 23, g: 44, b: 19}
 
 toColor({ r: 55, g: 55, b: 199 }, 'rgb-object');
 // {r: 55, g: 55, b: 199}
@@ -71,11 +82,33 @@ toColor(['+53', false, true], 'rgb-array');
 toColor(() => {r: 185, g: "+63", b: () => 260}, 'rgb-array');
 // [185, 63, 255]
 
+toColor(() => "rgb(45, 29, 118.2)", 'rgb-array');
+// [45, 29, 118]
+```
+
+#### To `"rgb-string"`
+
+```js
+toColor({r: 93.4, g: 17, b: 98.9}, 'rgb-string');
+// rgb(93, 17, 98)
+
+toColor(['+53', false, true], 'rgb-string');
+// rgb(53, 0, 1)
+
+toColor(() => {r: 185, g: "+63", b: () => 260}, 'rgb-string');
+// rgb(185, 63, 255)
+
+toColor("rgb(45, 29, 118.2)", 'rgb-string');
+// rgb(45, 29, 118)
 ```
 
 ### Since
 
 [1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
+
+### Updated
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
 
 ## Resources
 
