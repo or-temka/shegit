@@ -20,9 +20,9 @@ rgbStringToObj(`string`)
 
 ### Arguments
 
-| Argument | Type     | Description       | Example               |
-| -------- | -------- | ----------------- | --------------------- |
-| `string` | `string` | Rgb color string. | `"rgb(210, 193, 54)"` |
+| Argument | Type                       | Description       | Example               |
+| -------- | -------------------------- | ----------------- | --------------------- |
+| `string` | `string` <br /> `function` | Rgb color string. | `"rgb(210, 193, 54)"` |
 
 ### Returns
 
@@ -34,7 +34,7 @@ rgbStringToObj(`string`)
 rgbStringToObj('rgb(15, 24, 99)');
 // {r: 15, g: 24, b: 99, a: 1}
 
-rgbStringToObj('rgb(-20, 1000, 7.3, 0.5)');
+rgbStringToObj(() => 'rgb(-20, 1000, 7.3, 0.5)');
 // {r: 0, g: 255, b: 7, a: 0.5}
 
 rgbStringToObj('rgba(202.9, -2, 7, -100)');
