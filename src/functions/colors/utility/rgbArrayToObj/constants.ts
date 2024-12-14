@@ -1,4 +1,4 @@
-import { Default } from '../types';
+import { Default } from './types';
 
 export const DEFAULT_COLOR_COMPONENT = 0;
 
