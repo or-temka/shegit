@@ -1,4 +1,4 @@
-import { RgbObj } from '../../types';
+import { RgbObj } from '../../../../types';
 import { Input } from './types';
 /**
  * #### RGB color array to object
@@ -12,8 +12,8 @@ import { Input } from './types';
  * @returns {RgbObj} RGB color object
  * @example
  *
- * rgbArrayToObj([1, 2, 3])
- * // => {r: 1, g: 2, b: 3}
+ * rgbArrayToObj([1, 2, 3]) // {r: 1, g: 2, b: 3}
+ * rgbArrayToObj(["+44", -200, () => 12, 2]) // {r: 44, g: 0, b: 12}
  */
 export declare function rgbArrayToObj(array?: Input): RgbObj;
 export { Input };

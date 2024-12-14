@@ -17,20 +17,22 @@ function roundDownAbsolute(value) {
  * @returns {RgbObj} RGB color object
  * @example
  *
- * rgbArrayToObj([1, 2, 3])
- * // => {r: 1, g: 2, b: 3}
+ * rgbArrayToObj([1, 2, 3]) // {r: 1, g: 2, b: 3}
+ * rgbArrayToObj(["+44", -200, () => 12, 2]) // {r: 44, g: 0, b: 12}
  */
 function rgbArrayToObj(array = constants_1.DEFAULT.input) {
     let actual = constants_1.DEFAULT.input;
-    const isArray = Array.isArray(array);
-    if (!isArray) {
-        const isFunction = typeof array === 'function';
-        if (!isFunction)
-            return constants_1.DEFAULT.return;
+    if (Array.isArray(array)) {
+        actual = array;
+    }
+    else if (typeof array === 'function') {
         actual = array();
+        if (actual === null) {
+            return constants_1.DEFAULT.return;
+        }
     }
     else {
-        actual = array;
+        return constants_1.DEFAULT.return;
     }
     const parseComponent = (component) => {
         if (typeof component === 'function') {

@@ -1,7 +1,7 @@
 {
   "name": "shegit",
-  "version": "1.0.3",
-  "license": "ISC",
+  "version": "1.1.0-beta-6d02431-20241214",
+  "license": "MIT",
   "description": "Shegit modular utilities.",
   "main": "index.js",
   "keywords": [
