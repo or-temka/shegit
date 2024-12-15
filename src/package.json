@@ -9,7 +9,7 @@
     "stdlib",
     "util"
   ],
-  "homepage": "https://github.com/or-temka/shegit#readme",
+  "homepage": "https://or-temka.github.io/shegit/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/or-temka/shegit.git"
