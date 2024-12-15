@@ -10,6 +10,10 @@ You can also read this `README` in [Русский](./RESOURCES/README/README.ru
 
 [![NPM Downloads](https://img.shields.io/npm/dw/shegit?logo=npm&label=npm&labelColor=red&color=grey)](https://www.npmjs.com/package/shegit)
 
+## Documentation
+
+You can find the Shegit documentation on the [website](https://or-temka.github.io/shegit/).
+
 ## Download
 
 - [Full build (~18.7 kB)](https://github.com/or-temka/shegit/archive/refs/heads/npm.zip)

@@ -4,6 +4,10 @@ Shegit modular utilities. Shegit makes JS user-friendly by providing helper func
 
 We would be happy if you visit our [GitHub](https://github.com/or-temka/shegit/tree/dev-v1.1.0).
 
+## Documentation
+
+See https://or-temka.github.io/shegit/
+
 ## Installation
 
 1. Installation npm (global):
