@@ -1,3 +1,3 @@
-export * from './utility'
+export * from './utility';
 
-export * from './toColor'
+export * from './toColor';
