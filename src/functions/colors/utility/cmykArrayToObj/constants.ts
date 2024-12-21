@@ -1,0 +1,20 @@
+import { Default } from './types';
+
+export const MIN_COMPONENT_VALUE = 0;
+export const MAX_COMPONENT_VALUE = 100;
+export const DEFAULT_COLOR_COMPONENT = MIN_COMPONENT_VALUE;
+
+export const DEFAULT: Default = {
+  input: [
+    DEFAULT_COLOR_COMPONENT,
+    DEFAULT_COLOR_COMPONENT,
+    DEFAULT_COLOR_COMPONENT,
+    DEFAULT_COLOR_COMPONENT,
+  ],
+  return: {
+    c: DEFAULT_COLOR_COMPONENT,
+    m: DEFAULT_COLOR_COMPONENT,
+    y: DEFAULT_COLOR_COMPONENT,
+    k: DEFAULT_COLOR_COMPONENT,
+  },
+};
