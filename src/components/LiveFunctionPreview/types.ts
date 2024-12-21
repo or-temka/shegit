@@ -7,6 +7,7 @@ export type LiveFunctionPreviewProps = {
   func: Function;
   name?: string;
   args?: Argument[];
+  label?: string;
 };
 
 export type InputsVal = {

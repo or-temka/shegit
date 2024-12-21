@@ -3,7 +3,12 @@ import { InputsVal, LiveFunctionPreviewProps } from './types';
 import styles from './style.module.css';
 import { getInputsValByArgs } from './utils';
 
-function LiveFunctionPreview({ name, func = () => {}, args }: LiveFunctionPreviewProps) {
+function LiveFunctionPreview({
+  name,
+  func = () => {},
+  args,
+  label = 'Demo',
+}: LiveFunctionPreviewProps) {
   const [inputsVal, setInputsVal] = useState<InputsVal>(getInputsValByArgs(args));
 
   const Inputs = () => {
@@ -12,7 +17,7 @@ function LiveFunctionPreview({ name, func = () => {}, args }: LiveFunctionPrevie
         {args?.map((arg, index) => {
           const showSeparator = index < args.length - 1;
           return (
-            <div key={index}>
+            <div key={index} className={styles.inputContainer}>
               <input
                 placeholder={arg.name}
                 className={styles.input}
@@ -41,13 +46,15 @@ function LiveFunctionPreview({ name, func = () => {}, args }: LiveFunctionPrevie
 
   return (
     <div className={styles.container}>
-      <div className={styles.codeContainer}>
+      <span className={styles.label}>{label}</span>
+
+      <pre className={[styles.code, styles.codeContainer].join(' ')}>
         <span className={styles.functionInput}>
           {name || func.name}({Inputs()})
         </span>
-      </div>
+      </pre>
 
-      <div className={styles.resultContainer}>{Result()}</div>
+      <pre className={[styles.code, styles.resultContainer].join(' ')}>{Result()}</pre>
     </div>
   );
 }
