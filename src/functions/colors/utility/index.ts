@@ -3,3 +3,4 @@ export * from './rgbObjToArray';
 export * from './rgbObjToString';
 export * from './rgbStringToObj';
 export * from './cmykObjToArray';
+export * from './cmykArrayToObj';
