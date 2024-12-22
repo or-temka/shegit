@@ -18,7 +18,13 @@ import { toColor } from 'shegit-beta';
 
 Convert a color of one type to another.
 
-<LiveFunctionPreview func={toColor} args={[{ name: 'color' }, { name: 'to', optional: true }]} />
+<LiveFunctionPreview
+  func={toColor}
+  args={[
+    { name: 'color', default: '{"r": 242, "g": 52, "b": 11}' },
+    { name: 'to', optional: true, default: '"rgb-string"' },
+  ]}
+/>
 
 ### Arguments
 
