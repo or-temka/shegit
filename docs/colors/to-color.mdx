@@ -87,7 +87,7 @@ toColor({r: 93.4, g: 17, b: 98.9}, 'rgb-array');
 toColor(['+53', false, true], 'rgb-array');
 // [53, 0, 1]
 
-toColor(() => {r: 185, g: "+63", b: () => 260}, 'rgb-array');
+toColor(() => ({r: 185, g: "+63", b: () => 260}), 'rgb-array');
 // [185, 63, 255]
 
 toColor(() => "rgb(45, 29, 118.2)", 'rgb-array');
@@ -103,7 +103,7 @@ toColor({r: 93.4, g: 17, b: 98.9}, 'rgb-string');
 toColor(['+53', false, true], 'rgb-string');
 // rgb(53, 0, 1)
 
-toColor(() => {r: 185, g: "+63", b: () => 260}, 'rgb-string');
+toColor(() => ({r: 185, g: "+63", b: () => 260}), 'rgb-string');
 // rgb(185, 63, 255)
 
 toColor("rgb(45, 29, 118.2)", 'rgb-string');
@@ -121,6 +121,6 @@ toColor("rgb(45, 29, 118.2)", 'rgb-string');
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.0.3/src/functions/toColor" />
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.1.0/src/functions/colors/toColor" />
   <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/tocolor-rnlpvf" />
 </div>
