@@ -9,6 +9,8 @@ version: 1.0.3
 
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { rgbArrayToObj } from 'shegit1.0.3';
 
 # rgbArrayToObj
 
@@ -16,7 +18,7 @@ import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeS
 
 Convert RGB color `[red, green, blue]` as an array to a format object `{r: red, g: green, b: blue}`
 
-rgbArrayToObj(`array`)
+<LiveFunctionPreview func={rgbArrayToObj} args={[{ name: 'array' }]} />
 
 ### Arguments
 
