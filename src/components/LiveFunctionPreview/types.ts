@@ -1,6 +1,7 @@
 export type Argument = {
   name: string;
   optional?: boolean;
+  default?: string;
 };
 
 export type LiveFunctionPreviewProps = {
