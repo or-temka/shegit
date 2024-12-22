@@ -9,6 +9,8 @@ version: 1.0.3
 
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { toColor } from 'shegit1.0.3';
 
 # toColor
 
@@ -16,7 +18,13 @@ import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeS
 
 Convert a color of one type to another.
 
-toColor(`color`, `to`)
+<LiveFunctionPreview
+  func={toColor}
+  args={[
+    { name: 'color', default: '{"r": 50, "g": 72, "b": 0}' },
+    { name: 'to', optional: true },
+  ]}
+/>
 
 ### Arguments
 
