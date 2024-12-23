@@ -39,13 +39,13 @@ Convert RGB color `{r: red, g: green, b: blue}` as an object to a format array `
 rgbObjToArray({ r: 15, g: 76, b: 213 });
 // [15, 76, 213]
 
-rgbObjToArray({ r: "+99", g: 300, b: -5 });
+rgbObjToArray({ r: '+99', g: 300, b: -5 });
 // [99, 255, 0]
 
 rgbObjToArray({ r: () => true, g: false, b: 245.9 });
 // [1, 0, 245]
 
-rgbObjToArray(() => { r: 3.2, g: () => 55, b: "184" });
+rgbObjToArray(() => ({ r: 3.2, g: () => 55, b: '184' }));
 // [3, 55, 184]
 ```
 
@@ -56,6 +56,6 @@ rgbObjToArray(() => { r: 3.2, g: () => 55, b: "184" });
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.1.0/src/functions/rgbObjToArray" />
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.1.0/src/functions/colors/utility/rgbObjToArray" />
   {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
 </div>
