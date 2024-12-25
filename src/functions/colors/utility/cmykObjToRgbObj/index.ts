@@ -32,11 +32,11 @@ const parseComponent = (component: any): number => {
  * @returns {RgbaObj} RGB color object
  * @example
  *
- * cmykObjToRgbObj({r: 1, g: 2, b: 3})
- * // [1, 2, 3]
+ * cmykObjToRgbObj({ c: 1, m: 2, y: 3, k: 4 })
+ * // { r: 242, g: 240, b: 237, a: 1 }
  *
- * cmykObjToRgbObj({r: 400, g: () => "+54", b: -20, a: 1})
- * // [255, 54, 0]
+ * cmykObjToRgbObj(() => ({ c: () => '+24.8', m: () => '96', y: () => 5000, k: () => 'gdfgh' }))
+ * // { r: 194, g: 10, b: 0, a: 1 }
  */
 export function cmykObjToRgbObj(obj: CmykObjToRgbObjInput = DEFAULT.input): RgbaObj {
   const cmykColor = DEFAULT_CMYK_OBJ;
