@@ -7,3 +7,4 @@ export * from './cmykArrayToObj';
 export * from './cmykObjToString';
 export * from './cmykStringToObj';
 export * from './cmykObjToRgbObj';
+export * from './rgbObjToCmykObj';
