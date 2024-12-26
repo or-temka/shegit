@@ -19,6 +19,7 @@ import { toColor } from 'shegit-beta';
 Convert a color of one type to another.
 
 <LiveFunctionPreview
+  name="toColor"
   func={toColor}
   args={[
     { name: 'color', default: '{"r": 242, "g": 52, "b": 11}' },
@@ -81,32 +82,32 @@ toColor({ r: 55, g: 55, b: 199 }, 'rgb-object');
 #### To `"rgb-array"`
 
 ```js
-toColor({r: 93.4, g: 17, b: 98.9}, 'rgb-array');
+toColor({ r: 93.4, g: 17, b: 98.9 }, 'rgb-array');
 // [93, 17, 98]
 
 toColor(['+53', false, true], 'rgb-array');
 // [53, 0, 1]
 
-toColor(() => ({r: 185, g: "+63", b: () => 260}), 'rgb-array');
+toColor(() => ({ r: 185, g: '+63', b: () => 260 }), 'rgb-array');
 // [185, 63, 255]
 
-toColor(() => "rgb(45, 29, 118.2)", 'rgb-array');
+toColor(() => 'rgb(45, 29, 118.2)', 'rgb-array');
 // [45, 29, 118]
 ```
 
 #### To `"rgb-string"`
 
 ```js
-toColor({r: 93.4, g: 17, b: 98.9}, 'rgb-string');
+toColor({ r: 93.4, g: 17, b: 98.9 }, 'rgb-string');
 // rgb(93, 17, 98)
 
 toColor(['+53', false, true], 'rgb-string');
 // rgb(53, 0, 1)
 
-toColor(() => ({r: 185, g: "+63", b: () => 260}), 'rgb-string');
+toColor(() => ({ r: 185, g: '+63', b: () => 260 }), 'rgb-string');
 // rgb(185, 63, 255)
 
-toColor("rgb(45, 29, 118.2)", 'rgb-string');
+toColor('rgb(45, 29, 118.2)', 'rgb-string');
 // rgb(45, 29, 118)
 ```
 
