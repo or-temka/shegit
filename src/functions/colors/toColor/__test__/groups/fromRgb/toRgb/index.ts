@@ -20,8 +20,8 @@ export const fromRgbToRgbGroups: TestGroups<
   { name: 'Valid: RGB array to RGB object', cases: rgbArrayToRgbObjectCases.valid },
   { name: 'Invalid: RGB array to RGB object', cases: rgbArrayToRgbObjectCases.invalid },
 
-  { name: 'Valid: RGB array to RGB object', cases: rgbArrayToRgbStringCases.valid },
-  { name: 'Invalid: RGB array to RGB object', cases: rgbArrayToRgbStringCases.invalid },
+  { name: 'Valid: RGB array to RGB string', cases: rgbArrayToRgbStringCases.valid },
+  { name: 'Invalid: RGB array to RGB string', cases: rgbArrayToRgbStringCases.invalid },
 
   { name: 'Valid: RGB array to RGB array', cases: rgbArrayToRgbArrayCases.valid },
   { name: 'Invalid: RGB array to RGB array', cases: rgbArrayToRgbArrayCases.invalid },
