@@ -1,6 +1,11 @@
 import { rgbStringToObj, rgbObjToString, rgbObjToArray, rgbArrayToObj } from '../utility';
 import { RgbaObj } from '../../../types';
-import { DEFAULT, DEFAULT_RGB_COLOR_COMPONENT } from './constants';
+import {
+  DEFAULT,
+  DEFAULT_RGB_COLOR_COMPONENT,
+  MAX_RGB_COMPONENT_VALUE,
+  MIN_RGB_COMPONENT_VALUE,
+} from './constants';
 import { ColorProp, ReturnColorType, To } from './types';
 import { absoluteFloor } from '../../number';
 
@@ -8,10 +13,10 @@ const parseComponent = (component: any): number => {
   let actual = component;
   if (typeof component === 'function') actual = component();
   const num = Number(actual);
-  return Number.isNaN(num) || num < 0
+  return Number.isNaN(num) || num < MIN_RGB_COMPONENT_VALUE
     ? DEFAULT_RGB_COLOR_COMPONENT
-    : num > 255
-    ? 255
+    : num > MAX_RGB_COMPONENT_VALUE
+    ? MAX_RGB_COMPONENT_VALUE
     : absoluteFloor(num) || DEFAULT_RGB_COLOR_COMPONENT;
 };
 
