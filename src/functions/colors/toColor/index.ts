@@ -1,24 +1,10 @@
-import { rgbStringToObj, rgbObjToString, rgbObjToArray, rgbArrayToObj } from '../utility';
+import { rgbObjToString, rgbObjToArray } from '../utility';
 import { RgbaObj } from '../../../types';
-import {
-  DEFAULT,
-  DEFAULT_RGB_COLOR_COMPONENT,
-  MAX_RGB_COMPONENT_VALUE,
-  MIN_RGB_COMPONENT_VALUE,
-} from './constants';
-import { ColorProp, ReturnColorType, To } from './types';
-import { absoluteFloor } from '../../number';
-
-const parseComponent = (component: any): number => {
-  let actual = component;
-  if (typeof component === 'function') actual = component();
-  const num = Number(actual);
-  return Number.isNaN(num) || num < MIN_RGB_COMPONENT_VALUE
-    ? DEFAULT_RGB_COLOR_COMPONENT
-    : num > MAX_RGB_COMPONENT_VALUE
-    ? MAX_RGB_COMPONENT_VALUE
-    : absoluteFloor(num) || DEFAULT_RGB_COLOR_COMPONENT;
-};
+import { DEFAULT } from './constants';
+import { ColorProp, FromColorType, ReturnColorType, To } from './types';
+import { anyArrayToRgba } from './utils/anyArrayToRgba';
+import { anyObjectToRgba } from './utils/anyObjectToRgba';
+import { anyStringToRgba } from './utils/anyStringToRgba';
 
 /**
  * #### To color
@@ -38,6 +24,7 @@ const parseComponent = (component: any): number => {
 export function toColor<T extends To>(
   color: ColorProp = DEFAULT.input,
   to: T = 'object' as T,
+  fromColorType: FromColorType = 'rgb',
 ): ReturnColorType<T> {
   const c: RgbaObj = {
     r: 0,
@@ -50,19 +37,14 @@ export function toColor<T extends To>(
 
   if (typeof color === 'object') {
     if (Array.isArray(color)) {
-      const { r, g, b } = rgbArrayToObj(color);
-      Object.assign(c, { r, g, b, a: 1 });
+      Object.assign(c, anyArrayToRgba(color));
     } else {
       if (color !== null) {
-        const r = parseComponent(color.r || DEFAULT_RGB_COLOR_COMPONENT);
-        const g = parseComponent(color.g || DEFAULT_RGB_COLOR_COMPONENT);
-        const b = parseComponent(color.b || DEFAULT_RGB_COLOR_COMPONENT);
-        Object.assign(c, { r, g, b, a: 1 });
+        Object.assign(c, anyObjectToRgba(color, fromColorType));
       }
     }
   } else if (typeof color === 'string') {
-    const { r, g, b, a = 1 } = rgbStringToObj(color);
-    Object.assign(c, { r, g, b, a });
+    Object.assign(c, anyStringToRgba(color));
   }
 
   switch (to) {

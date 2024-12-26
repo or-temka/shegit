@@ -1,11 +1,11 @@
-import { RgbObjToArrayInput } from '../utility';
-import { Input } from '../utility';
+import { RgbObjToArrayInput, Input } from '../utility';
 import { RgbaObj, RgbArray } from '../../../types';
 
 export type Color = Input | RgbObjToArrayInput | string;
 
-// Delete 'object' when new major version
-export type To = 'object' | 'rgb-object' | 'rgb-array' | 'rgb-string';
+// TODO v2: Delete 'object'
+export type To = 'object' | 'rgb-object' | 'rgb-array' | 'rgb-string' | 'cmyk-object';
+export type FromColorType = 'rgb' | 'cmyk';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
 
