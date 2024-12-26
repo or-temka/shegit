@@ -1,5 +1,5 @@
 import { RgbObjToArrayInput, Input } from '../utility';
-import { RgbaObj, RgbArray } from '../../../types';
+import { CmykObj, RgbaObj, RgbArray } from '../../../types';
 
 export type Color = Input | RgbObjToArrayInput | string;
 
@@ -17,6 +17,8 @@ export type ReturnColorType<T extends To> = T extends 'object' | 'rgb-object'
   ? RgbArray
   : T extends 'rgb-string'
   ? string
+  : T extends 'cmyk-object'
+  ? CmykObj
   : DefaultReturn;
 
 export interface Default {

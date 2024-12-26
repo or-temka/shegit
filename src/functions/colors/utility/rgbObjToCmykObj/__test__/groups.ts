@@ -92,12 +92,12 @@ export const validCases: CaseElements = [
     expected: { c: 100, m: 0, y: 77, k: 0 },
   },
   {
-    id: 29,
+    id: 28,
     input: () => ({ r: () => 12, g: 67, b: -0 }),
     expected: { c: 82, m: 0, y: 100, k: 74 },
   },
   {
-    id: 28,
+    id: 29,
     input: () => ({ r: '--24', g: () => '+86', b: 0 }),
     expected: { c: 100, m: 0, y: 100, k: 66 },
   },
