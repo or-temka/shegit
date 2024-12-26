@@ -1,6 +1,6 @@
-import { rgbStringToObj, rgbObjToString,rgbObjToArray,  rgbArrayToObj  } from '../utility';
+import { rgbStringToObj, rgbObjToString, rgbObjToArray, rgbArrayToObj } from '../utility';
 import { RgbaObj } from '../../../types';
-import { DEFAULT, DEFAULT_COLOR_COMPONENT } from './constants';
+import { DEFAULT, DEFAULT_RGB_COLOR_COMPONENT } from './constants';
 import { ColorProp, ReturnColorType, To } from './types';
 import { absoluteFloor } from '../../number';
 
@@ -9,10 +9,10 @@ const parseComponent = (component: any): number => {
   if (typeof component === 'function') actual = component();
   const num = Number(actual);
   return Number.isNaN(num) || num < 0
-    ? DEFAULT_COLOR_COMPONENT
+    ? DEFAULT_RGB_COLOR_COMPONENT
     : num > 255
     ? 255
-    : absoluteFloor(num) || DEFAULT_COLOR_COMPONENT;
+    : absoluteFloor(num) || DEFAULT_RGB_COLOR_COMPONENT;
 };
 
 /**
@@ -49,9 +49,9 @@ export function toColor<T extends To>(
       Object.assign(c, { r, g, b, a: 1 });
     } else {
       if (color !== null) {
-        const r = parseComponent(color.r || DEFAULT_COLOR_COMPONENT);
-        const g = parseComponent(color.g || DEFAULT_COLOR_COMPONENT);
-        const b = parseComponent(color.b || DEFAULT_COLOR_COMPONENT);
+        const r = parseComponent(color.r || DEFAULT_RGB_COLOR_COMPONENT);
+        const g = parseComponent(color.g || DEFAULT_RGB_COLOR_COMPONENT);
+        const b = parseComponent(color.b || DEFAULT_RGB_COLOR_COMPONENT);
         Object.assign(c, { r, g, b, a: 1 });
       }
     }
