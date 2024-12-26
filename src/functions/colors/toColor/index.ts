@@ -24,7 +24,7 @@ import { anyStringToRgba } from './utils/anyStringToRgba';
 export function toColor<T extends To>(
   color: ColorProp = DEFAULT.input,
   to: T = 'object' as T,
-  fromColorType: FromColorType = 'rgb',
+  fromColorType: FromColorType = undefined,
 ): ReturnColorType<T> {
   const c: RgbaObj = {
     r: 0,

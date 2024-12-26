@@ -5,7 +5,7 @@ export type Color = Input | RgbObjToArrayInput | string;
 
 // TODO v2: Delete 'object'
 export type To = 'object' | 'rgb-object' | 'rgb-array' | 'rgb-string' | 'cmyk-object';
-export type FromColorType = 'rgb' | 'cmyk';
+export type FromColorType = undefined | 'rgb' | 'cmyk';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
 
