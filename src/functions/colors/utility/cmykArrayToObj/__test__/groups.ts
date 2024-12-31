@@ -19,9 +19,9 @@ export const validCases: CaseElements = [
   {
     id: 5,
     input: [234, 12],
-    expected: { c: 100, m: 12, y: 0, k: 0 },
+    expected: { c: 100, m: 12, y: 0, k: 100 },
   },
-  { id: 6, input: [85], expected: { c: 85, m: 0, y: 0, k: 0 } },
+  { id: 6, input: [85], expected: { c: 85, m: 0, y: 0, k: 100 } },
   {
     id: 7,
     input: [124, 62, 55, 4.5],
@@ -35,22 +35,22 @@ export const validCases: CaseElements = [
   {
     id: 9,
     input: [63.3, 55.8, 0],
-    expected: { c: 63, m: 55, y: 0, k: 0 },
+    expected: { c: 63, m: 55, y: 0, k: 100 },
   },
   {
     id: 10,
     input: ['0', '255', -5],
-    expected: { c: 0, m: 100, y: 0, k: 0 },
+    expected: { c: 0, m: 100, y: 0, k: 100 },
   },
   {
     id: 11,
     input: ['-86', 266, '.0'],
-    expected: { c: 0, m: 100, y: 0, k: 0 },
+    expected: { c: 0, m: 100, y: 0, k: 100 },
   },
   {
     id: 12,
     input: () => [15, -26, '+64'],
-    expected: { c: 15, m: 0, y: 64, k: 0 },
+    expected: { c: 15, m: 0, y: 64, k: 100 },
   },
   {
     id: 13,
@@ -60,27 +60,27 @@ export const validCases: CaseElements = [
   {
     id: 14,
     input: [0],
-    expected: { c: 0, m: 0, y: 0, k: 0 },
+    expected: { c: 0, m: 0, y: 0, k: 100 },
   },
   {
     id: 15,
     input: [66],
-    expected: { c: 66, m: 0, y: 0, k: 0 },
+    expected: { c: 66, m: 0, y: 0, k: 100 },
   },
   {
     id: 16,
     input: ['+45'],
-    expected: { c: 45, m: 0, y: 0, k: 0 },
+    expected: { c: 45, m: 0, y: 0, k: 100 },
   },
   {
     id: 17,
     input: ['-200'],
-    expected: { c: 0, m: 0, y: 0, k: 0 },
+    expected: { c: 0, m: 0, y: 0, k: 100 },
   },
   {
     id: 18,
     input: ['+500'],
-    expected: { c: 100, m: 0, y: 0, k: 0 },
+    expected: { c: 100, m: 0, y: 0, k: 100 },
   },
   {
     id: 19,
@@ -90,7 +90,7 @@ export const validCases: CaseElements = [
   {
     id: 20,
     input: () => [6],
-    expected: { c: 6, m: 0, y: 0, k: 0 },
+    expected: { c: 6, m: 0, y: 0, k: 100 },
   },
   {
     id: 21,
@@ -163,7 +163,7 @@ export const invalidCases: CaseElements = [
   },
   {
     id: 23,
-    input: [() => 'John', () => ({}), () => {}, []],
+    input: [() => 'John', () => ({}), () => {}, {}],
     expected: DEFAULT_EXPECTED_VALUE,
   },
   {
@@ -173,12 +173,12 @@ export const invalidCases: CaseElements = [
   },
   {
     id: 25,
-    input: [[34, 24, 'Aug', () => {}], [[], [2]], [[]], [[]]],
+    input: [[34, 24, 'Aug', () => {}], [[], [2]], [[]], { f: {} }],
     expected: DEFAULT_EXPECTED_VALUE,
   },
   {
     id: 26,
-    input: [undefined, null, NaN, null],
+    input: [undefined, null, NaN, {}],
     expected: DEFAULT_EXPECTED_VALUE,
   },
   { id: 27, input: undefined, expected: DEFAULT_EXPECTED_VALUE },
@@ -220,7 +220,7 @@ export const invalidCases: CaseElements = [
   },
   {
     id: 36,
-    input: () => [[34, 24, 'Aug', () => {}], [[], [2]], [[]], () => null],
+    input: () => [[34, 24, 'Aug', () => {}], [[], [2]], [[]], () => {}],
     expected: DEFAULT_EXPECTED_VALUE,
   },
   {

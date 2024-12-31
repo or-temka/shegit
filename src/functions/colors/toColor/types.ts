@@ -1,10 +1,16 @@
 import { RgbObjToArrayInput, Input } from '../utility';
-import { CmykObj, RgbaObj, RgbArray } from '../../../types';
+import { CmykArray, CmykObj, RgbaObj, RgbArray } from '../../../types';
 
 export type Color = Input | RgbObjToArrayInput | string;
 
 // TODO v2: Delete 'object'
-export type To = 'object' | 'rgb-object' | 'rgb-array' | 'rgb-string' | 'cmyk-object';
+export type To =
+  | 'object'
+  | 'rgb-object'
+  | 'rgb-array'
+  | 'rgb-string'
+  | 'cmyk-object'
+  | 'cmyk-array';
 export type FromColorType = undefined | 'rgb' | 'cmyk';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
@@ -19,6 +25,8 @@ export type ReturnColorType<T extends To> = T extends 'object' | 'rgb-object'
   ? string
   : T extends 'cmyk-object'
   ? CmykObj
+  : T extends 'cmyk-array'
+  ? CmykArray
   : DefaultReturn;
 
 export interface Default {

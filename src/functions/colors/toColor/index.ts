@@ -1,4 +1,4 @@
-import { rgbObjToString, rgbObjToArray, rgbObjToCmykObj } from '../utility';
+import { rgbObjToString, rgbObjToArray, rgbObjToCmykObj, cmykObjToArray } from '../utility';
 import { RgbaObj } from '../../../types';
 import { DEFAULT } from './constants';
 import { ColorProp, FromColorType, ReturnColorType, To } from './types';
@@ -57,6 +57,8 @@ export function toColor<T extends To>(
       return rgbObjToString(c) as ReturnColorType<T>;
     case 'cmyk-object':
       return rgbObjToCmykObj(c) as ReturnColorType<T>;
+    case 'cmyk-array':
+      return cmykObjToArray(rgbObjToCmykObj(c)) as ReturnColorType<T>;
     default:
       return c as ReturnColorType<T>;
   }
