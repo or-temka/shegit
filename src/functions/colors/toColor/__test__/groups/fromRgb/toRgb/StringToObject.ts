@@ -109,12 +109,12 @@ export const rgbStringToRgbObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 21,
-      input: { color: '(++20, -18, 5, 2)', to: EXPECTED_TYPE },
+      input: { color: 'rgba(++20, -18, 5, 2)', to: EXPECTED_TYPE },
       expected: { r: 20, g: 0, b: 5, a: 1 },
     },
     {
       id: 22,
-      input: { color: '(3, 2)', to: EXPECTED_TYPE },
+      input: { color: 'rgb(3, 2)', to: EXPECTED_TYPE },
       expected: { r: 3, g: 2, b: 0, a: 1 },
     },
     {
@@ -124,17 +124,17 @@ export const rgbStringToRgbObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 24,
-      input: { color: () => '(+1000, 3, 254, 255)', to: EXPECTED_TYPE },
+      input: { color: () => '(+1000, 3, 254, 255)', to: EXPECTED_TYPE, fromColorType: 'rgb' },
       expected: { r: 255, g: 3, b: 254, a: 1 },
     },
     {
       id: 25,
-      input: { color: () => '1, 3, 5', to: EXPECTED_TYPE },
+      input: { color: () => '1, 3, 5', to: EXPECTED_TYPE, fromColorType: 'rgb' },
       expected: { r: 1, g: 3, b: 5, a: 1 },
     },
     {
       id: 26,
-      input: { color: () => '24 12 98', to: EXPECTED_TYPE },
+      input: { color: () => '24 12 98', to: EXPECTED_TYPE, fromColorType: 'rgb' },
       expected: { r: 24, g: 12, b: 98, a: 1 },
     },
     {
@@ -144,7 +144,7 @@ export const rgbStringToRgbObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 28,
-      input: { color: () => '4 7 some text 6', to: EXPECTED_TYPE },
+      input: { color: () => '4 7 some text 6', to: EXPECTED_TYPE, fromColorType: 'rgb' },
       expected: { r: 4, g: 7, b: 6, a: 1 },
     },
     {
