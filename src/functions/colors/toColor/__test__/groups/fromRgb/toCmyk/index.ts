@@ -2,8 +2,8 @@ import { TestGroups } from '../../../../../../../../utils/test/describeTestGroup
 import { To } from '../../../../types';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../../types';
 
-import { rgbArrayToCmykObjectCases } from './ArrayToObject';
-import { rgbObjectToCmykObjectCases } from './ObjectToObject';
+import { rgbArrayToCmykObjectCases } from './arrayToObjectTemp';
+import { rgbObjectToCmykObjectCases } from './objectToObjectTemp';
 
 export const fromRgbToCmykGroups: TestGroups<
   TestGroupCaseElementInput,
