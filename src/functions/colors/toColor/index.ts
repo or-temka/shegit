@@ -44,7 +44,7 @@ export function toColor<T extends To>(
       }
     }
   } else if (typeof color === 'string') {
-    Object.assign(c, anyStringToRgba(color));
+    Object.assign(c, anyStringToRgba(color, fromColorType));
   }
 
   switch (to) {
