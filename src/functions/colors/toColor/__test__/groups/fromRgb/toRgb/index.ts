@@ -2,15 +2,15 @@ import { TestGroups } from '../../../../../../../../utils/test/describeTestGroup
 import { To } from '../../../../types';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../../types';
 
-import { rgbArrayToRgbArrayCases } from './arrayToArrayTemp';
-import { rgbArrayToRgbObjectCases } from './arrayToObjectTemp';
-import { rgbArrayToRgbStringCases } from './arrayToStringTemp';
-import { rgbObjectToRgbArrayCases } from './objectToArrayTemp';
-import { rgbObjectToRgbObjectCases } from './objectToObjectTemp';
-import { rgbObjectToRgbStringCases } from './objectToStringTemp';
-import { rgbStringToRgbArrayCases } from './stringToArrayTemp';
-import { rgbStringToRgbObjectCases } from './stringToObjectTemp';
-import { rgbStringToRgbStringCases } from './stringToStringTemp';
+import { rgbArrayToRgbArrayCases } from './ArrayToArray';
+import { rgbArrayToRgbObjectCases } from './ArrayToObject';
+import { rgbArrayToRgbStringCases } from './ArrayToString';
+import { rgbObjectToRgbArrayCases } from './ObjectToArray';
+import { rgbObjectToRgbObjectCases } from './ObjectToObject';
+import { rgbObjectToRgbStringCases } from './ObjectToString';
+import { rgbStringToRgbArrayCases } from './StringToArray';
+import { rgbStringToRgbObjectCases } from './StringToObject';
+import { rgbStringToRgbStringCases } from './StringToString';
 
 export const fromRgbToRgbGroups: TestGroups<
   TestGroupCaseElementInput,
