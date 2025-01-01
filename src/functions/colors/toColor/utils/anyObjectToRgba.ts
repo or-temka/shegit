@@ -6,7 +6,7 @@ import {
   MAX_RGB_COMPONENT_VALUE,
   MIN_RGB_COMPONENT_VALUE,
 } from '../constants';
-import { FromColorType } from '../types';
+import { ColorType } from '../types';
 import { absoluteFloor } from '../../../number';
 
 const parseRgbComponent = (component: any): number => {
@@ -20,22 +20,7 @@ const parseRgbComponent = (component: any): number => {
     : absoluteFloor(num) || DEFAULT_RGB_COLOR_COMPONENT;
 };
 
-const getPossibleColor = (obj: Object): FromColorType => {
-  const getChanceOfColor = (keysToCheck: string[]) => {
-    const matchedKeys = keysToCheck.filter((key) => key in obj);
-    const count = matchedKeys.length;
-    const chance = count / keysToCheck.length;
-    return chance;
-  };
-
-  const rgbChance = getChanceOfColor(['r', 'g', 'b', 'a']);
-  const cmykChance = getChanceOfColor(['c', 'm', 'y', 'k']);
-
-  return rgbChance >= cmykChance ? 'rgb' : 'cmyk';
-};
-
-export const anyObjectToRgba = (obj: Object, fromColorType: FromColorType) => {
-  const colorType = fromColorType || getPossibleColor(obj) || 'rgb';
+export const anyObjectToRgba = (obj: Object, colorType: ColorType) => {
   let rgba = obj;
 
   if (colorType === 'cmyk') {

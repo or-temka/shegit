@@ -12,7 +12,7 @@ export type To =
   | 'cmyk-object'
   | 'cmyk-array'
   | 'cmyk-string';
-export type FromColorType = undefined | 'rgb' | 'cmyk';
+export type ColorType = 'rgb' | 'cmyk';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
 
@@ -36,3 +36,5 @@ export interface Default {
   input: Input;
   return: DefaultReturn;
 }
+
+export type ColorTypeToMapping = Record<Exclude<ColorType, undefined>, To[]>;

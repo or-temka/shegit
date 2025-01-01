@@ -4,13 +4,20 @@ import {
   rgbObjToCmykObj,
   cmykObjToArray,
   cmykObjToString,
+  cmykArrayToObj,
+  cmykStringToObj,
 } from '../utility';
-import { RgbaObj } from '../../../types';
+import { CmykArray, CmykObj, CmykString, RgbaObj } from '../../../types';
 import { DEFAULT } from './constants';
-import { ColorProp, FromColorType, ReturnColorType, To } from './types';
-import { anyArrayToRgba } from './utils/anyArrayToRgba';
-import { anyObjectToRgba } from './utils/anyObjectToRgba';
-import { anyStringToRgba } from './utils/anyStringToRgba';
+import { ColorProp, ColorType, ReturnColorType, To } from './types';
+import {
+  anyArrayToRgba,
+  anyObjectToRgba,
+  anyStringToRgba,
+  getPossibleObjectColor,
+  getPossibleStringColor,
+  isMappedColorTypeTo,
+} from './utils';
 
 /**
  * #### To color
@@ -30,7 +37,7 @@ import { anyStringToRgba } from './utils/anyStringToRgba';
 export function toColor<T extends To>(
   color: ColorProp = DEFAULT.input,
   to: T = 'object' as T,
-  fromColorType: FromColorType = undefined,
+  fromColorType: ColorType | undefined = undefined,
 ): ReturnColorType<T> {
   const c: RgbaObj = {
     r: 0,
@@ -38,19 +45,26 @@ export function toColor<T extends To>(
     b: 0,
     a: 1,
   };
+  let colorType: ColorType = 'rgb';
+  let isSameColorType = false;
 
   if (typeof color === 'function') color = color();
+  const colorVarType = typeof color;
 
-  if (typeof color === 'object') {
+  if (colorVarType === 'object') {
     if (Array.isArray(color)) {
       Object.assign(c, anyArrayToRgba(color));
     } else {
       if (color !== null) {
-        Object.assign(c, anyObjectToRgba(color, fromColorType));
+        colorType = fromColorType || getPossibleObjectColor(color);
+        if (isMappedColorTypeTo(to, colorType)) isSameColorType = true;
+
+        Object.assign(c, anyObjectToRgba(color, colorType));
       }
     }
-  } else if (typeof color === 'string') {
-    Object.assign(c, anyStringToRgba(color, fromColorType));
+  } else if (colorVarType === 'string') {
+    colorType = fromColorType || getPossibleStringColor(color as string);
+    Object.assign(c, anyStringToRgba(color as string, colorType));
   }
 
   switch (to) {
@@ -62,6 +76,17 @@ export function toColor<T extends To>(
     case 'rgb-string':
       return rgbObjToString(c) as ReturnColorType<T>;
     case 'cmyk-object':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return cmykArrayToObj(color as CmykArray) as ReturnColorType<T>;
+          }
+          return cmykArrayToObj(cmykObjToArray(color as CmykObj)) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return cmykStringToObj(color as CmykString) as ReturnColorType<T>;
+        }
+      }
       return rgbObjToCmykObj(c) as ReturnColorType<T>;
     case 'cmyk-array':
       return cmykObjToArray(rgbObjToCmykObj(c)) as ReturnColorType<T>;

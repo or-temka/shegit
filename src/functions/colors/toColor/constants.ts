@@ -1,4 +1,4 @@
-import { Default } from './types';
+import { ColorTypeToMapping, Default } from './types';
 
 export const MIN_CMYK_COMPONENT_VALUE = 0;
 export const MAX_CMYK_COMPONENT_VALUE = 100;
@@ -18,4 +18,9 @@ export const DEFAULT: Default = {
     b: DEFAULT_RGB_COLOR_COMPONENT,
     a: DEFAULT_RGB_ALPHA_COMPONENT,
   },
+};
+
+export const colorTypeToMapping: ColorTypeToMapping = {
+  rgb: ['object', 'rgb-object', 'rgb-array', 'rgb-string'],
+  cmyk: ['cmyk-object', 'cmyk-array', 'cmyk-string'],
 };
