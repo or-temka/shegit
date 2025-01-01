@@ -4,6 +4,7 @@ import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../.
 
 import { cmykArrayToRgbObjectCases } from './arrayToObject';
 import { cmykObjectToRgbObjectCases } from './objectToObject';
+import { cmykStringToRgbObjectCases } from './stringToObject';
 
 export const fromCmykToRgbGroups: TestGroups<
   TestGroupCaseElementInput,
@@ -18,4 +19,6 @@ export const fromCmykToRgbGroups: TestGroups<
   { name: 'Invalid: CMYK object to RGB object', cases: cmykObjectToRgbObjectCases.invalid },
 
   // from string
+  { name: 'Valid: CMYK string to RGB object', cases: cmykStringToRgbObjectCases.valid },
+  { name: 'Invalid: CMYK string to RGB object', cases: cmykStringToRgbObjectCases.invalid },
 ];

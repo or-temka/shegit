@@ -61,6 +61,7 @@ export function toColor<T extends To>(
     }
   } else if (colorVarType === 'string') {
     colorType = fromColorType || getPossibleStringColor(color as string);
+    isSameColorType = isMappedColorTypeTo(to, colorType);
     Object.assign(c, anyStringToRgba(color as string, colorType));
   }
 
