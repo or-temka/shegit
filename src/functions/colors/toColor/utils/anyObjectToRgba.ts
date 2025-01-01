@@ -1,4 +1,4 @@
-import { RgbObj } from 'types';
+import { RgbaObj, RgbObj } from 'types';
 import { cmykObjToRgbObj } from '../../utility';
 import {
   DEFAULT_RGB_ALPHA_COMPONENT,
@@ -20,7 +20,7 @@ const parseRgbComponent = (component: any): number => {
     : absoluteFloor(num) || DEFAULT_RGB_COLOR_COMPONENT;
 };
 
-export const anyObjectToRgba = (obj: Object, colorType: ColorType) => {
+export const anyObjectToRgba = (obj: Object, colorType: ColorType): RgbaObj => {
   let rgba = obj;
 
   if (colorType === 'cmyk') {

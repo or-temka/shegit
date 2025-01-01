@@ -1,8 +1,9 @@
+import { RgbaObj } from 'types';
 import { cmykObjToRgbObj, cmykStringToObj, rgbStringToObj } from '../../utility';
 import { DEFAULT } from '../constants';
 import { ColorType } from '../types';
 
-export const anyStringToRgba = (str: string, colorType: ColorType) => {
+export const anyStringToRgba = (str: string, colorType: ColorType): RgbaObj => {
   let rgba = DEFAULT.return;
 
   if (colorType === 'cmyk') {

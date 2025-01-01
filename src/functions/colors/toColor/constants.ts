@@ -24,3 +24,17 @@ export const colorTypeToMapping: ColorTypeToMapping = {
   rgb: ['object', 'rgb-object', 'rgb-array', 'rgb-string'],
   cmyk: ['cmyk-object', 'cmyk-array', 'cmyk-string'],
 };
+
+export const DEFAULT_RGB_OBJECT = {
+  r: DEFAULT_RGB_COLOR_COMPONENT,
+  g: DEFAULT_RGB_COLOR_COMPONENT,
+  b: DEFAULT_RGB_COLOR_COMPONENT,
+  a: DEFAULT_RGB_ALPHA_COMPONENT,
+};
+
+export const DEFAULT_CMYK_OBJECT = {
+  c: DEFAULT_CMYK_COLOR_COMPONENT,
+  m: DEFAULT_CMYK_COLOR_COMPONENT,
+  y: DEFAULT_CMYK_COLOR_COMPONENT,
+  k: DEFAULT_CMYK_KEY_COMPONENT,
+};

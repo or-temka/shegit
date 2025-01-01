@@ -143,12 +143,12 @@ export const cmykObjectToRgbObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
       expected: { r: 36, g: 79, b: 255, a: 1 },
     },
     {
-      id: 29,
+      id: 28,
       input: { color: () => ({ c: () => 54, m: '+54.7', y: '+600', k: -34.3 }), to: EXPECTED_TYPE },
       expected: { r: 117, g: 117, b: 0, a: 1 },
     },
     {
-      id: 28,
+      id: 29,
       input: {
         color: () => ({ c: () => false, m: () => true, y: () => -5, k: true }),
         to: EXPECTED_TYPE,

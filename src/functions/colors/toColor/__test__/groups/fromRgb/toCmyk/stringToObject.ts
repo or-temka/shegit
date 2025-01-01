@@ -109,7 +109,7 @@ export const rgbStringToCmykObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 21,
-      input: { color: '0, +20, 95', to: EXPECTED_TYPE, fromColorType: 'rgb' },
+      input: { color: '0, +20, 95', to: EXPECTED_TYPE },
       expected: { c: 100, m: 79, y: 0, k: 63 },
     },
     {
@@ -177,7 +177,7 @@ export const rgbStringToCmykObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 34,
-      input: { color: () => '1, 0, 0', to: EXPECTED_TYPE, fromColorType: 'rgb' },
+      input: { color: () => '1, 0, 0', to: EXPECTED_TYPE },
       expected: { c: 0, m: 100, y: 100, k: 100 },
     },
   ],

@@ -94,7 +94,7 @@ export const rgbArrayToCmykObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 18,
-      input: { color: [12, 99, 44, 12], to: EXPECTED_TYPE },
+      input: { color: [12, 99, 44, 12], to: EXPECTED_TYPE, fromColorType: 'rgb' },
       expected: { c: 88, m: 0, y: 56, k: 61 },
     },
     {

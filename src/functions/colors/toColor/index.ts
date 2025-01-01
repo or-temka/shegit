@@ -8,12 +8,13 @@ import {
   cmykStringToObj,
 } from '../utility';
 import { CmykArray, CmykObj, CmykString, RgbaObj } from '../../../types';
-import { DEFAULT } from './constants';
+import { DEFAULT, DEFAULT_RGB_OBJECT } from './constants';
 import { ColorProp, ColorType, ReturnColorType, To } from './types';
 import {
   anyArrayToRgba,
   anyObjectToRgba,
   anyStringToRgba,
+  getPossibleArrayColor,
   getPossibleObjectColor,
   getPossibleStringColor,
   isMappedColorTypeTo,
@@ -39,12 +40,7 @@ export function toColor<T extends To>(
   to: T = 'object' as T,
   fromColorType: ColorType | undefined = undefined,
 ): ReturnColorType<T> {
-  const c: RgbaObj = {
-    r: 0,
-    g: 0,
-    b: 0,
-    a: 1,
-  };
+  const c: RgbaObj = { ...DEFAULT_RGB_OBJECT };
   let colorType: ColorType = 'rgb';
   let isSameColorType = false;
 
@@ -53,12 +49,13 @@ export function toColor<T extends To>(
 
   if (colorVarType === 'object') {
     if (Array.isArray(color)) {
-      Object.assign(c, anyArrayToRgba(color));
+      colorType = fromColorType || getPossibleArrayColor(color);
+      isSameColorType = isMappedColorTypeTo(to, colorType);
+      Object.assign(c, anyArrayToRgba(color, colorType));
     } else {
       if (color !== null) {
         colorType = fromColorType || getPossibleObjectColor(color);
-        if (isMappedColorTypeTo(to, colorType)) isSameColorType = true;
-
+        isSameColorType = isMappedColorTypeTo(to, colorType);
         Object.assign(c, anyObjectToRgba(color, colorType));
       }
     }

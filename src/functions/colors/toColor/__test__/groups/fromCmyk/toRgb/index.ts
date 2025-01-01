@@ -2,6 +2,7 @@ import { TestGroups } from '../../../../../../../../utils/test/describeTestGroup
 import { To } from '../../../../types';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../../types';
 
+import { cmykArrayToRgbObjectCases } from './arrayToObject';
 import { cmykObjectToRgbObjectCases } from './objectToObject';
 
 export const fromCmykToRgbGroups: TestGroups<
@@ -9,6 +10,8 @@ export const fromCmykToRgbGroups: TestGroups<
   TestGroupCaseElementExpected<To>
 > = [
   // from array
+  { name: 'Valid: CMYK array to RGB object', cases: cmykArrayToRgbObjectCases.valid },
+  { name: 'Invalid: CMYK array to RGB object', cases: cmykArrayToRgbObjectCases.invalid },
 
   // from object
   { name: 'Valid: CMYK object to RGB object', cases: cmykObjectToRgbObjectCases.valid },
