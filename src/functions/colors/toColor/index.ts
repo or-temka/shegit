@@ -1,19 +1,24 @@
-import { rgbStringToObj, rgbObjToString,rgbObjToArray,  rgbArrayToObj  } from '../utility';
-import { RgbaObj } from '../../../types';
-import { DEFAULT, DEFAULT_COLOR_COMPONENT } from './constants';
-import { ColorProp, ReturnColorType, To } from './types';
-import { absoluteFloor } from '../../number';
-
-const parseComponent = (component: any): number => {
-  let actual = component;
-  if (typeof component === 'function') actual = component();
-  const num = Number(actual);
-  return Number.isNaN(num) || num < 0
-    ? DEFAULT_COLOR_COMPONENT
-    : num > 255
-    ? 255
-    : absoluteFloor(num) || DEFAULT_COLOR_COMPONENT;
-};
+import {
+  rgbObjToString,
+  rgbObjToArray,
+  rgbObjToCmykObj,
+  cmykObjToArray,
+  cmykObjToString,
+  cmykArrayToObj,
+  cmykStringToObj,
+} from '../utility';
+import { CmykArray, CmykObj, CmykString, RgbaObj } from '../../../types';
+import { DEFAULT, DEFAULT_RGB_OBJECT } from './constants';
+import { ColorProp, ColorType, ReturnColorType, To } from './types';
+import {
+  anyArrayToRgba,
+  anyObjectToRgba,
+  anyStringToRgba,
+  getPossibleArrayColor,
+  getPossibleObjectColor,
+  getPossibleStringColor,
+  isMappedColorTypeTo,
+} from './utils';
 
 /**
  * #### To color
@@ -33,31 +38,31 @@ const parseComponent = (component: any): number => {
 export function toColor<T extends To>(
   color: ColorProp = DEFAULT.input,
   to: T = 'object' as T,
+  fromColorType: ColorType | undefined = undefined,
 ): ReturnColorType<T> {
-  const c: RgbaObj = {
-    r: 0,
-    g: 0,
-    b: 0,
-    a: 1,
-  };
+  const c: RgbaObj = { ...DEFAULT_RGB_OBJECT };
+  let colorType: ColorType = 'rgb';
+  let isSameColorType = false;
 
   if (typeof color === 'function') color = color();
+  const colorVarType = typeof color;
 
-  if (typeof color === 'object') {
+  if (colorVarType === 'object') {
     if (Array.isArray(color)) {
-      const { r, g, b } = rgbArrayToObj(color);
-      Object.assign(c, { r, g, b, a: 1 });
+      colorType = fromColorType || getPossibleArrayColor(color);
+      isSameColorType = isMappedColorTypeTo(to, colorType);
+      Object.assign(c, anyArrayToRgba(color, colorType));
     } else {
       if (color !== null) {
-        const r = parseComponent(color.r || DEFAULT_COLOR_COMPONENT);
-        const g = parseComponent(color.g || DEFAULT_COLOR_COMPONENT);
-        const b = parseComponent(color.b || DEFAULT_COLOR_COMPONENT);
-        Object.assign(c, { r, g, b, a: 1 });
+        colorType = fromColorType || getPossibleObjectColor(color);
+        isSameColorType = isMappedColorTypeTo(to, colorType);
+        Object.assign(c, anyObjectToRgba(color, colorType));
       }
     }
-  } else if (typeof color === 'string') {
-    const { r, g, b, a = 1 } = rgbStringToObj(color);
-    Object.assign(c, { r, g, b, a });
+  } else if (colorVarType === 'string') {
+    colorType = fromColorType || getPossibleStringColor(color as string);
+    isSameColorType = isMappedColorTypeTo(to, colorType);
+    Object.assign(c, anyStringToRgba(color as string, colorType));
   }
 
   switch (to) {
@@ -68,6 +73,45 @@ export function toColor<T extends To>(
       return rgbObjToArray(c) as ReturnColorType<T>;
     case 'rgb-string':
       return rgbObjToString(c) as ReturnColorType<T>;
+    case 'cmyk-object':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return cmykArrayToObj(color as CmykArray) as ReturnColorType<T>;
+          }
+          return cmykArrayToObj(cmykObjToArray(color as CmykObj)) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return cmykStringToObj(color as CmykString) as ReturnColorType<T>;
+        }
+      }
+      return rgbObjToCmykObj(c) as ReturnColorType<T>;
+    case 'cmyk-array':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return cmykObjToArray(cmykArrayToObj(color as CmykArray)) as ReturnColorType<T>;
+          }
+          return cmykObjToArray(color as CmykObj) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return cmykObjToArray(cmykStringToObj(color as CmykString)) as ReturnColorType<T>;
+        }
+      }
+      return cmykObjToArray(rgbObjToCmykObj(c)) as ReturnColorType<T>;
+    case 'cmyk-string':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return cmykObjToString(cmykArrayToObj(color as CmykArray)) as ReturnColorType<T>;
+          }
+          return cmykObjToString(color as CmykObj) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return cmykObjToString(cmykStringToObj(color as CmykString)) as ReturnColorType<T>;
+        }
+      }
+      return cmykObjToString(rgbObjToCmykObj(c)) as ReturnColorType<T>;
     default:
       return c as ReturnColorType<T>;
   }

@@ -12,11 +12,11 @@ export const validCases: CaseElements = [
     expected: 'cmyk(100%, 100%, 100%, 100%)',
   },
   { id: 4, input: { c: 64, m: 21, y: 99, k: 42 }, expected: 'cmyk(64%, 21%, 99%, 42%)' },
-  { id: 5, input: { c: 234, m: 12, y: 5 }, expected: 'cmyk(100%, 12%, 5%, 0%)' },
-  { id: 6, input: { c: 18, m: 227 }, expected: 'cmyk(18%, 100%, 0%, 0%)' },
-  { id: 7, input: { c: 230 }, expected: 'cmyk(100%, 0%, 0%, 0%)' },
-  { id: 8, input: { m: 55 }, expected: 'cmyk(0%, 55%, 0%, 0%)' },
-  { id: 9, input: { y: 75 }, expected: 'cmyk(0%, 0%, 75%, 0%)' },
+  { id: 5, input: { c: 234, m: 12, y: 5 }, expected: 'cmyk(100%, 12%, 5%, 100%)' },
+  { id: 6, input: { c: 18, m: 227 }, expected: 'cmyk(18%, 100%, 0%, 100%)' },
+  { id: 7, input: { c: 230 }, expected: 'cmyk(100%, 0%, 0%, 100%)' },
+  { id: 8, input: { m: 55 }, expected: 'cmyk(0%, 55%, 0%, 100%)' },
+  { id: 9, input: { y: 75 }, expected: 'cmyk(0%, 0%, 75%, 100%)' },
   { id: 10, input: { k: 12 }, expected: 'cmyk(0%, 0%, 0%, 12%)' },
   {
     id: 11,
@@ -80,7 +80,7 @@ export const validCases: CaseElements = [
     input: { c: '-2', m: '99.99', y: '99', k: false },
     expected: 'cmyk(0%, 99%, 99%, 0%)',
   },
-  { id: 25, input: { c: '53' }, expected: 'cmyk(53%, 0%, 0%, 0%)' },
+  { id: 25, input: { c: '53' }, expected: 'cmyk(53%, 0%, 0%, 100%)' },
   {
     id: 26,
     input: () => ({ c: 12, m: 46, y: 22, k: 95 }),
@@ -160,12 +160,12 @@ export const invalidCases: CaseElements = [
   },
   {
     id: 19,
-    input: { c: { name: 'John' }, m: {}, y: [], k: [] },
+    input: { c: { name: 'John' }, m: {}, y: [], k: {} },
     expected: DEFAULT_EXPECTED_VALUE,
   },
   {
     id: 20,
-    input: { c: [34, 24, 'Aug', () => {}], m: [[], [2]], y: [[]], k: [[]] },
+    input: { c: [34, 24, 'Aug', () => {}], m: [[], [2]], y: [[]], k: {} },
     expected: DEFAULT_EXPECTED_VALUE,
   },
   {
@@ -175,7 +175,7 @@ export const invalidCases: CaseElements = [
   },
   {
     id: 22,
-    input: { c: () => undefined, m: () => null, y: () => NaN, k: () => null },
+    input: { c: () => undefined, m: () => null, y: () => NaN, k: () => 'f' },
     expected: DEFAULT_EXPECTED_VALUE,
   },
   {

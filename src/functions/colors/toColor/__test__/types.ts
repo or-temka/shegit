@@ -1,9 +1,10 @@
-import { ReturnColorType, To } from '../types';
+import { FromColorType, ReturnColorType, To } from '../types';
 import { CaseElement } from '../../../../../utils/test/describeTestGroups/types';
 
 export type TestGroupCaseElementInput = {
   color: any;
   to?: To;
+  fromColorType?: FromColorType;
 };
 
 export type TestGroupCaseElementExpected<T extends To> = ReturnColorType<T>;

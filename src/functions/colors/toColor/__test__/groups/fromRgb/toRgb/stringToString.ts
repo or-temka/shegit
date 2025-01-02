@@ -1,156 +1,156 @@
 import { To } from '../../../../types';
 import { GroupCaseElements } from '../../../types';
-import { DEFAULT } from '../../../../constants';
+import { DEFAULT } from '../../../../../utility/rgbObjToString/constants';
 
-const EXPECTED_TYPE: To = 'object';
+const EXPECTED_TYPE: To = 'rgb-string';
 const DEFAULT_EXPECTED_VALUE = DEFAULT.return;
 
-export const rgbStringToRgbObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
+export const rgbStringToRgbStringCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
   valid: [
     {
       id: 1,
       input: { color: 'rgb(1, 2, 3)', to: EXPECTED_TYPE },
-      expected: { r: 1, g: 2, b: 3, a: 1 },
+      expected: 'rgb(1, 2, 3)',
     },
     {
       id: 2,
       input: { color: 'rgb(0, 0, 0)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 0, b: 0, a: 1 },
+      expected: 'rgb(0, 0, 0)',
     },
     {
       id: 3,
       input: { color: 'rgb(255, 255, 255)', to: EXPECTED_TYPE },
-      expected: { r: 255, g: 255, b: 255, a: 1 },
+      expected: 'rgb(255, 255, 255)',
     },
     {
       id: 4,
       input: { color: 'rgb(53, 84, 2)', to: EXPECTED_TYPE },
-      expected: { r: 53, g: 84, b: 2, a: 1 },
+      expected: 'rgb(53, 84, 2)',
     },
     {
       id: 5,
       input: { color: 'rgb(234, 12)', to: EXPECTED_TYPE },
-      expected: { r: 234, g: 12, b: 0, a: 1 },
+      expected: 'rgb(234, 12, 0)',
     },
     {
       id: 6,
       input: { color: 'rgb(85)', to: EXPECTED_TYPE },
-      expected: { r: 85, g: 0, b: 0, a: 1 },
+      expected: 'rgb(85, 0, 0)',
     },
     {
       id: 7,
       input: { color: 'rgb(124, 62, 55, 0.5)', to: EXPECTED_TYPE },
-      expected: { r: 124, g: 62, b: 55, a: 0.5 },
+      expected: 'rgb(124, 62, 55)',
     },
     {
       id: 8,
       input: { color: 'rgb(5, 42, 0, 342, 23)', to: EXPECTED_TYPE },
-      expected: { r: 5, g: 42, b: 0, a: 1 },
+      expected: 'rgb(5, 42, 0)',
     },
     {
       id: 9,
       input: { color: 'rgb(63.3, 55.8, 0)', to: EXPECTED_TYPE },
-      expected: { r: 63, g: 55, b: 0, a: 1 },
+      expected: 'rgb(63, 55, 0)',
     },
     {
       id: 10,
       input: { color: 'rgb(0, 255, -5)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 255, b: 0, a: 1 },
+      expected: 'rgb(0, 255, 0)',
     },
     {
       id: 11,
       input: { color: 'rgb(-86, 266, .0)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 255, b: 0, a: 1 },
+      expected: 'rgb(0, 255, 0)',
     },
     {
       id: 12,
       input: { color: () => 'rgb(15, -26, +64)', to: EXPECTED_TYPE },
-      expected: { r: 15, g: 0, b: 64, a: 1 },
+      expected: 'rgb(15, 0, 64)',
     },
     {
       id: 13,
       input: { color: 'rgba(-126, 0, +267)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 0, b: 255, a: 1 },
+      expected: 'rgb(0, 0, 255)',
     },
     {
       id: 14,
       input: { color: 'rgba(0)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 0, b: 0, a: 1 },
+      expected: 'rgb(0, 0, 0)',
     },
     {
       id: 15,
       input: { color: 'rgba(66)', to: EXPECTED_TYPE },
-      expected: { r: 66, g: 0, b: 0, a: 1 },
+      expected: 'rgb(66, 0, 0)',
     },
     {
       id: 16,
       input: { color: 'rgba(+45)', to: EXPECTED_TYPE },
-      expected: { r: 45, g: 0, b: 0, a: 1 },
+      expected: 'rgb(45, 0, 0)',
     },
     {
       id: 17,
       input: { color: 'rgba(-200)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 0, b: 0, a: 1 },
+      expected: 'rgb(0, 0, 0)',
     },
     {
       id: 18,
       input: { color: 'rgba(+500)', to: EXPECTED_TYPE },
-      expected: { r: 255, g: 0, b: 0, a: 1 },
+      expected: 'rgb(255, 0, 0)',
     },
     {
       id: 19,
       input: { color: 'rgba(+212.56, +5.9, +2.1)', to: EXPECTED_TYPE },
-      expected: { r: 212, g: 5, b: 2, a: 1 },
+      expected: 'rgb(212, 5, 2)',
     },
     {
       id: 20,
       input: { color: () => 'rgba(6,,)', to: EXPECTED_TYPE },
-      expected: { r: 6, g: 0, b: 0, a: 1 },
+      expected: 'rgb(6, 0, 0)',
     },
     {
       id: 21,
-      input: { color: '(++20, -18, 5, 2)', to: EXPECTED_TYPE },
-      expected: { r: 20, g: 0, b: 5, a: 1 },
+      input: { color: 'rgba(++20, -18, 5, 2)', to: EXPECTED_TYPE },
+      expected: 'rgb(20, 0, 5)',
     },
     {
       id: 22,
-      input: { color: '(3, 2)', to: EXPECTED_TYPE },
-      expected: { r: 3, g: 2, b: 0, a: 1 },
+      input: { color: 'rgb(3, 2)', to: EXPECTED_TYPE },
+      expected: 'rgb(3, 2, 0)',
     },
     {
       id: 23,
       input: { color: '(-10, +5, 3.4, 0.2)', to: EXPECTED_TYPE },
-      expected: { r: 0, g: 5, b: 3, a: 0.2 },
+      expected: 'rgb(0, 5, 3)',
     },
     {
       id: 24,
-      input: { color: () => '(+1000, 3, 254, 255)', to: EXPECTED_TYPE },
-      expected: { r: 255, g: 3, b: 254, a: 1 },
+      input: { color: () => '(+1000, 3, 254, 255)', to: EXPECTED_TYPE, fromColorType: 'rgb' },
+      expected: 'rgb(255, 3, 254)',
     },
     {
       id: 25,
-      input: { color: () => '1, 3, 5', to: EXPECTED_TYPE },
-      expected: { r: 1, g: 3, b: 5, a: 1 },
+      input: { color: () => '1, 3, 5', to: EXPECTED_TYPE, fromColorType: 'rgb' },
+      expected: 'rgb(1, 3, 5)',
     },
     {
       id: 26,
-      input: { color: () => '24 12 98', to: EXPECTED_TYPE },
-      expected: { r: 24, g: 12, b: 98, a: 1 },
+      input: { color: () => '24 12 98', to: EXPECTED_TYPE, fromColorType: 'rgb' },
+      expected: 'rgb(24, 12, 98)',
     },
     {
       id: 27,
       input: { color: () => '5.2 +129.9 -200 0.7', to: EXPECTED_TYPE },
-      expected: { r: 5, g: 129, b: 0, a: 0.7 },
+      expected: 'rgb(5, 129, 0)',
     },
     {
       id: 28,
-      input: { color: () => '4 7 some text 6', to: EXPECTED_TYPE },
-      expected: { r: 4, g: 7, b: 6, a: 1 },
+      input: { color: () => '4 7 some text 6', to: EXPECTED_TYPE, fromColorType: 'rgb' },
+      expected: 'rgb(4, 7, 6)',
     },
     {
       id: 29,
       input: { color: () => ' some gg +24 12 -98 0.3', to: EXPECTED_TYPE },
-      expected: { r: 24, g: 12, b: 0, a: 0.3 },
+      expected: 'rgb(24, 12, 0)',
     },
   ],
 

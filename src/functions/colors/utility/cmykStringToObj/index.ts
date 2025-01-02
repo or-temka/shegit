@@ -1,10 +1,30 @@
 import { absoluteFloor } from '../../../number';
-import { CmykObj} from '../../../../types';
-import { DEFAULT, DEFAULT_COLOR_COMPONENT, MAX_COMPONENT_VALUE, MIN_COMPONENT_VALUE } from './constants';
+import { CmykObj } from '../../../../types';
+import {
+  DEFAULT,
+  DEFAULT_COLOR_COMPONENT,
+  DEFAULT_KEY_COMPONENT,
+  MAX_COMPONENT_VALUE,
+  MIN_COMPONENT_VALUE,
+} from './constants';
 import { CmykStringToObjInput } from './types';
 
-const parseComponent = (component: string): number => {
+const parseComponent = (component: any, isKey: boolean = false): number => {
+  if (typeof component === 'function') {
+    component = component();
+  }
+
   const num = Number(component);
+
+  if (isKey) {
+    return Number.isNaN(num)
+      ? DEFAULT_KEY_COMPONENT
+      : num < 0
+      ? MIN_COMPONENT_VALUE
+      : num > MAX_COMPONENT_VALUE
+      ? MAX_COMPONENT_VALUE
+      : (absoluteFloor(num) as number);
+  }
   return Number.isNaN(num) || num < 0
     ? MIN_COMPONENT_VALUE
     : num > MAX_COMPONENT_VALUE
@@ -41,13 +61,18 @@ export function cmykStringToObj(string: CmykStringToObjInput = DEFAULT.input): C
   const match = actual.match(/-?\d+(\.\d+)?/g)?.slice(0, 4);
   if (!match) return DEFAULT.return;
 
-  const defaultStringComponent = `${DEFAULT_COLOR_COMPONENT}`
-  const [c = defaultStringComponent, m = defaultStringComponent, y = defaultStringComponent, k = defaultStringComponent] = match;
+  const defaultStringComponent = `${DEFAULT_COLOR_COMPONENT}`;
+  const [
+    c = defaultStringComponent,
+    m = defaultStringComponent,
+    y = defaultStringComponent,
+    k = `${DEFAULT_KEY_COMPONENT}`,
+  ] = match;
 
   const cyan = parseComponent(c);
   const magenta = parseComponent(m);
   const yellow = parseComponent(y);
-  const key = parseComponent(k);
+  const key = parseComponent(k, true);
 
   return {
     c: cyan,

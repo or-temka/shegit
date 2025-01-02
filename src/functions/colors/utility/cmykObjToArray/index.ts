@@ -1,7 +1,36 @@
 import { absoluteFloor } from '../../../number';
 import { CmykArray, CmykObjFunc } from '../../../../types';
-import { DEFAULT, DEFAULT_COLOR_COMPONENT } from './constants';
+import {
+  DEFAULT,
+  DEFAULT_COLOR_COMPONENT,
+  DEFAULT_KEY_COMPONENT,
+  MAX_COMPONENT_VALUE,
+  MIN_COMPONENT_VALUE,
+} from './constants';
 import { CmykObjToArrayInput } from './types';
+
+const parseComponent = (component: any, isKey: boolean = false): number => {
+  if (typeof component === 'function') {
+    component = component();
+  }
+
+  const num = Number(component);
+
+  if (isKey) {
+    return Number.isNaN(num)
+      ? DEFAULT_KEY_COMPONENT
+      : num < 0
+      ? MIN_COMPONENT_VALUE
+      : num > MAX_COMPONENT_VALUE
+      ? MAX_COMPONENT_VALUE
+      : (absoluteFloor(num) as number);
+  }
+  return Number.isNaN(num) || num < 0
+    ? MIN_COMPONENT_VALUE
+    : num > MAX_COMPONENT_VALUE
+    ? MAX_COMPONENT_VALUE
+    : absoluteFloor(num) || DEFAULT_COLOR_COMPONENT;
+};
 
 /**
  * #### CMYK color object to CMYK array
@@ -36,23 +65,10 @@ export function cmykObjToArray(obj: CmykObjToArrayInput = DEFAULT.input): CmykAr
     return DEFAULT.return;
   }
 
-  const parseComponent = (component: any): number => {
-    if (typeof component === 'function') {
-      component = component();
-    }
-
-    const num = Number(component);
-    return Number.isNaN(num) || num < 0
-      ? DEFAULT_COLOR_COMPONENT
-      : num > 100
-      ? 100
-      : absoluteFloor(num) || DEFAULT_COLOR_COMPONENT;
-  };
-
   const c = parseComponent((actual as CmykObjFunc).c);
   const m = parseComponent((actual as CmykObjFunc).m);
   const y = parseComponent((actual as CmykObjFunc).y);
-  const k = parseComponent((actual as CmykObjFunc).k);
+  const k = parseComponent((actual as CmykObjFunc).k, true);
   return [c, m, y, k];
 }
 
