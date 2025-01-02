@@ -100,6 +100,17 @@ export function toColor<T extends To>(
       }
       return cmykObjToArray(rgbObjToCmykObj(c)) as ReturnColorType<T>;
     case 'cmyk-string':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return cmykObjToString(cmykArrayToObj(color as CmykArray)) as ReturnColorType<T>;
+          }
+          return cmykObjToString(color as CmykObj) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return cmykObjToString(cmykStringToObj(color as CmykString)) as ReturnColorType<T>;
+        }
+      }
       return cmykObjToString(rgbObjToCmykObj(c)) as ReturnColorType<T>;
     default:
       return c as ReturnColorType<T>;
