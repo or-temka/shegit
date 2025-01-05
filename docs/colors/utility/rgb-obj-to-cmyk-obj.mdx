@@ -1,0 +1,63 @@
+---
+sidebar_position: 2
+description: Convert RGB color as an object to a CMYK color as an object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, cmyk, color, rgb]
+keywords: [shegit, rgb, cmyk, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { rgbObjToCmykObj } from 'shegit-beta';
+
+# rgbObjToCmykObj
+
+## Using
+
+Convert RGB color `{r: red, g: green, b: blue}` as an object
+to a CMYK color `{c: cyan, m: magenta, y: yellow, k: key }` as an object.
+
+<LiveFunctionPreview
+  name="rgbObjToCmykObj"
+  func={rgbObjToCmykObj}
+  args={[{ name: 'obj', default: '{"r": 125, "g": 14, "b": 96}' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                   | Example                    |
+| -------- | -------------------------- | ----------------------------- | -------------------------- |
+| `obj`    | `object` <br /> `function` | Rgb color object or function. | `{r: 209, g: 205, b: 152}` |
+
+### Returns
+
+`object` — Returns CMYK object in format `{c: cyan, m: magenta, y: yellow, k: key }`.
+
+### Examples
+
+```js
+rgbObjToCmykObj({ r: 64, g: 21, b: 99 });
+// { c: 35, m: 79, y: 0, k: 61 }
+
+rgbObjToCmykObj({ r: '34.3', g: '+59.8', b: -96.5 });
+// { c: 42, m: 0, y: 100, k: 77 }
+
+rgbObjToCmykObj(() => ({ r: () => false, g: () => true, b: () => 255 }));
+// { c: 100, m: 100, y: 0, k: 0 }
+
+rgbObjToCmykObj('some');
+// { c: 0, m: 0, y: 0, k: 100 }
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.1.0/src/functions/colors/utility/rgbObjToCmykObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
