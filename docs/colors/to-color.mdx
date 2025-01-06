@@ -10,7 +10,15 @@ version: 1.1.0
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import Details from '../../src/components/Details';
 import { toColor } from 'shegit-beta';
+
+export const DETAILS_DEFAULT_STYLES = {
+  content: { paddingBottom: 0 },
+  wrapper: {
+    marginBottom: 'var(--ifm-leading)',
+  },
+};
 
 # toColor
 
@@ -23,16 +31,17 @@ Convert a color of one type to another.
   func={toColor}
   args={[
     { name: 'color', default: '{"r": 242, "g": 52, "b": 11}' },
-    { name: 'to', optional: true, default: '"rgb-string"' },
+    { name: 'to', optional: true, default: '"cmyk-string"' },
   ]}
 />
 
 ### Arguments
 
-| Argument | Type                                     | Description | Possible Values                                                          | Example                                                                          |
-| -------- | ---------------------------------------- | ----------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| `color`  | `number[]` <br/> `object` <br/> `string` | RGB color.  |                                                                          | `[15, 76, 213]` <br/> `{r: 255, g: 14, b: 148 }` <br/> `"rgb(63, 69, 5.5, 0.5)"` |
-| `to`     | `string`                                 | return type | `"object"` <br/> `"rgb-object"` <br/> `"rgb-array"` <br/> `"rgb-string"` | `"rgb-array"`                                                                    |
+| Argument        | Type                                     | Description                                                                                 | Possible Values                                                                                                                           | Example                                                                          |
+| --------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `color`         | `number[]` <br/> `object` <br/> `string` | RGB color.                                                                                  |                                                                                                                                           | `[15, 76, 213]` <br/> `{r: 255, g: 14, b: 148 }` <br/> `"cmyk(63, 69, 5.5, 34)"` |
+| `to`            | `string`                                 | Return type.                                                                                | `"object"` <br/> `"rgb-object"` <br/> `"rgb-array"` <br/> `"rgb-string"` <br/> `"cmyk-object"` <br/> `"cmyk-array"` <br/> `"cmyk-string"` | `"cmyk-array"`                                                                   |
+| `fromColorType` | `string`                                 | The color from which we will get the result. Can help when the source value is not defined. | `"rgb"` <br/> `"cmyk"`                                                                                                                    | `"cmyk"`                                                                         |
 
 ### Returns
 
@@ -46,17 +55,17 @@ Convert a color of one type to another.
 toColor([93, 255, 101], 'rgb-object');
 // {r: 93, g: 255, b: 101}
 
-toColor({ r: 74, g: 92, b: 140 }, 'rgb-array');
-// [74, 92, 140]
+toColor({ c: 64, m: 21, y: 99, k: 2 }, 'rgb-array');
+// [90, 197, 2]
 
 toColor({ r: 9.8, g: 32, b: 11 }, 'rgb-string');
 // rgb(9, 32, 11)
 
-toColor('rgb(56, 234, 118.2)', 'rgb-array');
-// [56, 234, 118]
+toColor('rgb(190,88,17)', 'cmyk-string');
+// 'cmyk(0%, 54%, 91%, 25%)'
 ```
 
-#### To `"object"` or `"rgb-object"`
+<Details headerText='To "object" or "rgb-object"' style={DETAILS_DEFAULT_STYLES}>
 
 :::caution
 Use `"rgb-object"` instead of `"object"`, as `"object"` will soon become obsolete.
@@ -69,17 +78,22 @@ toColor(['+53', false, true], 'object');
 toColor([500, 177, -100], 'rgb-object');
 // {r: 255, g: 177, b: 0}
 
-toColor(() => [156.9, () => '202', -100], 'rgb-object');
-// {r: 156, g: 202, b: 0}
-
-toColor('rgba(23, 44, 19)', 'rgb-object');
+toColor(() => 'rgba(23, 44, 19)', 'rgb-object');
 // {r: 23, g: 44, b: 19}
 
-toColor({ r: 55, g: 55, b: 199 }, 'rgb-object');
-// {r: 55, g: 55, b: 199}
+toColor([0, 0, 66], 'object', fromColorType: 'cmyk');
+// { r: 0, g: 0, b: 0, a: 1 }
+
+toColor('cmyk(64%, 21%, 99%, 2%)', 'rgb-object');
+// { r: 90, g: 197, b: 2, a: 1 }
+
+toColor("some", 'rgb-object');
+// { r: 0, g: 0, b: 0, a: 1 }
 ```
 
-#### To `"rgb-array"`
+</Details>
+
+<Details headerText='To "rgb-array"' style={DETAILS_DEFAULT_STYLES}>
 
 ```js
 toColor({ r: 93.4, g: 17, b: 98.9 }, 'rgb-array');
@@ -93,9 +107,20 @@ toColor(() => ({ r: 185, g: '+63', b: () => 260 }), 'rgb-array');
 
 toColor(() => 'rgb(45, 29, 118.2)', 'rgb-array');
 // [45, 29, 118]
+
+toColor('cmyk(0, 63, 0, 99)', 'rgb-array');
+// [3, 1, 3]
+
+toColor(() => [95, 0, 100.4, 99.9], 'rgb-array');
+// [0, 3, 0]
+
+toColor('some', 'rgb-array');
+// [0, 0, 0]
 ```
 
-#### To `"rgb-string"`
+</Details>
+
+<Details headerText='To "rgb-string"' style={DETAILS_DEFAULT_STYLES}>
 
 ```js
 toColor({ r: 93.4, g: 17, b: 98.9 }, 'rgb-string');
@@ -109,7 +134,90 @@ toColor(() => ({ r: 185, g: '+63', b: () => 260 }), 'rgb-string');
 
 toColor('rgb(45, 29, 118.2)', 'rgb-string');
 // rgb(45, 29, 118)
+
+toColor({ m: 63, k: 99 }, 'rgb-string');
+// rgb(3, 1, 3)
+
+toColor('cmyk(64%, 21%, 99%, 2%)', 'rgb-string');
+// rgb(90, 197, 2)
+
+toColor('some', 'rgb-string');
+// rgb(0, 0, 0)
 ```
+
+</Details>
+
+<Details headerText='To "cmyk-object"' style={DETAILS_DEFAULT_STYLES}>
+
+```js
+toColor({ r: 244, g: 233, b: 221, a: 1 }, 'cmyk-object');
+// { c: 0, m: 5, y: 9, k: 4 }
+
+toColor('rgb(64, 21, 99)', 'cmyk-object');
+// { c: 35, m: 79, y: 0, k: 61 }
+
+toColor(() => [-500, 500, '58.8'], 'cmyk-object');
+// { c: 100, m: 0, y: 77, k: 0 }
+
+toColor(() => `55%, +45%, ++74%, -20%, ++56.5%`, 'cmyk-object', fromColorType: 'cmyk');
+// { c: 55, m: 45, y: 74, k: 0 }
+
+toColor([false, true, '+5', 5], 'cmyk-object');
+// { c: 0, m: 1, y: 5, k: 5 }
+
+toColor("some", 'cmyk-object');
+// { c: 0, m: 0, y: 0, k: 100 }
+```
+
+</Details>
+
+<Details headerText='To "cmyk-array"' style={DETAILS_DEFAULT_STYLES}>
+
+```js
+toColor({ r: 64, g: 21, b: 99 }, 'cmyk-array');
+// { r: 64, g: 21, b: 99 }
+
+toColor([22, 22, 22, 1], 'cmyk-array');
+// [0, 0, 0, 91]
+
+toColor(() => 'rgb(-1, +5, 3)', 'cmyk-array');
+// [100, 0, 40, 98]
+
+toColor(() => ['+506', 11.5, 34, -50], 'cmyk-array', fromColorType: 'cmyk');
+// [100, 11, 34, 0]
+
+toColor(() => `cmyk(1, 1%, 1, 1%)`, 'cmyk-array');
+// [1, 1, 1, 1]
+
+toColor('some', 'cmyk-array');
+// [0, 0, 0, 100]
+```
+
+</Details>
+
+<Details headerText='To "cmyk-string"' style={DETAILS_DEFAULT_STYLES}>
+
+```js
+toColor({ r: 251.9, g: 158, b: 44.1 }, 'cmyk-string');
+// cmyk(0%, 37%, 82%, 2%)
+
+toColor([64, 21, 99], 'cmyk-string');
+// cmyk(35%, 79%, 0%, 61%)
+
+toColor('rgb(0, 0, 0)', 'cmyk-string');
+// cmyk(0%, 0%, 0%, 100%)
+
+toColor('cmyk(5, 42.8, 0, 324, 23, 75)', 'cmyk-string');
+// cmyk(5%, 42%, 0%, 100%)
+
+toColor({ c: 20, m: 81 }, 'cmyk-string');
+// cmyk(20%, 81%, 0%, 100%)
+
+toColor('some', 'cmyk-string');
+// cmyk(0%, 0%, 0%, 100%)
+```
+
+</Details>
 
 ### Since
 
