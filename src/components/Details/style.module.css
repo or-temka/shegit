@@ -1,0 +1,37 @@
+.details {
+  background-color: var(--ifm-pre-background);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--ifm-pre-border-radius);
+  overflow: hidden;
+}
+
+.button {
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: var(--ifm-h4-font-size);
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-heading-font-weight);
+}
+
+.button:hover {
+  background-color: rgba(100, 100, 100, 0.1);
+}
+
+.rect {
+  background: var(--ifm-menu-link-sublist-icon) 50% 50% / 2rem 2rem no-repeat;
+  filter: var(--ifm-menu-link-sublist-icon-filter);
+  height: 1.25rem;
+  width: 1.25rem;
+  transition: transform var(--ifm-transition-fast);
+}
+
+.content {
+  padding: var(--ifm-pre-padding);
+}
