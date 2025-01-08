@@ -15,11 +15,11 @@ const parseHexComponent = (component: string | number): number => parseInt(`${co
  * @returns {HexStringToRgbObjReturn} RGBa color object
  * @example
  *
- * hexStringToRgbObj({r: 1, g: 2, b: 3})
- * //
+ * hexStringToRgbObj("#1200E3")
+ * // { r: 18, g: 0, b: 227 }
  *
- * hexStringToRgbObj({r: 400, g: () => "+54", b: -20, a: 1})
- * //
+ * hexStringToRgbObj(() => "123")
+ * // { r: 17, g: 34, b: 51 }
  */
 export function hexStringToRgbObj(
   str: HexStringToRgbObjInput = DEFAULT.input,
