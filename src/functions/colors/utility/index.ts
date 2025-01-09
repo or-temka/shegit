@@ -10,3 +10,4 @@ export * from './cmykObjToRgbObj';
 export * from './rgbObjToCmykObj';
 export * from './rgbObjToHexString';
 export * from './hexStringToRgbObj';
+export * from './hsvObjToArray';
