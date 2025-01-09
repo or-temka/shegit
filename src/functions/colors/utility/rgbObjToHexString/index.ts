@@ -35,11 +35,11 @@ const parseRgbComponent = (component: any): number => {
  * @returns {string} HEX color string
  * @example
  *
- * rgbObjToHexString({r: 1, g: 2, b: 3})
- * //
+ * rgbObjToHexString({ r: 64, g: 21, b: 99 })
+ * // "#401563"
  *
- * rgbObjToHexString({r: 400, g: () => "+54", b: -20, a: 1})
- * //
+ * rgbObjToHexString(() => ({ r: -500, g: 500, b: '58.8' }))
+ * // "#00FF3A"
  */
 export function rgbObjToHexString(obj: RgbObjToHexStringInput = DEFAULT.input): string {
   let actual = obj;
