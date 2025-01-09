@@ -6,6 +6,7 @@ import {
   fromCmykToCmykGroups,
   fromCmykToHexGroups,
   fromCmykToRgbGroups,
+  fromHexToRgbGroups,
   fromRgbToCmykGroups,
   fromRgbToHexGroups,
   fromRgbToRgbGroups,
@@ -21,6 +22,10 @@ describe('To color - convert a color of one type to another', () => {
     ...fromCmykToRgbGroups,
     ...fromCmykToCmykGroups,
     ...fromCmykToHexGroups,
+
+    ...fromHexToRgbGroups,
+    // ...fromHexToCmykGroups,
+    // ...fromHexToHexGroups,
   ];
 
   describeTestGroups({

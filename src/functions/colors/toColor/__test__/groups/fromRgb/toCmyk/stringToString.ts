@@ -129,7 +129,7 @@ export const rgbStringToCmykStringCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 25,
-      input: { color: '254', to: EXPECTED_TYPE },
+      input: { color: '254', to: EXPECTED_TYPE, fromColorType: 'rgb' },
       expected: 'cmyk(0%, 100%, 100%, 0%)',
     },
     {
