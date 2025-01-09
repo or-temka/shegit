@@ -6,6 +6,7 @@ import {
   cmykObjToString,
   cmykArrayToObj,
   cmykStringToObj,
+  rgbObjToHexString,
 } from '../utility';
 import { CmykArray, CmykObj, CmykString, RgbaObj } from '../../../types';
 import { DEFAULT, DEFAULT_RGB_OBJECT } from './constants';
@@ -112,6 +113,8 @@ export function toColor<T extends To>(
         }
       }
       return cmykObjToString(rgbObjToCmykObj(c)) as ReturnColorType<T>;
+    case 'hex-string':
+      return rgbObjToHexString(c) as ReturnColorType<T>;
     default:
       return c as ReturnColorType<T>;
   }
