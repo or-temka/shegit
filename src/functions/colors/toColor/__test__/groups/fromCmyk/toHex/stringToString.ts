@@ -1,184 +1,199 @@
-import { DEFAULT } from '../../../../../utility/cmykObjToArray/constants';
+import { DEFAULT } from '../../../../../utility/rgbObjToHexString/constants';
 import { To } from '../../../../types';
 import { GroupCaseElements } from '../../../types';
 
-const EXPECTED_TYPE: To = 'cmyk-array';
+const EXPECTED_TYPE: To = 'hex-string';
 const DEFAULT_EXPECTED_VALUE = DEFAULT.return;
 
-export const rgbStringToCmykArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
+export const cmykStringToHexStringCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
   valid: [
     {
       id: 1,
-      input: { color: 'rgb(0, 0, 0)', to: EXPECTED_TYPE },
-      expected: [0, 0, 0, 100],
+      input: { color: 'cmyk(0%, 0%, 0%, 0%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#FFFFFF',
     },
     {
       id: 2,
-      input: { color: 'rgb(1, 2, 3)', to: EXPECTED_TYPE },
-      expected: [67, 33, 0, 99],
+      input: { color: 'cmyk(1%, 2%, 3%, 4%)', to: EXPECTED_TYPE },
+      expected: '#F2F0ED',
     },
     {
       id: 3,
-      input: { color: '255, 255, 255', to: EXPECTED_TYPE },
-      expected: [0, 0, 0, 0],
+      input: { color: 'cmyk(100%, 100%, 100%, 100%)', to: EXPECTED_TYPE },
+      expected: '#000000',
     },
     {
       id: 4,
-      input: { color: 'rgb(64, 21, 99)', to: EXPECTED_TYPE },
-      expected: [35, 79, 0, 61],
+      input: { color: 'cmyk(64%, 21%, 99%, 2%)', to: EXPECTED_TYPE },
+      expected: '#5AC502',
     },
     {
       id: 5,
-      input: { color: 'rgb(234, 12)', to: EXPECTED_TYPE },
-      expected: [0, 95, 100, 8],
+      input: { color: 'cmyk(87%, 56%, 22%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#000000',
     },
     {
       id: 6,
-      input: { color: 'rgb(18, 0, 227)', to: EXPECTED_TYPE },
-      expected: [92, 100, 0, 11],
+      input: { color: 'cmyk(20%, 81%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#000000',
     },
     {
       id: 7,
-      input: { color: 'RGB(0, 230, 11)', to: EXPECTED_TYPE },
-      expected: [100, 0, 95, 10],
+      input: { color: 'cmyk(5%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#000000',
     },
     {
       id: 8,
-      input: { color: 'RGB(67)', to: EXPECTED_TYPE },
-      expected: [0, 100, 100, 74],
+      input: { color: 'cmyk(0, 63, 0, 99)', to: EXPECTED_TYPE },
+      expected: '#030103',
     },
     {
       id: 9,
-      input: { color: 'rg(0, 245)', to: EXPECTED_TYPE },
-      expected: [100, 0, 100, 4],
+      input: { color: 'cmyk(0, 0, 0, 34)', to: EXPECTED_TYPE },
+      expected: '#A8A8A8',
     },
     {
       id: 10,
-      input: { color: 'rgb(0, 0, 199)', to: EXPECTED_TYPE },
-      expected: [100, 100, 0, 22],
+      input: { color: 'cmyk(0, 0, 66)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#000000',
     },
     {
       id: 11,
-      input: { color: 'rgb(190,88,17)', to: EXPECTED_TYPE },
-      expected: [0, 54, 91, 25],
+      input: { color: 'CMYK(11%, 30%, 89%, 91%)', to: EXPECTED_TYPE },
+      expected: '#141003',
     },
     {
       id: 12,
-      input: { color: 'rgba(0, 0, 0, 0)', to: EXPECTED_TYPE },
-      expected: [0, 0, 0, 100],
+      input: { color: 'CMYK (+506%, 11.5%, 34%, -50%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#00E3A8',
     },
     {
       id: 13,
-      input: { color: 'rgba(0, 0, 0,1)', to: EXPECTED_TYPE },
-      expected: [0, 0, 0, 100],
+      input: { color: '(-40%, -1%, +67%,69.3 %)', to: EXPECTED_TYPE },
+      expected: '#4F4F1A',
     },
     {
       id: 14,
-      input: { color: '(18, 63, 22, 0)', to: EXPECTED_TYPE },
-      expected: [71, 0, 65, 75],
+      input: { color: '(+45.5%, 21.9%, -59.5%, 55.9%)', to: EXPECTED_TYPE },
+      expected: '#3F5B73',
     },
     {
       id: 15,
-      input: { color: '244 233 221 1', to: EXPECTED_TYPE },
-      expected: [0, 5, 9, 4],
+      input: { color: '228, 0, 0, 86', to: EXPECTED_TYPE },
+      expected: '#002424',
     },
     {
       id: 16,
-      input: { color: 'RGBa(22, 22, 22, 1)', to: EXPECTED_TYPE },
-      expected: [0, 0, 0, 91],
+      input: { color: '95, 0, 100.4, 99.9', to: EXPECTED_TYPE },
+      expected: '#000300',
     },
     {
       id: 17,
-      input: { color: 'rgba(76, 33, 88, 0.5)', to: EXPECTED_TYPE },
-      expected: [14, 63, 0, 65],
+      input: { color: 'cmyka(76%, 75%, 0%, 52%)', to: EXPECTED_TYPE },
+      expected: '#1D1F7A',
     },
     {
       id: 18,
-      input: { color: '12, 99, 44, 12', to: EXPECTED_TYPE, fromColorType: 'rgb' },
-      expected: [88, 0, 56, 61],
+      input: { color: 'cmyk(75 0 -5 22)', to: EXPECTED_TYPE },
+      expected: '#32C7C7',
     },
     {
       id: 19,
-      input: { color: '12.5; 55.2; 249.9', to: EXPECTED_TYPE },
-      expected: [95, 78, 0, 2],
+      input: { color: 'CMYK(805.305%,33.000001%,99.9999%,4%)', to: EXPECTED_TYPE },
+      expected: '#00A402',
     },
     {
       id: 20,
-      input: { color: '(251.9, 158, 44.1)', to: EXPECTED_TYPE },
-      expected: [0, 37, 82, 2],
+      input: { color: 'cmyk(0%, 0%,0%, 0%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#FFFFFF',
     },
     {
       id: 21,
-      input: { color: '0, +20, 95', to: EXPECTED_TYPE, fromColorType: 'rgb' },
-      expected: [100, 79, 0, 63],
+      input: { color: 'cmyk(1%,1%, 1%,1%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#FAFAFA',
     },
     {
       id: 22,
-      input: { color: 'rgb(-100, 290, 24)', to: EXPECTED_TYPE },
-      expected: [100, 0, 91, 0],
+      input: { color: 'cmyk( 0%, 1%, +5%, 5%)', to: EXPECTED_TYPE },
+      expected: '#F2F0E6',
     },
     {
       id: 23,
-      input: { color: 'rgb(500, -699, -700)', to: EXPECTED_TYPE },
-      expected: [0, 100, 100, 0],
+      input: {
+        color: 'cmyk(-100000%, +100000%, 1%, 0%)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
+      expected: '#FF00FC',
     },
     {
       id: 24,
-      input: { color: 'color(34.3, +59.8, -96.5)', to: EXPECTED_TYPE },
-      expected: [42, 0, 100, 77],
+      input: {
+        color: 'CMYK(845.64564; 53.534907; 56.60485; 0)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
+      expected: '#007870',
     },
     {
       id: 25,
-      input: { color: '254', to: EXPECTED_TYPE, fromColorType: 'rgb' },
-      expected: [0, 100, 100, 0],
+      input: { color: 'cmyk(14%; 0%; 0%; 0%);', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#DBFFFF',
     },
     {
       id: 26,
-      input: { color: () => 'rgb(12, 88, -100)', to: EXPECTED_TYPE },
-      expected: [86, 0, 100, 65],
+      input: { color: () => 'cmyk( 100%, 543%, -10%, 54%)', to: EXPECTED_TYPE },
+      expected: '#000075',
     },
     {
       id: 27,
-      input: { color: () => '(-500, 500, 58.8)', to: EXPECTED_TYPE },
-      expected: [100, 0, 77, 0],
+      input: { color: () => 'CMYK (86%, 69.9%, -5%, 0)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#244FFF',
     },
     {
       id: 28,
-      input: { color: () => 'rgb(12, 67, -0)', to: EXPECTED_TYPE },
-      expected: [82, 0, 100, 74],
+      input: {
+        color: () => 'cmyk(54%, +54.7, +600, -34.3%)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
+      expected: '#757500',
     },
     {
       id: 29,
-      input: { color: () => 'rgb(0, +86, 0)', to: EXPECTED_TYPE },
-      expected: [100, 0, 100, 66],
+      input: {
+        color: () => 'CmYk( 0, 1%, -5 %, 1   %)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
+      expected: '#FCFAFC',
     },
     {
       id: 30,
-      input: { color: () => 'RGB(-5555, -5, -200)', to: EXPECTED_TYPE },
-      expected: [0, 0, 0, 100],
+      input: {
+        color: () => 'cMyK( +24.8%, 96%, 5000%, gdfgh%)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
+      expected: '#000000',
     },
     {
       id: 31,
-      input: { color: () => 'rgb(-1, +5, 3)', to: EXPECTED_TYPE },
-      expected: [100, 0, 40, 98],
+      input: { color: () => 'cmyk( 0%, 0%, 0%, 4%)', to: EXPECTED_TYPE },
+      expected: '#F5F5F5',
     },
     {
       id: 32,
-      input: { color: () => 'RGB(0, 1, 255)', to: EXPECTED_TYPE },
-      expected: [100, 100, 0, 0],
+      input: { color: () => 'cmyk( 0%, 0%, +6%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
+      expected: '#000000',
     },
     {
       id: 33,
       input: {
-        color: () => 'rgb(45.7, +291.5, 0)',
+        color: () => 'cmyk( +52%, -5%, 64%, 33%)',
         to: EXPECTED_TYPE,
       },
-      expected: [82, 0, 100, 0],
-    },
-    {
-      id: 34,
-      input: { color: () => '1, 0, 0', to: EXPECTED_TYPE, fromColorType: 'rgb' },
-      expected: [0, 100, 100, 100],
+      expected: '#52AB3E',
     },
   ],
 
