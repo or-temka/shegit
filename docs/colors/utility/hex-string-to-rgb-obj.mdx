@@ -1,0 +1,60 @@
+---
+sidebar_position: 11
+description: Convert HEX color as an string to a RGB color as an object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, hex, color, rgb, string]
+keywords: [shegit, rgb, hex, object, color, string]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { hexStringToRgbObj } from 'shegit-beta';
+
+# hexStringToRgbObj
+
+## Using
+
+Convert HEX color "#`red as 16*` `green as 16*` `blue as 16*`" as an string (`16*` - Hexagonal Calculus)
+to a RGB color `{r: red, g: green, b: blue}` as an object.
+
+<LiveFunctionPreview
+  name="hexStringToRgbObj"
+  func={hexStringToRgbObj}
+  args={[{ name: 'obj', default: '"#14ffb3"' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                   | Example   |
+| -------- | -------------------------- | ----------------------------- | --------- |
+| `str`    | `string` <br /> `function` | HEX color string or function. | `#f80032` |
+
+### Returns
+
+`object` — Returns RGB color in format `{r: red, g: green, b: blue}` as an string.
+
+### Examples
+
+```js
+hexStringToRgbObj('#1200E3');
+// { r: 18, g: 0, b: 227 }
+
+hexStringToRgbObj(() => '#401563');
+// { r: 64, g: 21, b: 99 }
+
+hexStringToRgbObj(false);
+// '#000000'
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.1.0/src/functions/colors/utility/hexStringToRgbObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
