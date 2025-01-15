@@ -1,0 +1,59 @@
+---
+sidebar_position: 2
+description: Convert HSV color as an object to a format array
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, array, color, hsv]
+keywords: [shegit, hsv, array, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { hsvObjToArray } from 'shegit-beta';
+
+# hsvObjToArray
+
+## Using
+
+Convert HSV color `{h: hue, s: saturation, v: value}` as an object to a format array `[hue, saturation, value]`
+
+<LiveFunctionPreview
+  name="hsvObjToArray"
+  func={hsvObjToArray}
+  args={[{ name: 'obj', default: '{"h": 220, "s": 67, "v": 96}' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                   | Example                  |
+| -------- | -------------------------- | ----------------------------- | ------------------------ |
+| `obj`    | `object` <br /> `function` | HSV color object or function. | `{r: 300, g: 10, b: 45}` |
+
+### Returns
+
+`array` — Returns HSV array in format `[hue, saturation, value]`.
+
+### Examples
+
+```js
+hsvObjToArray({ h: -22, s: 99, v: '39' });
+// [0, 99, 39]
+
+hsvObjToArray({ h: () => 2, s: () => 55, v: () => 1005 });
+// [2, 55, 100]
+
+hsvObjToArray('some');
+// [0, 0, 0]
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.1.0/src/functions/colors/utility/hsvObjToArray" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
