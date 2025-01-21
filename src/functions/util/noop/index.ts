@@ -8,8 +8,11 @@
  * @returns {undefined} `undefined`
  * @example
  *
- * noop() // undefined
- * noop("some") // undefined
+ * noop()
+ * // undefined
+ * 
+ * noop("some")
+ * // undefined
  */
 export function noop(...args: any[]): undefined {
   return undefined;
