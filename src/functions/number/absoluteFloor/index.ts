@@ -9,11 +9,20 @@
  * @returns {number} the floored absolute value of the input
  * @example
  *
- * absoluteFloor(44.3) // 44
- * absoluteFloor(12.9) // 12
- * absoluteFloor(-6.8) // -6
- * absoluteFloor(-6.2) // -6
- * absoluteFloor(0) // 0
+ * absoluteFloor(44.3)
+ * // 44
+ * 
+ * absoluteFloor(12.9)
+ * // 12
+ * 
+ * absoluteFloor(-6.8)
+ * // -6
+ * 
+ * absoluteFloor(-6.2)
+ * // -6
+ * 
+ * absoluteFloor(0)
+ * // 0
  */
 export function absoluteFloor(value: number): number | undefined {
   if (typeof value !== 'number' || Number.isNaN(value)) return undefined;
