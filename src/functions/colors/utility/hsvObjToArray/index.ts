@@ -58,7 +58,7 @@ const parseValueComponent = (component: any): number => {
  * hsvObjToArray({h: 1, s: 2, v: 3})
  * // [1, 2, 3]
  *
- * hsvObjToArray({h: 400, s: () => "+54.3", v: -20})
+ * hsvObjToArray(() => {h: 400, s: () => "+54.3", v: -20})
  * // [360, 54, 0]
  */
 export function hsvObjToArray(obj: HsvObjToArrayInput = DEFAULT.input): HsvArray {
