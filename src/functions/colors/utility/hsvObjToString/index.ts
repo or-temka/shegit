@@ -47,7 +47,7 @@ const parseValueComponent = (component: any): number => {
  * #### HSV color object to string
  *
  * Converts HSV color {h: `hue`, s: `saturation`, v: `value`} as an object
- * to a format string hsv(`hue`, `saturation`%, `value`%).
+ * to a format string "hsv(`hue`, `saturation`%, `value`%)"".
  *
  * @since 1.1.0
  * @category Color

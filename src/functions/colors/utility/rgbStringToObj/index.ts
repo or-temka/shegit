@@ -21,7 +21,7 @@ const parseAlphaComponent = (alphaComponent: string): number => {
 /**
  * #### RGB color string to object
  *
- * Converts RGB color `rgb(red, green, blue)` as an string
+ * Converts RGB color "rgb(`red`, `green`, `blue`)" as an string
  * to a format object `{r: red, g: green, b: blue, a: alpha}`.
  *
  * @since 1.1.0
@@ -33,7 +33,7 @@ const parseAlphaComponent = (alphaComponent: string): number => {
  * rgbStringToObj("rgb(1, 2, 3)")
  * // {r: 1, g: 2, b: 3, a: 1}
  *
- * rgbStringToObj(() => "rgba(500, 12, -200, 0.5)")
+ * rgbStringToObj(() => "500, 12, -200, 0.5")
  * // {r: 255, g: 12, b: 0, a: 0.5}
  */
 export function rgbStringToObj(string: RgbStringToObjInput = DEFAULT.input): RgbaObj {

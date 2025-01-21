@@ -45,8 +45,8 @@ const parseValueComponent = (component: any): number => {
 /**
  * #### HSV color array to object
  *
- * Converts HSV color {h: `hue`, s: `saturation`, v: `value`} as an object
- * to a format array [`hue`, `saturation`, `value`].
+ * Converts HSV color [`hue`, `saturation`, `value`] as an array
+ * to a format object {h: `hue`, s: `saturation`, v: `value`}.
  *
  * @since 1.1.0
  * @category Color
@@ -57,7 +57,7 @@ const parseValueComponent = (component: any): number => {
  * hsvArrayToObj([1, 2, 3])
  * // {h: 1, s: 2, v: 3}
  *
- * hsvArrayToObj([400, () => "+54.3", -20])
+ * hsvArrayToObj(() => [400, () => "+54.3", -20])
  * // {h: 360, s: 54, v: 0}
  */
 export function hsvArrayToObj(array: HsvArrayToObjInput = DEFAULT.input): HsvArrayToObjReturn {

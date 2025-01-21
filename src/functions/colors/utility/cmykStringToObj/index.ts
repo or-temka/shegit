@@ -35,7 +35,7 @@ const parseComponent = (component: any, isKey: boolean = false): number => {
 /**
  * #### CMYK color string to object
  *
- * Converts CMYK color `cmyk(cyan, magenta, yellow, key)` as an string
+ * Converts CMYK color "cmyk(`cyan`%, `magenta`%, `yellow`%, `key%`)"" as an string
  * to a format object `{c: cyan, m: magenta, y: yellow, k: key}`.
  *
  * @since 1.1.0
@@ -47,7 +47,7 @@ const parseComponent = (component: any, isKey: boolean = false): number => {
  * cmykStringToObj("cmyk(1, 2, 3, 4)")
  * // {c: 1, m: 2, y: 3, k: 4}
  *
- * cmykStringToObj(() => "cmyka(500, 12, -200, 5.5)")
+ * cmykStringToObj(() => "500, 12, -200, 5.5")
  * // {c: 100, m: 12, y: 0, k: 5}
  */
 export function cmykStringToObj(string: CmykStringToObjInput = DEFAULT.input): CmykObj {
