@@ -4,10 +4,10 @@ import { RgbObjToStringInput } from './types';
 import { absoluteFloor } from '../../../number/absoluteFloor';
 
 /**
- * #### RGB color object to RGB string
+ * #### RGB color object to string
  *
  * Converts RGB color `{r: red, g: green, b: blue}` as an object
- * to a format string `"rgb(red, green, blue)"`.
+ * to a format string "rgb(`red`, `green`, `blue`)".
  *
  * @since 1.1.0
  * @category Color
