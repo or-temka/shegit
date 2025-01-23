@@ -13,3 +13,4 @@ export * from './hexStringToRgbObj';
 export * from './hsvObjToArray';
 export * from './hsvArrayToObj';
 export * from './hsvObjToString';
+export * from './hsvStringToObj';
