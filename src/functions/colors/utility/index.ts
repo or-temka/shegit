@@ -15,3 +15,4 @@ export * from './hsvArrayToObj';
 export * from './hsvObjToString';
 export * from './hsvStringToObj';
 export * from './hsvObjToRgbObj';
+export * from './rgbObjToHsvObj';
