@@ -54,11 +54,14 @@ const parseValueComponent = (component: any): number => {
  * @returns {RgbaObj} RGB color object
  * @example
  *
- * hsvObjToRgbObj({ c: 1, m: 2, y: 3, k: 4 })
- * // { r: 242, g: 240, b: 237, a: 1 }
+ * hsvObjToRgbObj({ h: 220, s: 50, v: 80 })
+ * // { r: 102, g: 136, b: 204, a: 1 }
  *
- * hsvObjToRgbObj(() => ({ c: () => '+24.8', m: () => '96', y: () => 5000, k: () => 'gdfgh' }))
- * // { r: 194, g: 10, b: 0, a: 1 }
+ * hsvObjToRgbObj(() => ({ h: '262.3', s: '+99.9', v: '2.6' }))
+ * // { r: 2, g: 0, b: 5, a: 1 }
+ *
+ * hsvObjToRgbObj("some")
+ * // { r: 0, g: 0, b: 0, a: 1 }
  */
 export function hsvObjToRgbObj(obj: HsvObjToRgbObjInput = DEFAULT.input): RgbaObj {
   let actual = obj;
