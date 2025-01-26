@@ -10,6 +10,7 @@ const isHexString = (str: string): boolean => {
 
 export const getPossibleStringColor = (str: string): ColorType => {
   if (str.toLowerCase().includes('cmyk')) return 'cmyk';
+  if (str.toLowerCase().includes('hsv')) return 'hsv';
   if (str.toLowerCase().includes('rgb') || str.toLowerCase().includes('rgba')) return 'rgb';
   if (str.toLowerCase().includes('#') || isHexString(str)) return 'hex';
 
