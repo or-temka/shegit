@@ -1,5 +1,5 @@
 import { RgbaObj, RgbObj } from 'types';
-import { cmykObjToRgbObj } from '../../utility';
+import { cmykObjToRgbObj, hsvObjToRgbObj } from '../../utility';
 import {
   DEFAULT_RGB_ALPHA_COMPONENT,
   DEFAULT_RGB_COLOR_COMPONENT,
@@ -25,6 +25,8 @@ export const anyObjectToRgba = (obj: Object, colorType: ColorType): RgbaObj => {
 
   if (colorType === 'cmyk') {
     rgba = cmykObjToRgbObj(obj);
+  } else if (colorType === 'hsv') {
+    rgba = hsvObjToRgbObj(obj);
   }
 
   const r = parseRgbComponent((rgba as RgbObj).r || DEFAULT_RGB_COLOR_COMPONENT);
