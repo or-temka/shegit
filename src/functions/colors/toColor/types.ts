@@ -12,8 +12,11 @@ export type To =
   | 'cmyk-object'
   | 'cmyk-array'
   | 'cmyk-string'
-  | 'hex-string';
-export type ColorType = 'rgb' | 'cmyk' | 'hex';
+  | 'hex-string'
+  | 'hsv-object'
+  | 'hsv-array'
+  | 'hsv-string';
+export type ColorType = 'rgb' | 'cmyk' | 'hex' | 'hsv';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
 

@@ -24,6 +24,7 @@ export const colorTypeToMapping: ColorTypeToMapping = {
   rgb: ['object', 'rgb-object', 'rgb-array', 'rgb-string'],
   cmyk: ['cmyk-object', 'cmyk-array', 'cmyk-string'],
   hex: ['hex-string'],
+  hsv: ['hsv-object', 'hsv-array', 'hsv-string'],
 };
 
 export const DEFAULT_RGB_OBJECT = {

@@ -10,6 +10,12 @@ export const getPossibleObjectColor = (obj: Object): ColorType => {
 
   const rgbChance = getChanceOfColor(['r', 'g', 'b', 'a']);
   const cmykChance = getChanceOfColor(['c', 'm', 'y', 'k']);
+  const hsvChance = getChanceOfColor(['h', 's', 'v']);
 
-  return rgbChance >= cmykChance ? 'rgb' : 'cmyk';
+  const colorChances = [rgbChance, cmykChance, hsvChance];
+  const chancesMap: ColorType[] = ['rgb', 'cmyk', 'hsv'];
+  const maxValue = Math.max(...colorChances);
+  const maxIndex = colorChances.indexOf(maxValue);
+
+  return chancesMap[maxIndex];
 };
