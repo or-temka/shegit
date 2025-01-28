@@ -10,8 +10,18 @@ import {
   rgbObjToHsvObj,
   hsvObjToArray,
   hsvObjToString,
+  hsvArrayToObj,
+  hsvStringToObj,
 } from '../utility';
-import { CmykArray, CmykObj, CmykString, RgbaObj } from '../../../types';
+import {
+  CmykArray,
+  CmykObj,
+  CmykString,
+  HsvArray,
+  HsvObj,
+  HsvString,
+  RgbaObj,
+} from '../../../types';
 import { DEFAULT, DEFAULT_RGB_OBJECT } from './constants';
 import { ColorProp, ColorType, ReturnColorType, To } from './types';
 import {
@@ -125,10 +135,43 @@ export function toColor<T extends To>(
     case 'hex-string':
       return rgbObjToHexString(c) as ReturnColorType<T>;
     case 'hsv-object':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return hsvArrayToObj(color as HsvArray) as ReturnColorType<T>;
+          }
+          return hsvArrayToObj(hsvObjToArray(color as HsvObj)) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return hsvStringToObj(color as HsvString) as ReturnColorType<T>;
+        }
+      }
       return rgbObjToHsvObj(c) as ReturnColorType<T>;
     case 'hsv-array':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return hsvObjToArray(hsvArrayToObj(color as HsvArray)) as ReturnColorType<T>;
+          }
+          return hsvObjToArray(color as HsvObj) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return hsvObjToArray(hsvStringToObj(color as HsvString)) as ReturnColorType<T>;
+        }
+      }
       return hsvObjToArray(rgbObjToHsvObj(c)) as ReturnColorType<T>;
     case 'hsv-string':
+      if (isSameColorType) {
+        if (colorVarType === 'object') {
+          if (Array.isArray(color)) {
+            return hsvObjToString(hsvArrayToObj(color as HsvArray)) as ReturnColorType<T>;
+          }
+          return hsvObjToString(color as HsvObj) as ReturnColorType<T>;
+        }
+        if (colorVarType === 'string') {
+          return hsvObjToString(hsvStringToObj(color as HsvString)) as ReturnColorType<T>;
+        }
+      }
       return hsvObjToString(rgbObjToHsvObj(c)) as ReturnColorType<T>;
     default:
       return c as ReturnColorType<T>;
