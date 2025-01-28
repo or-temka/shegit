@@ -2,6 +2,7 @@ import { TestGroups } from '../../../../../../../../utils/test/describeTestGroup
 import { To } from '../../../../types';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../../types';
 
+import { hsvArrayToHsvObjectCases } from './arrayToObject';
 import { hsvObjectToHsvObjectCases } from './objectToObject';
 
 export const fromHsvToHsvGroups: TestGroups<
@@ -9,6 +10,8 @@ export const fromHsvToHsvGroups: TestGroups<
   TestGroupCaseElementExpected<To>
 > = [
   // from array
+  { name: 'Valid: HSV array to HSV object', cases: hsvArrayToHsvObjectCases.valid },
+  { name: 'Invalid: HSV array to HSV object', cases: hsvArrayToHsvObjectCases.invalid },
 
   // from object
   { name: 'Valid: HSV object to HSV object', cases: hsvObjectToHsvObjectCases.valid },
