@@ -107,6 +107,36 @@ export const hsvArrayToHexStringCases: GroupCaseElements<typeof EXPECTED_TYPE> =
       },
       expected: '#000000',
     },
+    {
+      id: 17,
+      input: { color: [55, 55], to: EXPECTED_TYPE, fromColorType: 'hsv' },
+      expected: '#000000',
+    },
+    {
+      id: 18,
+      input: { color: [44], to: EXPECTED_TYPE, fromColorType: 'hsv' },
+      expected: '#000000',
+    },
+    {
+      id: 19,
+      input: { color: [0, 33, 33], to: EXPECTED_TYPE, fromColorType: 'hsv' },
+      expected: '#543838',
+    },
+    {
+      id: 20,
+      input: { color: [0, 0, 22], to: EXPECTED_TYPE, fromColorType: 'hsv' },
+      expected: '#383838',
+    },
+    {
+      id: 21,
+      input: { color: [77, 0, 77], to: EXPECTED_TYPE, fromColorType: 'hsv' },
+      expected: '#C4C4C4',
+    },
+    {
+      id: 22,
+      input: { color: [], to: EXPECTED_TYPE, fromColorType: 'hsv' },
+      expected: '#000000',
+    },
   ],
 
   invalid: [
