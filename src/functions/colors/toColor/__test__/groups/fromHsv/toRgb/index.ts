@@ -7,6 +7,7 @@ import { hsvObjectToRgbStringCases } from './objectToString';
 import { hsvArrayToRgbObjectCases } from './arrayToObject';
 import { hsvStringToRgbObjectCases } from './stringToObject';
 import { hsvArrayToRgbArrayCases } from './arrayToArray';
+import { hsvArrayToRgbStringCases } from './arrayToString';
 
 export const fromHsvToRgbGroups: TestGroups<
   TestGroupCaseElementInput,
@@ -18,6 +19,9 @@ export const fromHsvToRgbGroups: TestGroups<
 
   { name: 'Valid: HSV array to RGB array', cases: hsvArrayToRgbArrayCases.valid },
   { name: 'Invalid: HSV array to RGB array', cases: hsvArrayToRgbArrayCases.invalid },
+
+  { name: 'Valid: HSV array to RGB string', cases: hsvArrayToRgbStringCases.valid },
+  { name: 'Invalid: HSV array to RGB string', cases: hsvArrayToRgbStringCases.invalid },
 
   // from object
   { name: 'Valid: HSV object to RGB object', cases: hsvObjectToRgbObjectCases.valid },
