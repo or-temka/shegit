@@ -10,6 +10,7 @@ import {
   fromHexToHexGroups,
   fromHexToRgbGroups,
   fromHsvToCmykGroups,
+  fromHsvToHexGroups,
   fromHsvToRgbGroups,
   fromRgbToCmykGroups,
   fromRgbToHexGroups,
@@ -33,6 +34,7 @@ describe('To color - convert a color of one type to another', () => {
 
     ...fromHsvToRgbGroups,
     ...fromHsvToCmykGroups,
+    ...fromHsvToHexGroups,
   ];
 
   describeTestGroups({
