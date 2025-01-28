@@ -2,6 +2,7 @@ import { TestGroups } from '../../../../../../../../utils/test/describeTestGroup
 import { To } from '../../../../types';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../../types';
 
+import { rgbArrayToHsvObjectCases } from './arrayToObject';
 import { rgbObjectToHsvArrayCases } from './objectToArray';
 import { rgbObjectToHsvObjectCases } from './ObjectToObject';
 import { rgbObjectToHsvStringCases } from './objectToString';
@@ -11,6 +12,8 @@ export const fromRgbToHsvGroups: TestGroups<
   TestGroupCaseElementExpected<To>
 > = [
   // from array
+  { name: 'Valid: RGB array to HSV object', cases: rgbArrayToHsvObjectCases.valid },
+  { name: 'Invalid: RGB array to HSV object', cases: rgbArrayToHsvObjectCases.invalid },
 
   // from object
   { name: 'Valid: RGB object to HSV object', cases: rgbObjectToHsvObjectCases.valid },
