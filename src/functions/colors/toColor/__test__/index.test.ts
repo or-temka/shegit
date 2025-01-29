@@ -5,12 +5,19 @@ import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from './types
 import {
   fromCmykToCmykGroups,
   fromCmykToHexGroups,
+  fromCmykToHsvGroups,
   fromCmykToRgbGroups,
   fromHexToCmykGroups,
   fromHexToHexGroups,
+  fromHexToHsvGroups,
   fromHexToRgbGroups,
+  fromHsvToCmykGroups,
+  fromHsvToHexGroups,
+  fromHsvToHsvGroups,
+  fromHsvToRgbGroups,
   fromRgbToCmykGroups,
   fromRgbToHexGroups,
+  fromRgbToHsvGroups,
   fromRgbToRgbGroups,
 } from './groups';
 import { To } from '../types';
@@ -20,14 +27,22 @@ describe('To color - convert a color of one type to another', () => {
     ...fromRgbToRgbGroups,
     ...fromRgbToCmykGroups,
     ...fromRgbToHexGroups,
+    ...fromRgbToHsvGroups,
 
     ...fromCmykToRgbGroups,
     ...fromCmykToCmykGroups,
     ...fromCmykToHexGroups,
+    ...fromCmykToHsvGroups,
 
     ...fromHexToRgbGroups,
     ...fromHexToCmykGroups,
     ...fromHexToHexGroups,
+    ...fromHexToHsvGroups,
+
+    ...fromHsvToRgbGroups,
+    ...fromHsvToCmykGroups,
+    ...fromHsvToHexGroups,
+    ...fromHsvToHsvGroups,
   ];
 
   describeTestGroups({

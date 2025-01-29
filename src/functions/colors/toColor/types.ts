@@ -1,5 +1,15 @@
 import { RgbObjToArrayInput, Input } from '../utility';
-import { CmykArray, CmykObj, CmykString, HexString, RgbaObj, RgbArray } from '../../../types';
+import {
+  CmykArray,
+  CmykObj,
+  CmykString,
+  HexString,
+  HsvArray,
+  HsvObj,
+  HsvString,
+  RgbaObj,
+  RgbArray,
+} from '../../../types';
 
 export type Color = Input | RgbObjToArrayInput | string;
 
@@ -12,8 +22,11 @@ export type To =
   | 'cmyk-object'
   | 'cmyk-array'
   | 'cmyk-string'
-  | 'hex-string';
-export type ColorType = 'rgb' | 'cmyk' | 'hex';
+  | 'hex-string'
+  | 'hsv-object'
+  | 'hsv-array'
+  | 'hsv-string';
+export type ColorType = 'rgb' | 'cmyk' | 'hex' | 'hsv';
 
 export type ColorProp = Color | ((...args: any[]) => Color);
 
@@ -33,6 +46,12 @@ export type ReturnColorType<T extends To> = T extends 'object' | 'rgb-object'
   ? CmykString
   : T extends 'hex-string'
   ? HexString
+  : T extends 'hsv-object'
+  ? HsvObj
+  : T extends 'hsv-array'
+  ? HsvArray
+  : T extends 'hsv-string'
+  ? HsvString
   : DefaultReturn;
 
 export interface Default {
