@@ -8,6 +8,7 @@ import { cmykArrayToHsvStringCases } from './arrayToString';
 import { cmykObjectToHsvArrayCases } from './objectToArray';
 import { cmykObjectToHsvObjectCases } from './objectToObject';
 import { cmykObjectToHsvStringCases } from './objectToString';
+import { cmykStringToHsvArrayCases } from './stringToArray';
 import { cmykStringToHsvObjectCases } from './stringToObject';
 
 export const fromCmykToHsvGroups: TestGroups<
@@ -37,4 +38,7 @@ export const fromCmykToHsvGroups: TestGroups<
   // from string
   { name: 'Valid: CMYK string to HSV object', cases: cmykStringToHsvObjectCases.valid },
   { name: 'Invalid: CMYK string to HSV object', cases: cmykStringToHsvObjectCases.invalid },
+
+  { name: 'Valid: CMYK string to HSV array', cases: cmykStringToHsvArrayCases.valid },
+  { name: 'Invalid: CMYK string to HSV array', cases: cmykStringToHsvArrayCases.invalid },
 ];
