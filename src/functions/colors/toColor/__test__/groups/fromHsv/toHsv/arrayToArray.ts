@@ -1,36 +1,36 @@
-import { DEFAULT } from '../../../../../utility/hsvArrayToObj/constants';
+import { DEFAULT } from '../../../../../utility/hsvObjToArray/constants';
 import { To } from '../../../../types';
 import { GroupCaseElements } from '../../../types';
 
-const EXPECTED_TYPE: To = 'hsv-object';
+const EXPECTED_TYPE: To = 'hsv-array';
 const DEFAULT_EXPECTED_VALUE = DEFAULT.return;
 
-export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
+export const hsvArrayToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> = {
   valid: [
     {
       id: 1,
       input: { color: [0, 0, 0], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 0, s: 0, v: 0 },
+      expected: [0, 0, 0],
     },
     {
       id: 2,
       input: { color: [360, 100, 100], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 360, s: 100, v: 100 },
+      expected: [360, 100, 100],
     },
     {
       id: 3,
       input: { color: [220, 50, 80], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 220, s: 50, v: 80 },
+      expected: [220, 50, 80],
     },
     {
       id: 4,
       input: { color: ['80', -4, '+25'], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 80, s: 0, v: 25 },
+      expected: [80, 0, 25],
     },
     {
       id: 5,
       input: { color: ['-100', true, false], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 0, s: 1, v: 0 },
+      expected: [0, 1, 0],
     },
     {
       id: 6,
@@ -39,17 +39,17 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 300, s: 72, v: 33 },
+      expected: [300, 72, 33],
     },
     {
       id: 7,
       input: { color: [1000, 1000, 500], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 360, s: 100, v: 100 },
+      expected: [360, 100, 100],
     },
     {
       id: 8,
       input: { color: [-100, -0.0, -10], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 0, s: 0, v: 0 },
+      expected: [0, 0, 0],
     },
     {
       id: 9,
@@ -58,12 +58,12 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 0, s: 100, v: 55 },
+      expected: [0, 100, 55],
     },
     {
       id: 10,
       input: { color: [187.999, 0.01, 44.7], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 187, s: 0, v: 44 },
+      expected: [187, 0, 44],
     },
     {
       id: 11,
@@ -72,7 +72,7 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 262, s: 99, v: 2 },
+      expected: [262, 99, 2],
     },
     {
       id: 12,
@@ -81,7 +81,7 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 360, s: 0, v: 100 },
+      expected: [360, 0, 100],
     },
     {
       id: 13,
@@ -90,22 +90,22 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 360, s: 100, v: 77 },
+      expected: [360, 100, 77],
     },
     {
       id: 14,
       input: { color: () => [0, 0, 0], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 0, s: 0, v: 0 },
+      expected: [0, 0, 0],
     },
     {
       id: 15,
       input: { color: () => [360, 100, 100], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 360, s: 100, v: 100 },
+      expected: [360, 100, 100],
     },
     {
       id: 16,
       input: { color: () => [220, 50, 80], to: EXPECTED_TYPE, fromColorType: 'hsv' },
-      expected: { h: 220, s: 50, v: 80 },
+      expected: [220, 50, 80],
     },
     {
       id: 17,
@@ -114,7 +114,7 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 0, s: 1, v: 0 },
+      expected: [0, 1, 0],
     },
     {
       id: 18,
@@ -123,7 +123,7 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 0, s: 0, v: 0 },
+      expected: [0, 0, 0],
     },
     {
       id: 19,
@@ -132,7 +132,7 @@ export const hsvArrayToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE> =
         to: EXPECTED_TYPE,
         fromColorType: 'hsv',
       },
-      expected: { h: 0, s: 0, v: 0 },
+      expected: [0, 0, 0],
     },
   ],
 
