@@ -7,6 +7,7 @@ import { hsvArrayToHsvObjectCases } from './arrayToObject';
 import { hsvArrayToHsvStringCases } from './arrayToString';
 import { hsvObjectToHsvArrayCases } from './objectToArray';
 import { hsvObjectToHsvObjectCases } from './objectToObject';
+import { hsvObjectToHsvStringCases } from './objectToString';
 import { hsvStringToHsvObjectCases } from './stringToObject';
 
 export const fromHsvToHsvGroups: TestGroups<
@@ -29,6 +30,9 @@ export const fromHsvToHsvGroups: TestGroups<
 
   { name: 'Valid: HSV object to HSV array', cases: hsvObjectToHsvArrayCases.valid },
   { name: 'Invalid: HSV object to HSV array', cases: hsvObjectToHsvArrayCases.invalid },
+
+  { name: 'Valid: HSV object to HSV string', cases: hsvObjectToHsvStringCases.valid },
+  { name: 'Invalid: HSV object to HSV string', cases: hsvObjectToHsvStringCases.invalid },
 
   // from string
   { name: 'Valid: HSV string to HSV object', cases: hsvStringToHsvObjectCases.valid },
