@@ -14,7 +14,7 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 2,
-      input: { color: 'cmyk(1%, 2%, 3%, 4%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYK(1%, 2%, 3%, 4%)', to: EXPECTED_TYPE },
       expected: { h: 36, s: 2, v: 95 },
     },
     {
@@ -24,7 +24,7 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 4,
-      input: { color: 'cmyk(64%, 21%, 99%, 2%)', to: EXPECTED_TYPE },
+      input: { color: '64, 21, 99, 2', to: EXPECTED_TYPE },
       expected: { h: 93, s: 99, v: 77 },
     },
     {
@@ -44,7 +44,7 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 8,
-      input: { color: 'cmyk(0%, 63%, 0%, 99%)', to: EXPECTED_TYPE },
+      input: { color: 'cmyk(0, 63, 0, 99)', to: EXPECTED_TYPE },
       expected: { h: 300, s: 67, v: 1 },
     },
     {
@@ -59,12 +59,12 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 11,
-      input: { color: 'cmyk(11%, 30%, 89%, 91%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYKA(11%, 30%, 89%, 91%)', to: EXPECTED_TYPE },
       expected: { h: 46, s: 85, v: 8 },
     },
     {
       id: 12,
-      input: { color: 'cmyk(+506%, 11.5%, 34%, -50%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYKa(+506, 11.5, 34%, -50%)', to: EXPECTED_TYPE },
       expected: { h: 164, s: 100, v: 89 },
     },
     {
@@ -79,7 +79,7 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 15,
-      input: { color: 'cmyk(228%, 0%, 0%, 86%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYK(228%, 0%, 0%, 86%)', to: EXPECTED_TYPE },
       expected: { h: 180, s: 100, v: 14 },
     },
     {
@@ -89,7 +89,11 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 18,
-      input: { color: 'cmyk(805.305%, 33.0000001%, 99.9999%, 4%)', to: EXPECTED_TYPE },
+      input: {
+        color: 'rgb(805.305%, 33.0000001%, 99.9999%, 4)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
       expected: { h: 121, s: 100, v: 64 },
     },
     {
@@ -99,7 +103,7 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 20,
-      input: { color: 'cmyk(1%, 1%, 1%, 1%)', to: EXPECTED_TYPE },
+      input: { color: 'rgb(1%, 1%, 1%, 1%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
       expected: { h: 0, s: 0, v: 98 },
     },
     {
@@ -119,7 +123,7 @@ export const cmykStringToHsvObjectCases: GroupCaseElements<typeof EXPECTED_TYPE>
     },
     {
       id: 24,
-      input: { color: () => 'cmyk(86%, 69.9%, -5%, 0)', to: EXPECTED_TYPE },
+      input: { color: () => 'cmyk(86, 69.9, -5, 0)', to: EXPECTED_TYPE },
       expected: { h: 228, s: 86, v: 100 },
     },
     {

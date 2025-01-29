@@ -14,7 +14,7 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 2,
-      input: { color: 'cmyk(1%, 2%, 3%, 4%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYK(1%, 2%, 3%, 4%)', to: EXPECTED_TYPE },
       expected: [36, 2, 95],
     },
     {
@@ -29,12 +29,12 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 5,
-      input: { color: 'cmyk(87%, 56%, 22%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYK(87%, 56%, 22%)', to: EXPECTED_TYPE },
       expected: [0, 0, 0],
     },
     {
       id: 6,
-      input: { color: 'cmyk(20%, 81%)', to: EXPECTED_TYPE },
+      input: { color: 'cmyk(20, 81%)', to: EXPECTED_TYPE },
       expected: [0, 0, 0],
     },
     {
@@ -44,12 +44,12 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 8,
-      input: { color: 'cmyk(0%, 63%, 0%, 99%)', to: EXPECTED_TYPE },
+      input: { color: '(0, 63%, 0, 99%)', to: EXPECTED_TYPE },
       expected: [300, 67, 1],
     },
     {
       id: 9,
-      input: { color: 'cmyk(0%, 0%, 0%, 34%)', to: EXPECTED_TYPE },
+      input: { color: 'cmyk(0, 0, 0, 34)', to: EXPECTED_TYPE },
       expected: [0, 0, 66],
     },
     {
@@ -59,17 +59,17 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 11,
-      input: { color: 'cmyk(11%, 30%, 89%, 91%)', to: EXPECTED_TYPE },
+      input: { color: '(11, 30, 89, 91)', to: EXPECTED_TYPE },
       expected: [46, 85, 8],
     },
     {
       id: 12,
-      input: { color: 'cmyk(+506%, 11.5%, 34%, -50%)', to: EXPECTED_TYPE },
+      input: { color: '(+506%, 11.5%, 34%, -50%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
       expected: [164, 100, 89],
     },
     {
       id: 13,
-      input: { color: 'cmyk(-40%, -1%, +67%, 69.3%)', to: EXPECTED_TYPE },
+      input: { color: '(-40%, -1%, +67%, 69.3%)', to: EXPECTED_TYPE },
       expected: [60, 67, 31],
     },
     {
@@ -84,12 +84,16 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 17,
-      input: { color: 'cmyk(95%, 0%, 100.4%, 99.9%)', to: EXPECTED_TYPE },
+      input: { color: 'CMYK(95, 0, 100.4, 99.9)', to: EXPECTED_TYPE },
       expected: [120, 100, 1],
     },
     {
       id: 18,
-      input: { color: 'cmyk(805.305%, 33.0000001%, 99.9999%, 4%)', to: EXPECTED_TYPE },
+      input: {
+        color: 'rgb(805.305%, 33.0000001%, 99.9999%, 4%)',
+        to: EXPECTED_TYPE,
+        fromColorType: 'cmyk',
+      },
       expected: [121, 100, 64],
     },
     {
@@ -99,7 +103,7 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 20,
-      input: { color: 'cmyk(1%, 1%, 1%, 1%)', to: EXPECTED_TYPE },
+      input: { color: 'rgb(1%, 1%, 1%, 1%)', to: EXPECTED_TYPE, fromColorType: 'cmyk' },
       expected: [0, 0, 98],
     },
     {
@@ -109,7 +113,7 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 22,
-      input: { color: 'cmyk(14)', to: EXPECTED_TYPE },
+      input: { color: 'CMYk(14)', to: EXPECTED_TYPE },
       expected: [0, 0, 0],
     },
     {
@@ -145,7 +149,7 @@ export const cmykStringToHsvArrayCases: GroupCaseElements<typeof EXPECTED_TYPE> 
     },
     {
       id: 28,
-      input: { color: () => 'cmyk(0%, 0%, 0%, 4%)', to: EXPECTED_TYPE },
+      input: { color: () => '0, 0, 0, 4', to: EXPECTED_TYPE },
       expected: [0, 0, 96],
     },
     {
