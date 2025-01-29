@@ -5,6 +5,7 @@ import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../.
 import { hsvArrayToHsvArrayCases } from './arrayToArray';
 import { hsvArrayToHsvObjectCases } from './arrayToObject';
 import { hsvArrayToHsvStringCases } from './arrayToString';
+import { hsvObjectToHsvArrayCases } from './objectToArray';
 import { hsvObjectToHsvObjectCases } from './objectToObject';
 import { hsvStringToHsvObjectCases } from './stringToObject';
 
@@ -25,6 +26,9 @@ export const fromHsvToHsvGroups: TestGroups<
   // from object
   { name: 'Valid: HSV object to HSV object', cases: hsvObjectToHsvObjectCases.valid },
   { name: 'Invalid: HSV object to HSV object', cases: hsvObjectToHsvObjectCases.invalid },
+
+  { name: 'Valid: HSV object to HSV array', cases: hsvObjectToHsvArrayCases.valid },
+  { name: 'Invalid: HSV object to HSV array', cases: hsvObjectToHsvArrayCases.invalid },
 
   // from string
   { name: 'Valid: HSV string to HSV object', cases: hsvStringToHsvObjectCases.valid },
