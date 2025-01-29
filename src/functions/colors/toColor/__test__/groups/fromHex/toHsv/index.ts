@@ -4,6 +4,7 @@ import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../.
 
 import { hexStringToHsvArrayCases } from './stringToArray';
 import { hexStringToHsvObjectCases } from './stringToObject';
+import { hexStringToHsvStringCases } from './stringToString';
 
 export const fromHexToHsvGroups: TestGroups<
   TestGroupCaseElementInput,
@@ -19,4 +20,7 @@ export const fromHexToHsvGroups: TestGroups<
 
   { name: 'Valid: HEX string to HSV array', cases: hexStringToHsvArrayCases.valid },
   { name: 'Invalid: HEX string to HSV array', cases: hexStringToHsvArrayCases.invalid },
+
+  { name: 'Valid: HEX string to HSV string', cases: hexStringToHsvStringCases.valid },
+  { name: 'Invalid: HEX string to HSV string', cases: hexStringToHsvStringCases.invalid },
 ];
