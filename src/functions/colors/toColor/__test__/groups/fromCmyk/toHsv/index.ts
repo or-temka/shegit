@@ -4,6 +4,7 @@ import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../.
 import { cmykArrayToHsvArrayCases } from './arrayToArray';
 
 import { cmykArrayToHsvObjectCases } from './arrayToObject';
+import { cmykArrayToHsvStringCases } from './arrayToString';
 import { cmykObjectToHsvArrayCases } from './objectToArray';
 import { cmykObjectToHsvObjectCases } from './objectToObject';
 import { cmykObjectToHsvStringCases } from './objectToString';
@@ -19,6 +20,9 @@ export const fromCmykToHsvGroups: TestGroups<
 
   { name: 'Valid: CMYK array to HSV array', cases: cmykArrayToHsvArrayCases.valid },
   { name: 'Invalid: CMYK array to HSV array', cases: cmykArrayToHsvArrayCases.invalid },
+
+  { name: 'Valid: CMYK array to HSV string', cases: cmykArrayToHsvStringCases.valid },
+  { name: 'Invalid: CMYK array to HSV string', cases: cmykArrayToHsvStringCases.invalid },
 
   // from object
   { name: 'Valid: CMYK object to HSV object', cases: cmykObjectToHsvObjectCases.valid },
