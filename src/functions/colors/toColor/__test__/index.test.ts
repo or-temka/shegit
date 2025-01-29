@@ -5,6 +5,7 @@ import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from './types
 import {
   fromCmykToCmykGroups,
   fromCmykToHexGroups,
+  fromCmykToHsvGroups,
   fromCmykToRgbGroups,
   fromHexToCmykGroups,
   fromHexToHexGroups,
@@ -30,6 +31,7 @@ describe('To color - convert a color of one type to another', () => {
     ...fromCmykToRgbGroups,
     ...fromCmykToCmykGroups,
     ...fromCmykToHexGroups,
+    ...fromCmykToHsvGroups,
 
     ...fromHexToRgbGroups,
     ...fromHexToCmykGroups,
