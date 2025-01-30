@@ -19,6 +19,12 @@ const getInvalidAnyDepth = (startId: number = 0) => {
     new Map(),
     Symbol('Hello'),
     Symbol(2),
+    [0, [], false, () => {}],
+    { name: 'Alina' },
+    () => {},
+    class Pet {},
+    Infinity,
+    -Infinity,
   ];
   return depthVariants
     .map((variant) => {

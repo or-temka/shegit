@@ -1,7 +1,7 @@
-const isValidNumber = (value: any): boolean =>
+const isValidNumber = (value: unknown): value is number =>
   typeof value === 'number' && !Number.isNaN(value) && Number.isFinite(value);
 
-const isBoolean = (value: any): boolean => typeof value === 'boolean';
+const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean';
 
 /**
  * #### Resolve boolean
@@ -10,7 +10,7 @@ const isBoolean = (value: any): boolean => typeof value === 'boolean';
  *
  * @since 1.1.0
  * @category Operation
- * @param {any} value can be any type
+ * @param {unknown} value can be any type
  * @param {number} depth determines the depth of function resolution
  * - If `number`, specifies the maximum depth for function execution.
  * - If unless stated or `undefined`, resolves functions indefinitely until a non-function value is found.
@@ -31,7 +31,7 @@ const isBoolean = (value: any): boolean => typeof value === 'boolean';
  * resolveBoolean(() => () => () => true, 3)
  * // true
  */
-export function resolveBoolean(value: any, depth?: number): boolean | undefined {
+export function resolveBoolean(value: unknown, depth?: number): boolean | undefined {
   if (depth !== undefined && !isValidNumber(depth)) return undefined;
   if (depth && isValidNumber(depth) && depth < 0) return undefined;
 

@@ -1,7 +1,7 @@
-const isValidNumber = (value: any): boolean =>
+const isValidNumber = (value: unknown): value is number =>
   typeof value === 'number' && !Number.isNaN(value) && Number.isFinite(value);
 
-const isArray = (value: any): boolean => Array.isArray(value);
+const isArray = (value: unknown): value is any[] => Array.isArray(value);
 
 /**
  * #### Resolve array
@@ -10,7 +10,7 @@ const isArray = (value: any): boolean => Array.isArray(value);
  *
  * @since 1.1.0
  * @category Operation
- * @param {any} value can be any type
+ * @param {unknown} value can be any type
  * @param {number} depth determines the depth of function resolution
  * - If `number`, specifies the maximum depth for function execution.
  * - If unless stated or `undefined`, resolves functions indefinitely until a non-function value is found.
@@ -32,7 +32,7 @@ const isArray = (value: any): boolean => Array.isArray(value);
  * resolveArray(() => () => () => [false, 0], 3)
  * // [false, 0]
  */
-export function resolveArray(value: any, depth?: number): any[] | undefined {
+export function resolveArray(value: unknown, depth?: number): any[] | undefined {
   if (depth !== undefined && !isValidNumber(depth)) return undefined;
   if (depth && isValidNumber(depth) && depth < 0) return undefined;
 
