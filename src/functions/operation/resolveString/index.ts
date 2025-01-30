@@ -1,7 +1,7 @@
-const isValidNumber = (value: any): boolean =>
+const isValidNumber = (value: unknown): value is number =>
   typeof value === 'number' && !Number.isNaN(value) && Number.isFinite(value);
 
-const isString = (value: any): boolean => typeof value === 'string';
+const isString = (value: unknown): value is string => typeof value === 'string';
 
 /**
  * #### Resolve string
@@ -10,7 +10,7 @@ const isString = (value: any): boolean => typeof value === 'string';
  *
  * @since 1.1.0
  * @category Operation
- * @param {any} value can be any type
+ * @param {unknown} value can be any type
  * @param {number} depth determines the depth of function resolution
  * - If `number`, specifies the maximum depth for function execution.
  * - If unless stated or `undefined`, resolves functions indefinitely until a non-function value is found.
@@ -32,7 +32,7 @@ const isString = (value: any): boolean => typeof value === 'string';
  * resolveString(() => () => () => "any", 3)
  * // "any"
  */
-export function resolveString(value: any, depth?: number): string | undefined {
+export function resolveString(value: unknown, depth?: number): string | undefined {
   if (depth !== undefined && !isValidNumber(depth)) return undefined;
   if (depth && isValidNumber(depth) && depth < 0) return undefined;
 

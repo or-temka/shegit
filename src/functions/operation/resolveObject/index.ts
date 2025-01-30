@@ -1,7 +1,7 @@
-const isValidNumber = (value: unknown): boolean =>
+const isValidNumber = (value: unknown): value is number =>
   typeof value === 'number' && !Number.isNaN(value) && Number.isFinite(value);
 
-const isObject = (value: unknown): boolean =>
+const isObject = (value: unknown): value is object =>
   Object.prototype.toString.call(value) === '[object Object]' &&
   Object.getPrototypeOf(value) !== null;
 
@@ -12,7 +12,7 @@ const isObject = (value: unknown): boolean =>
  *
  * @since 1.1.0
  * @category Operation
- * @param {any} value can be any type
+ * @param {unknown} value can be any type
  * @param {number} depth determines the depth of function resolution
  * - If `number`, specifies the maximum depth for function execution.
  * - If unless stated or `undefined`, resolves functions indefinitely until a non-function value is found.
@@ -38,7 +38,7 @@ export function resolveObject(value: unknown, depth?: number): object | undefine
   if (depth !== undefined && !isValidNumber(depth)) return undefined;
   if (depth && isValidNumber(depth) && depth < 0) return undefined;
 
-  if (isObject(value)) return value as object;
+  if (isObject(value)) return value;
   if (typeof value !== 'function') return undefined;
 
   if (depth === undefined) {
