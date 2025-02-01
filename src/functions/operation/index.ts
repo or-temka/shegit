@@ -3,3 +3,4 @@ export * from './resolveBoolean';
 export * from './resolveString';
 export * from './resolveArray';
 export * from './resolveObject';
+export * from './resolveFunction';
