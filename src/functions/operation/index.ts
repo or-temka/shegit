@@ -5,3 +5,4 @@ export * from './resolveArray';
 export * from './resolveObject';
 export * from './resolveFunction';
 export * from './resolveDate';
+export * from './resolveSet';
