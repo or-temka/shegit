@@ -7,3 +7,4 @@ export * from './resolveFunction';
 export * from './resolveDate';
 export * from './resolveSet';
 export * from './resolveMap';
+export * from './resolveValue';
