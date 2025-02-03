@@ -352,8 +352,8 @@ export const validCases: CaseElements = [
   },
   {
     id: 91,
-    input: { value: () => new Date(), depth: 0, useToString: true },
-    expected: '() => new Date()',
+    input: { value: () => new Date('2020-01-03'), depth: 0, useToString: true },
+    expected: "() => new Date('2020-01-03')",
   },
   {
     id: 92,
@@ -437,8 +437,8 @@ export const validCases: CaseElements = [
   },
   {
     id: 108,
-    input: { value: () => () => new Date(), depth: 0, useToString: true },
-    expected: '() => () => new Date()',
+    input: { value: () => () => new Date('2020-01-03'), depth: 0, useToString: true },
+    expected: "() => () => new Date('2020-01-03')",
   },
   {
     id: 109,
@@ -538,8 +538,8 @@ export const validCases: CaseElements = [
   },
   {
     id: 125,
-    input: { value: () => () => () => new Date(), depth: 0, useToString: true },
-    expected: '() => () => () => new Date()',
+    input: { value: () => () => () => new Date('2020-01-03'), depth: 0, useToString: true },
+    expected: "() => () => () => new Date('2020-01-03')",
   },
   {
     id: 126,
@@ -615,7 +615,7 @@ export const validCases: CaseElements = [
   { id: 139, input: { value: { obj: true }, depth: 1 }, expected: DEFAULT_EXPECTED_VALUE },
   { id: 140, input: { value: [1, 2], depth: 1 }, expected: DEFAULT_EXPECTED_VALUE },
   { id: 141, input: { value: () => '33', depth: 1 }, expected: '33' },
-  { id: 142, input: { value: new Date(), depth: 1 }, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 142, input: { value: new Date('2020-01-03'), depth: 1 }, expected: DEFAULT_EXPECTED_VALUE },
   {
     id: 143,
     input: { value: new Set(['value1', 'value2']), depth: 1 },
@@ -725,8 +725,8 @@ export const validCases: CaseElements = [
   },
   {
     id: 176,
-    input: { value: () => () => new Date(), depth: 1, useToString: true },
-    expected: '() => new Date()',
+    input: { value: () => () => new Date('2020-01-03'), depth: 1, useToString: true },
+    expected: "() => new Date('2020-01-03')",
   },
   {
     id: 177,
@@ -826,8 +826,8 @@ export const validCases: CaseElements = [
   },
   {
     id: 193,
-    input: { value: () => () => () => new Date(), depth: 1, useToString: true },
-    expected: '() => () => new Date()',
+    input: { value: () => () => () => new Date('2020-01-03'), depth: 1, useToString: true },
+    expected: "() => () => new Date('2020-01-03')",
   },
   {
     id: 194,
@@ -903,7 +903,7 @@ export const validCases: CaseElements = [
   { id: 207, input: { value: { obj: true }, depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
   { id: 208, input: { value: [1, 2], depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
   { id: 209, input: { value: () => '33', depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
-  { id: 210, input: { value: new Date(), depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 210, input: { value: new Date('2020-01-03'), depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
   {
     id: 211,
     input: { value: new Set(['value1', 'value2']), depth: 2 },
@@ -938,7 +938,11 @@ export const validCases: CaseElements = [
   { id: 224, input: { value: () => ({ obj: true }), depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
   { id: 225, input: { value: () => [1, 2], depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
   { id: 226, input: { value: () => () => '33', depth: 2 }, expected: '33' },
-  { id: 227, input: { value: () => new Date(), depth: 2 }, expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 227,
+    input: { value: () => new Date('2020-01-03'), depth: 2 },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
   {
     id: 228,
     input: { value: () => new Set(['value1', 'value2']), depth: 2 },
@@ -1053,8 +1057,8 @@ export const validCases: CaseElements = [
   },
   {
     id: 261,
-    input: { value: () => () => () => new Date(), depth: 2, useToString: true },
-    expected: '() => new Date()',
+    input: { value: () => () => () => new Date('2020-01-03'), depth: 2, useToString: true },
+    expected: "() => new Date('2020-01-03')",
   },
   {
     id: 262,

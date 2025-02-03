@@ -136,7 +136,7 @@ const getInvalidAnyDepth = (startId: number = 0) => {
 };
 
 export const validCases: CaseElements = [
-  { id: 1, input: { value: new Date() }, expected: new Date() },
+  { id: 1, input: { value: new Date(2) }, expected: new Date(2) },
   { id: 2, input: { value: new Date('2025-05-05') }, expected: new Date('2025-05-05') },
   { id: 3, input: { value: new Date('2023-01-01') }, expected: new Date('2023-01-01') },
   { id: 4, input: { value: new Date('2026-06-06') }, expected: new Date('2026-06-06') },
