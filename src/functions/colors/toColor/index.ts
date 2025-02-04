@@ -33,6 +33,7 @@ import {
   getPossibleStringColor,
   isMappedColorTypeTo,
 } from './utils';
+import { fromColorTypeIsCorrect } from './utils/fromColorTypeIsCorrect';
 
 /**
  * #### To color
@@ -69,18 +70,24 @@ export function toColor<T extends To>(
 
   if (colorVarType === 'object') {
     if (Array.isArray(color)) {
-      colorType = fromColorType || getPossibleArrayColor(color);
+      colorType = fromColorTypeIsCorrect(fromColorType)
+        ? fromColorType
+        : getPossibleArrayColor(color);
       isSameColorType = isMappedColorTypeTo(to, colorType);
       Object.assign(c, anyArrayToRgba(color, colorType));
     } else {
       if (color !== null) {
-        colorType = fromColorType || getPossibleObjectColor(color);
+        colorType = fromColorTypeIsCorrect(fromColorType)
+          ? fromColorType
+          : getPossibleObjectColor(color);
         isSameColorType = isMappedColorTypeTo(to, colorType);
         Object.assign(c, anyObjectToRgba(color, colorType));
       }
     }
   } else if (colorVarType === 'string') {
-    colorType = fromColorType || getPossibleStringColor(color as string);
+    colorType = fromColorTypeIsCorrect(fromColorType)
+      ? fromColorType
+      : getPossibleStringColor(color as string);
     isSameColorType = isMappedColorTypeTo(to, colorType);
     Object.assign(c, anyStringToRgba(color as string, colorType));
   }

@@ -7,6 +7,7 @@ import {
   fromCmykToHexGroups,
   fromCmykToHsvGroups,
   fromCmykToRgbGroups,
+  fromColorTypeParameter,
   fromHexToCmykGroups,
   fromHexToHexGroups,
   fromHexToHsvGroups,
@@ -24,6 +25,8 @@ import { To } from '../types';
 
 describe('To color - convert a color of one type to another', () => {
   const testGroups: TestGroups<TestGroupCaseElementInput, TestGroupCaseElementExpected<To>> = [
+    ...fromColorTypeParameter,
+
     ...fromRgbToRgbGroups,
     ...fromRgbToCmykGroups,
     ...fromRgbToHexGroups,
