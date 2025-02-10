@@ -3,10 +3,10 @@ import { To } from '../../../../types';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from '../../../types';
 
 import { rgbArrayToCmykArrayCases } from './arrayToArray';
-import { rgbArrayToCmykObjectCases } from './ArrayToObject';
+import { rgbArrayToCmykObjectCases } from './arrayToObject';
 import { rgbArrayToCmykStringCases } from './arrayToString';
 import { rgbObjectToCmykArrayCases } from './objectToArray';
-import { rgbObjectToCmykObjectCases } from './ObjectToObject';
+import { rgbObjectToCmykObjectCases } from './objectToObject';
 import { rgbObjectToCmykStringCases } from './objectToString';
 import { rgbStringToCmykArrayCases } from './stringToArray';
 import { rgbStringToCmykObjectCases } from './stringToObject';
