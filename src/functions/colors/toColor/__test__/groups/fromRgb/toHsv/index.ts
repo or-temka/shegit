@@ -6,7 +6,7 @@ import { rgbArrayToHsvArrayCases } from './arrayToArray';
 import { rgbArrayToHsvObjectCases } from './arrayToObject';
 import { rgbArrayToHsvStringCases } from './arrayToString';
 import { rgbObjectToHsvArrayCases } from './objectToArray';
-import { rgbObjectToHsvObjectCases } from './ObjectToObject';
+import { rgbObjectToHsvObjectCases } from './objectToObject';
 import { rgbObjectToHsvStringCases } from './objectToString';
 import { rgbStringToHsvArrayCases } from './stringToArray';
 import { rgbStringToHsvObjectCases } from './stringToObject';
