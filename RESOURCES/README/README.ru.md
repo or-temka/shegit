@@ -10,6 +10,10 @@ Shegit - это модульные утилиты. Shegit позволяет р�
 
 [![NPM Downloads](https://img.shields.io/npm/dw/shegit?logo=npm&label=npm&labelColor=red&color=grey)](https://www.npmjs.com/package/shegit)
 
+## Документация
+
+Вы можете просмотреть документацию на [сайте](https://or-temka.github.io/shegit/).
+
 ## Скачать
 
 - [Полную версию (~18.7 kB)](https://github.com/or-temka/shegit/archive/refs/heads/npm.zip)

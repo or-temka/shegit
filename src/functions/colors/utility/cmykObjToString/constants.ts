@@ -1,0 +1,16 @@
+import { CmykObjToStringDefault } from './types';
+
+export const MIN_COMPONENT_VALUE = 0;
+export const MAX_COMPONENT_VALUE = 100;
+export const DEFAULT_COLOR_COMPONENT = MIN_COMPONENT_VALUE;
+export const DEFAULT_KEY_COMPONENT = MAX_COMPONENT_VALUE;
+
+export const DEFAULT: CmykObjToStringDefault = {
+  input: {
+    c: DEFAULT_COLOR_COMPONENT,
+    m: DEFAULT_COLOR_COMPONENT,
+    y: DEFAULT_COLOR_COMPONENT,
+    k: DEFAULT_KEY_COMPONENT,
+  },
+  return: `cmyk(${DEFAULT_COLOR_COMPONENT}%, ${DEFAULT_COLOR_COMPONENT}%, ${DEFAULT_COLOR_COMPONENT}%, ${DEFAULT_KEY_COMPONENT}%)`,
+};

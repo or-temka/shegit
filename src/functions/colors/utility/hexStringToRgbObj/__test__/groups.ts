@@ -1,0 +1,220 @@
+import { DEFAULT } from '../constants';
+import { CaseElements } from './types';
+
+const DEFAULT_EXPECTED_VALUE = DEFAULT.return;
+
+export const validCases: CaseElements = [
+  { id: 1, input: '#000000', expected: { r: 0, g: 0, b: 0 } },
+  { id: 2, input: '#010203', expected: { r: 1, g: 2, b: 3 } },
+  {
+    id: 3,
+    input: '#FFFFFF',
+    expected: { r: 255, g: 255, b: 255 },
+  },
+  { id: 4, input: '#401563', expected: { r: 64, g: 21, b: 99 } },
+  { id: 5, input: '#EA0C00', expected: { r: 234, g: 12, b: 0 } },
+  { id: 6, input: '#1200E3', expected: { r: 18, g: 0, b: 227 } },
+  { id: 7, input: '#00E60B', expected: { r: 0, g: 230, b: 11 } },
+  { id: 8, input: '#000', expected: { r: 0, g: 0, b: 0 } },
+  { id: 9, input: '#123', expected: { r: 17, g: 34, b: 51 } },
+  { id: 10, input: '000', expected: { r: 0, g: 0, b: 0 } },
+  {
+    id: 11,
+    input: '123',
+    expected: { r: 17, g: 34, b: 51 },
+  },
+  { id: 12, input: '#1234', expected: { r: 17, g: 34, b: 51 } },
+  { id: 13, input: '#12345', expected: { r: 17, g: 34, b: 51 } },
+  {
+    id: 14,
+    input: '#123456',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 15,
+    input: '123456',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 16,
+    input: '#1234567',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 17,
+    input: '#12345678',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 18,
+    input: '#FFF',
+    expected: { r: 255, g: 255, b: 255 },
+  },
+  {
+    id: 19,
+    input: '#RRHPFRFRFRRRR',
+    expected: { r: 255, g: 255, b: 255 },
+  },
+  {
+    id: 20,
+    input: '#FB9E2C',
+    expected: { r: 251, g: 158, b: 44 },
+  },
+  {
+    id: 21,
+    input: '000000F1',
+    expected: { r: 0, g: 0, b: 0 },
+  },
+  { id: 22, input: () => '#000000', expected: { r: 0, g: 0, b: 0 } },
+  { id: 23, input: () => '#010203', expected: { r: 1, g: 2, b: 3 } },
+  {
+    id: 24,
+    input: () => '#FFFFFF',
+    expected: { r: 255, g: 255, b: 255 },
+  },
+  { id: 25, input: () => '#401563', expected: { r: 64, g: 21, b: 99 } },
+  { id: 26, input: () => '#EA0C00', expected: { r: 234, g: 12, b: 0 } },
+  { id: 27, input: () => '#1200E3', expected: { r: 18, g: 0, b: 227 } },
+  { id: 28, input: () => '#00E60B', expected: { r: 0, g: 230, b: 11 } },
+  { id: 29, input: () => '#000', expected: { r: 0, g: 0, b: 0 } },
+  { id: 30, input: () => '#123', expected: { r: 17, g: 34, b: 51 } },
+  { id: 31, input: () => '000', expected: { r: 0, g: 0, b: 0 } },
+  {
+    id: 32,
+    input: () => '123',
+    expected: { r: 17, g: 34, b: 51 },
+  },
+  { id: 33, input: () => '#1234', expected: { r: 17, g: 34, b: 51 } },
+  { id: 34, input: () => '#12345', expected: { r: 17, g: 34, b: 51 } },
+  {
+    id: 35,
+    input: () => '#123456',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 36,
+    input: () => '123456',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 37,
+    input: () => '#1234567',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 38,
+    input: () => '#12345678',
+    expected: { r: 18, g: 52, b: 86 },
+  },
+  {
+    id: 39,
+    input: () => '#FFF',
+    expected: { r: 255, g: 255, b: 255 },
+  },
+  {
+    id: 40,
+    input: () => '#RRHPFRFRFRRRR',
+    expected: { r: 255, g: 255, b: 255 },
+  },
+  {
+    id: 41,
+    input: () => '#FB9E2C',
+    expected: { r: 251, g: 158, b: 44 },
+  },
+  {
+    id: 42,
+    input: () => '000000F1',
+    expected: { r: 0, g: 0, b: 0 },
+  },
+];
+
+export const invalidCases: CaseElements = [
+  { id: 1, input: 0, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 2, input: 44, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 3, input: '+89', expected: DEFAULT_EXPECTED_VALUE },
+  { id: 4, input: 500, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 5, input: -1000, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 6, input: '-34', expected: DEFAULT_EXPECTED_VALUE },
+  { id: 7, input: false, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 8, input: true, expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 9,
+    input: { name: 'John' },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  { id: 10, input: 'John', expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 11,
+    input: 3.3333,
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  { id: 12, input: () => 3, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 13, input: new Set(), expected: DEFAULT_EXPECTED_VALUE },
+  { id: 14, input: new Map(), expected: DEFAULT_EXPECTED_VALUE },
+  { id: 15, input: Symbol(4), expected: DEFAULT_EXPECTED_VALUE },
+  { id: 16, input: new Error(), expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 17,
+    input: { r: 'John', g: '++5', b: '--10' },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 18,
+    input: { r: () => 'John', g: () => ({}), b: () => {} },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 19,
+    input: { r: { name: 'John' }, g: {}, b: [] },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 20,
+    input: { r: [34, 24, 'Aug', () => {}], g: [[], [2]], b: [[]] },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 21,
+    input: { r: undefined, g: null, b: NaN },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 22,
+    input: { r: () => undefined, g: () => null, b: () => NaN },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 23,
+    input: { r: new Map(), g: new Set(), b: new Error() },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 24,
+    input: { r: 'one', g: 'два', b: 'tri' },
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  { id: 25, input: () => 0, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 26, input: () => 44, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 27, input: () => '+89', expected: DEFAULT_EXPECTED_VALUE },
+  { id: 28, input: () => 500, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 29, input: () => -1000, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 30, input: () => '-34', expected: DEFAULT_EXPECTED_VALUE },
+  { id: 31, input: () => false, expected: DEFAULT_EXPECTED_VALUE },
+  { id: 32, input: () => true, expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 33,
+    input: () => ({ name: 'John' }),
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  { id: 34, input: () => 'John', expected: DEFAULT_EXPECTED_VALUE },
+  {
+    id: 35,
+    input: null,
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+  {
+    id: 36,
+    input: () => null,
+    expected: DEFAULT_EXPECTED_VALUE,
+  },
+];
