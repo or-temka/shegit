@@ -1,0 +1,62 @@
+---
+sidebar_position: 3
+description: Convert CMYK color as an object to a format string
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, string, color, cmyk]
+keywords: [shegit, cmyk, string, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { cmykObjToString } from 'shegit1.1.0';
+
+# cmykObjToString
+
+## Using
+
+Convert CMYK color `{c: cyan, m: magenta, y: yellow, k: key }` as an object to a format string `'cmyk(cyan%, magenta%, yellow%, key%)'`
+
+<LiveFunctionPreview
+  name="cmykObjToString"
+  func={cmykObjToString}
+  args={[{ name: 'obj', default: '{"c": 255, "m": 14, "y": 96, "k": 59}' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                    | Example                        |
+| -------- | -------------------------- | ------------------------------ | ------------------------------ |
+| `obj`    | `object` <br /> `function` | CMYK color object or function. | `{c: 10, m: 24, y: 57, k: 96}` |
+
+### Returns
+
+`string` — Returns CMYK string in format `'cmyk(cyan%, magenta%, yellow%, key%)'`.
+
+### Examples
+
+```js
+cmykObjToString({ c: 15, m: 76, y: 14, k: 50 });
+// [15, 76, 14, 50]
+
+cmykObjToString({ c: '+99', m: 300, y: -5, k: 99 });
+// [99, 100, 0, 99]
+
+cmykObjToString({ c: () => true, m: false, y: 45.9, k: NaN });
+// [1, 0, 45, 0]
+
+cmykObjToString(() => ({ c: 3.2, m: () => 55, y: '84', k: '-7' }));
+// [3, 55, 84, 0]
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/cmykObjToString" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/cmykobjtoarray-rppnwn" /> */}
+</div>

@@ -1,0 +1,75 @@
+---
+sidebar_position: 7
+description: Function that retrieves or resolves only number values. This function should handle various input types, resolving functions if encountered, and ultimately return an number if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [number, resolve, functions]
+keywords: [number, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { resolveNumber } from 'shegit1.1.0';
+
+# resolveNumber
+
+## Using
+
+Function that retrieves or resolves only number values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an number if possible.
+
+If the final resolved value is not an number or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+<LiveFunctionPreview
+  name="resolveNumber"
+  func={resolveNumber}
+  args={[
+    { name: 'value', default: '12' },
+    { name: 'depth', default: '0' },
+  ]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description               | Example                        |
+| -------- | -------------------------- | ------------------------- | ------------------------------ |
+| `value`  | `number` <br /> `function` | Value for resolve.        | `15` <br /> `() => () => 65.5` |
+| `depth`  | `number`                   | Depth of maximum resolve. | `2`                            |
+
+### Returns
+
+`number` | `undefined` — Returns the resolved number otherwise `undefined`.
+
+### Examples
+
+```js
+resolveNumber(44);
+// 44
+
+resolveNumber(() => () => 192.94);
+// 192.94
+
+resolveNumber('text');
+// undefined
+
+resolveNumber(() => 886, 1);
+// 886
+
+resolveNumber(() => 886, 2);
+// 886
+
+resolveNumber(() => 886, 0);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveNumber" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

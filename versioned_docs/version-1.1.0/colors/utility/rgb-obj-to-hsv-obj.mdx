@@ -1,0 +1,63 @@
+---
+sidebar_position: 1
+description: Convert RGB color as an object to a HSV color as an object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, hsv, color, rgb]
+keywords: [shegit, rgb, hsv, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { rgbObjToHsvObj } from 'shegit1.1.0';
+
+# rgbObjToHsvObj
+
+## Using
+
+Convert RGB color `{r: red, g: green, b: blue}` as an object
+to a HSV color `{ h: hue, s: saturation, v: value }` as an object.
+
+<LiveFunctionPreview
+  name="rgbObjToHsvObj"
+  func={rgbObjToHsvObj}
+  args={[{ name: 'obj', default: '{"r": 125, "g": 14, "b": 96}' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                   | Example                    |
+| -------- | -------------------------- | ----------------------------- | -------------------------- |
+| `obj`    | `object` <br /> `function` | RGB color object or function. | `{r: 209, g: 205, b: 152}` |
+
+### Returns
+
+`object` — Returns HSV object in format `{ h: hue, s: saturation, v: value }`.
+
+### Examples
+
+```js
+rgbObjToHsvObj({ r: 64, g: 21, b: 99 });
+// { h: 273, s: 79, v: 39 }
+
+rgbObjToHsvObj({ r: '34.3', g: '+59.8', b: -96.5 });
+// { h: 85, s: 100, v: 23 }
+
+rgbObjToHsvObj(() => ({ r: () => false, g: () => true, b: () => 255 }));
+// { h: 240, s: 100, v: 100 }
+
+rgbObjToHsvObj('some');
+// { h: 0, s: 0, v: 0 }
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/rgbObjToHsvObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

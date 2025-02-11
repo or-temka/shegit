@@ -1,0 +1,8 @@
+{
+  "label": "Colors",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Functions designed to work with color."
+  }
+}
