@@ -1,0 +1,67 @@
+---
+sidebar_position: 1
+description: Returns the largest integer less than or equal to the absolute value of the given number.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [number, floor, rounding]
+keywords: [number, floor, rounding]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { absoluteFloor } from 'shegit1.1.0';
+
+# absoluteFloor
+
+## Using
+
+Returns the largest integer less than or equal to the absolute value of the given number.
+
+This function takes a floating-point number, rounds it down to the nearest integer, and then converts the result to a positive value.
+
+- For positive numbers, it returns the result of rounding down (`Math.floor`).
+- For negative numbers, it rounds down in absolute terms and returns a positive integer (e.g., -44.4 becomes 44).
+
+<LiveFunctionPreview
+  name="absoluteFloor"
+  func={absoluteFloor}
+  args={[{ name: 'value', default: '-56.9' }]}
+/>
+
+### Arguments
+
+| Argument | Type     | Description            | Example                          |
+| -------- | -------- | ---------------------- | -------------------------------- |
+| `value`  | `number` | The number to process. | `15.9` <br /> `13.2` <br /> `14` |
+
+### Returns
+
+`number` — Returns a positive integer, rounded down from the input.
+
+### Examples
+
+```js
+absoluteFloor(15.9);
+// 15
+
+absoluteFloor(920.2);
+// 920
+
+absoluteFloor(-140.8);
+// 140
+
+absoluteFloor(9);
+// 9
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/absoluteFloor" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
