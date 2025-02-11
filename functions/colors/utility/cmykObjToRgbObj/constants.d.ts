@@ -1,0 +1,12 @@
+import { CmykObj } from 'types';
+import { CmykObjToRgbObjDefault } from './types';
+export declare const MIN_CMYK_COMPONENT_VALUE = 0;
+export declare const MAX_CMYK_COMPONENT_VALUE = 100;
+export declare const DEFAULT_CMYK_COLOR_COMPONENT = 0;
+export declare const DEFAULT_CMYK_KEY_COMPONENT = 100;
+export declare const MIN_RGB_COMPONENT_VALUE = 0;
+export declare const MAX_RGB_COMPONENT_VALUE = 255;
+export declare const DEFAULT_RGB_COLOR_COMPONENT = 255;
+export declare const DEFAULT_RGB_ALPHA_COMPONENT = 1;
+export declare const DEFAULT_CMYK_OBJ: Required<CmykObj>;
+export declare const DEFAULT: CmykObjToRgbObjDefault;

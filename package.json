@@ -1,7 +1,7 @@
 {
   "name": "shegit",
-  "version": "1.0.3",
-  "license": "ISC",
+  "version": "1.1.0",
+  "license": "MIT",
   "description": "Shegit modular utilities.",
   "main": "index.js",
   "keywords": [
@@ -9,7 +9,7 @@
     "stdlib",
     "util"
   ],
-  "homepage": "https://github.com/or-temka/shegit#readme",
+  "homepage": "https://or-temka.github.io/shegit/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/or-temka/shegit.git"
