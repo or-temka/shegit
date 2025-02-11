@@ -1,0 +1,17 @@
+import { HsvObj } from '../../../../types';
+import { HsvObjToRgbObjDefault } from './types';
+export declare const MIN_HSV_HUE_COMPONENT = 0;
+export declare const MAX_HSV_HUE_COMPONENT = 360;
+export declare const DEFAULT_HSV_HUE_COMPONENT = 0;
+export declare const MIN_HSV_SATURATION_COMPONENT = 0;
+export declare const MAX_HSV_SATURATION_COMPONENT = 100;
+export declare const DEFAULT_HSV_SATURATION_COMPONENT = 0;
+export declare const MIN_HSV_VALUE_COMPONENT = 0;
+export declare const MAX_HSV_VALUE_COMPONENT = 100;
+export declare const DEFAULT_HSV_VALUE_COMPONENT = 0;
+export declare const MIN_RGB_COMPONENT_VALUE = 0;
+export declare const MAX_RGB_COMPONENT_VALUE = 255;
+export declare const DEFAULT_RGB_COLOR_COMPONENT = 0;
+export declare const DEFAULT_RGB_ALPHA_COMPONENT = 1;
+export declare const DEFAULT_HSV_OBJ: Required<HsvObj>;
+export declare const DEFAULT: HsvObjToRgbObjDefault;

@@ -14,5 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./toColor"), exports);
-__exportStar(require("./rgbArrayToObj"), exports);
+__exportStar(require("./number"), exports);
+__exportStar(require("./colors"), exports);
+__exportStar(require("./util"), exports);
+__exportStar(require("./operation"), exports);
