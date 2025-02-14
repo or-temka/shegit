@@ -1,10 +1,10 @@
-import { absoluteFloor } from '../../../../../dist';
+import { toCamelCase } from '../../../../../dist';
 import { describeTestGroups } from '../../../../../utils';
 import { TestGroups } from '../../../../../utils/test/describeTestGroups/types';
 import { invalidCases, validCases } from './groups';
 import { TestGroupCaseElementExpected, TestGroupCaseElementInput } from './types';
 
-describe('absoluteFloor', () => {
+describe('toCamelCase', () => {
   const testGroups: TestGroups<TestGroupCaseElementInput, TestGroupCaseElementExpected> = [
     { name: 'Valid cases', cases: validCases },
     { name: 'Invalid cases', cases: invalidCases },
@@ -12,6 +12,6 @@ describe('absoluteFloor', () => {
 
   describeTestGroups({
     testGroups,
-    callback: (input) => absoluteFloor(input),
+    callback: (input) => toCamelCase(input),
   });
 });
