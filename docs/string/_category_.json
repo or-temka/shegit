@@ -1,0 +1,8 @@
+{
+  "label": "String",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Functions for string operations."
+  }
+}
