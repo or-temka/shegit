@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable no-underscore-dangle */
 /**
  * #### Deep copy
  *
@@ -35,44 +37,65 @@
  * //   e: true
  * // }
  */
-export const deepCopy = <T>(value: T): T => {
-  if (value === null || typeof value !== 'object') {
-    return value;
-  }
-
-  if (Array.isArray(value)) {
-    return value.map((item) => deepCopy(item)) as unknown as T;
-  }
-
-  if (value instanceof Date) {
-    return new Date(value.getTime()) as unknown as T;
-  }
-
-  if (value instanceof RegExp) {
-    return new RegExp(value.source, value.flags) as unknown as T;
-  }
-
-  if (value instanceof Map) {
-    const copy = new Map();
-    value.forEach((val, key) => {
-      copy.set(key, deepCopy(val));
-    });
-    return copy as unknown as T;
-  }
-
-  if (value instanceof Set) {
-    const copy = new Set();
-    value.forEach((val) => {
-      copy.add(deepCopy(val));
-    });
-    return copy as unknown as T;
-  }
-
-  const copy = {} as { [key: string]: any };
-  for (const key in value) {
-    if (value.hasOwnProperty(key)) {
-      copy[key] = deepCopy(value[key]);
+export function deepCopy<T>(value: T): T {
+  function _deepCopy<T>(value: T, seen: WeakMap<object, any>): T {
+    if (value === null || typeof value !== 'object') {
+      return value;
     }
+
+    if (seen.has(value)) {
+      return seen.get(value);
+    }
+
+    if (Array.isArray(value)) {
+      const copy: any[] = [];
+      seen.set(value, copy);
+      value.forEach((item) => {
+        copy.push(_deepCopy(item, seen));
+      });
+      return copy as unknown as T;
+    }
+
+    if (value instanceof Date) {
+      const copy = new Date(value.getTime());
+      seen.set(value, copy);
+      return copy as unknown as T;
+    }
+
+    if (value instanceof RegExp) {
+      const copy = new RegExp(value.source, value.flags);
+      seen.set(value, copy);
+      return copy as unknown as T;
+    }
+
+    if (value instanceof Map) {
+      const copy = new Map();
+      seen.set(value, copy);
+      value.forEach((val, key) => {
+        copy.set(key, _deepCopy(val, seen));
+      });
+      return copy as unknown as T;
+    }
+
+    if (value instanceof Set) {
+      const copy = new Set();
+      seen.set(value, copy);
+      value.forEach((val) => {
+        copy.add(_deepCopy(val, seen));
+      });
+      return copy as unknown as T;
+    }
+
+    const copy = {} as { [key: string]: any };
+    seen.set(value, copy);
+    for (const key in value) {
+      if (value.hasOwnProperty(key)) {
+        copy[key] = _deepCopy(value[key], seen);
+      }
+    }
+
+    return copy as T;
   }
-  return copy as T;
-};
+
+  return _deepCopy(value, new WeakMap());
+}
