@@ -86,12 +86,35 @@ export function deepCopy<T>(value: T): T {
       return copy as unknown as T;
     }
 
-    const copy = {} as { [key: string]: any };
+    if (value instanceof Promise) {
+      return value;
+    }
+
+    if (value instanceof Error) {
+      const copy = new (value.constructor as new (message: string) => Error)(value.message);
+      copy.name = value.name;
+      seen.set(value, copy);
+      return copy as unknown as T;
+    }
+
+    if (typeof Buffer !== 'undefined' && value instanceof Buffer) {
+      const copy = Buffer.from(value);
+      seen.set(value, copy);
+      return copy as unknown as T;
+    }
+
+    const copy = Object.create(Object.getPrototypeOf(value));
     seen.set(value, copy);
+
     for (const key in value) {
       if (value.hasOwnProperty(key)) {
         copy[key] = _deepCopy(value[key], seen);
       }
+    }
+
+    const symbolKeys = Object.getOwnPropertySymbols(value);
+    for (const key of symbolKeys) {
+      copy[key] = _deepCopy(value[key as keyof typeof value], seen);
     }
 
     return copy as T;

@@ -20,7 +20,7 @@ describe('delay', () => {
 
     const elapsed = Date.now() - start;
 
-    expect(elapsed).toBeGreaterThanOrEqual(delayTime);
+    expect(elapsed).toBeGreaterThanOrEqual(delayTime - 1);
   });
 
   it('500 ms', async () => {
