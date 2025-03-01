@@ -10,3 +10,4 @@ export * from './resolveMap';
 export * from './resolveValue';
 export * from './deepCopy';
 export * from './mapObjectKeys';
+export * from './compareObjects';
