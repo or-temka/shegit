@@ -9,3 +9,4 @@ export * from './resolveSet';
 export * from './resolveMap';
 export * from './resolveValue';
 export * from './deepCopy';
+export * from './mapObjectKeys';
