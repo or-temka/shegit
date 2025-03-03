@@ -1,6 +1,6 @@
 import { compareObjects } from '../../../../../dist';
 
-describe('deepCopy', () => {
+describe('compareObjects', () => {
   it('should return differences by default', () => {
     const obj1 = { a: 1, b: 2, c: { d: 3 } };
     const obj2 = { a: 1, b: 3, c: { d: 4 } };
