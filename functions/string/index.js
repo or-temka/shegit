@@ -16,3 +16,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./toCamelCase"), exports);
 __exportStar(require("./toSnakeCase"), exports);
+__exportStar(require("./capitalizeFirstLetter"), exports);
