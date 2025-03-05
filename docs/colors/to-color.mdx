@@ -30,9 +30,9 @@ Convert a color of one type to another.
   name="toColor"
   func={toColor}
   args={[
-    { name: 'color', default: '{"r": 242, "g": 52, "b": 11}' },
-    { name: 'to', optional: true, default: '"cmyk-string"' },
-    { name: 'fromColorType', optional: true, default: '' },
+    { name: 'color', initial: '{"r": 242, "g": 52, "b": 11}' },
+    { name: 'to', optional: true, initial: '"cmyk-string"', default: '"rgb-object"' },
+    { name: 'fromColorType', optional: true, initial: '', default: '"rgb"' },
   ]}
 />
 
