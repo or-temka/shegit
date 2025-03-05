@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 description: Function that retrieves or resolves only number values. This function should handle various input types, resolving functions if encountered, and ultimately return an number if possible.
 authors: [Shchegortzov Artem Mikhailovich]
 tags: [number, resolve, functions]
@@ -25,8 +25,8 @@ If the final resolved value is not an number or if a function remains unresolved
   name="resolveNumber"
   func={resolveNumber}
   args={[
-    { name: 'value', default: '12' },
-    { name: 'depth', default: '0' },
+    { name: 'value', initial: '12' },
+    { name: 'depth', initial: '0', default: '0' },
   ]}
 />
 
