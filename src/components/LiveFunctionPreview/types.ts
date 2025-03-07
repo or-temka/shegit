@@ -10,7 +10,7 @@ export type Argument = {
   optional?: boolean;
   initial?: string;
   default?: string;
-  type?: 'number';
+  type?: 'number' | 'function';
 };
 
 export type LiveFunctionPreviewProps = {

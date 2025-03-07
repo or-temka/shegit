@@ -1,3 +1,4 @@
+import { isEmpty } from 'shegit-beta';
 import { Argument, InputsVal } from './types';
 
 export function getInputsValByArgs(args: Argument[]) {
@@ -7,3 +8,11 @@ export function getInputsValByArgs(args: Argument[]) {
   });
   return result;
 }
+
+export const getFormattedAgsValues = (argsValue: any[], args: Argument[]) =>
+  argsValue.map((v, index) => {
+    if (args[index].type === 'function') {
+      return isEmpty(v) ? eval(args[index].default) : eval(v);
+    }
+    return v;
+  });

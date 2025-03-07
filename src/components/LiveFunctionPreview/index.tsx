@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Argument, InputsVal, LiveFunctionPreviewProps } from './types';
 import styles from './style.module.css';
-import { getInputsValByArgs } from './utils';
+import { getFormattedAgsValues, getInputsValByArgs } from './utils';
 
 function LiveFunctionPreview({
   name,
   func = () => {},
   args,
-  label = 'Demo',
+  label = 'Demo - use JSON',
 }: LiveFunctionPreviewProps) {
   const [inputsVal, setInputsVal] = useState<InputsVal>(getInputsValByArgs(args));
   const [isHasError, setIsHasError] = useState(false);
@@ -53,7 +53,7 @@ function LiveFunctionPreview({
     };
     const argsValue = parse();
     try {
-      const functionResult = func(...argsValue);
+      const functionResult = func(...getFormattedAgsValues(argsValue, args));
 
       const result =
         typeof functionResult !== 'undefined' ? (
@@ -64,6 +64,7 @@ function LiveFunctionPreview({
       if (isHasError) setIsHasError(false);
       return result;
     } catch (error) {
+      console.error(error);
       if (!isHasError) setIsHasError(true);
       return <>"Error"</>;
     }
