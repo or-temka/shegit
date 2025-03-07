@@ -11,6 +11,9 @@ export type Argument = {
   initial?: string;
   default?: string;
   type?: 'number' | 'function';
+  style?: {
+    width?: number;
+  };
 };
 
 export type LiveFunctionPreviewProps = {

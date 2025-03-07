@@ -9,8 +9,6 @@ version: 1.1.0
 
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
-import { resolveNumber } from 'shegit-beta';
 
 # resolveNumber
 
@@ -20,15 +18,6 @@ Function that retrieves or resolves only number values.
 This function should handle various input types, resolving functions if encountered, and ultimately return an number if possible.
 
 If the final resolved value is not an number or if a function remains unresolved within the specified depth, the function return `undefined`.
-
-<LiveFunctionPreview
-  name="resolveNumber"
-  func={resolveNumber}
-  args={[
-    { name: 'value', initial: '12' },
-    { name: 'depth', initial: '0', default: '0' },
-  ]}
-/>
 
 ### Arguments
 

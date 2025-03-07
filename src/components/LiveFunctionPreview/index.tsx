@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Argument, InputsVal, LiveFunctionPreviewProps } from './types';
 import styles from './style.module.css';
-import { getFormattedAgsValues, getInputsValByArgs } from './utils';
+import { getFormattedAgsValues, getInputsValByArgs, getStyleForArgumentInput } from './utils';
 
 function LiveFunctionPreview({
   name,
@@ -34,6 +34,7 @@ function LiveFunctionPreview({
                 className={styles.input}
                 value={inputsVal[arg.name]}
                 onChange={(e) => setInputValue(e, arg)}
+                style={getStyleForArgumentInput(arg)}
               ></input>{' '}
               {showSeparator && ','}
             </div>

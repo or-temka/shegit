@@ -16,3 +16,12 @@ export const getFormattedAgsValues = (argsValue: any[], args: Argument[]) =>
     }
     return v;
   });
+
+export const getStyleForArgumentInput = (arg: Argument): React.CSSProperties => {
+  const argStyle = arg.style;
+  if (!argStyle) return {};
+
+  return {
+    maxWidth: argStyle.width || undefined,
+  };
+};

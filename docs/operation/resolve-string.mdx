@@ -9,8 +9,6 @@ version: 1.1.0
 
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
-import { resolveString } from 'shegit-beta';
 
 # resolveString
 
@@ -20,15 +18,6 @@ Function that retrieves or resolves only string values.
 This function should handle various input types, resolving functions if encountered, and ultimately return an string if possible.
 
 If the final resolved value is not an string or if a function remains unresolved within the specified depth, the function return `undefined`.
-
-<LiveFunctionPreview
-  name="resolveString"
-  func={resolveString}
-  args={[
-    { name: 'value', initial: '"Shegit"' },
-    { name: 'depth', initial: '0', default: 0 },
-  ]}
-/>
 
 ### Arguments
 

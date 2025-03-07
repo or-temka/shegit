@@ -26,12 +26,17 @@ If value is not `object` type - function return `undefined`.
   name="mapObjectKeys"
   func={mapObjectKeys}
   args={[
-    { name: 'object', initial: '{ "package": "shegit", "major-version": 1 }' },
+    {
+      name: 'object',
+      initial: '{ "package": "shegit", "major-version": 1 }',
+      style: { width: 400 },
+    },
     {
       name: 'transformFn',
       initial: '"(key) => `it new ${key}`"',
       default: '"(key) => key"',
       type: 'function',
+      style: { width: 250 },
     },
   ]}
 />
