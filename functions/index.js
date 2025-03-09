@@ -18,3 +18,4 @@ __exportStar(require("./number"), exports);
 __exportStar(require("./colors"), exports);
 __exportStar(require("./util"), exports);
 __exportStar(require("./operation"), exports);
+__exportStar(require("./string"), exports);
