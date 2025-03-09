@@ -1,0 +1,63 @@
+---
+sidebar_position: 3
+description: Convert RGB color as an object to a CMYK color as an object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, cmyk, color, rgb]
+keywords: [shegit, rgb, cmyk, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { cmykObjToRgbObj } from 'shegit-beta';
+
+# cmykObjToRgbObj
+
+## Using
+
+Convert CMYK color `{c: cyan, m: magenta, y: yellow, k: key }` as an object
+to a RGB color `{r: red, g: green, b: blue}` as an object.
+
+<LiveFunctionPreview
+  name="cmykObjToRgbObj"
+  func={cmykObjToRgbObj}
+  args={[{ name: 'obj', initial: '{ "c": 13, "m": 99, "y": 0, "k": 50 }' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                    | Example                                 |
+| -------- | -------------------------- | ------------------------------ | --------------------------------------- |
+| `obj`    | `object` <br /> `function` | CMYK color object or function. | `{ c: '+506', m: 11.5, y: 34, k: -50 }` |
+
+### Returns
+
+`object` — Returns CMYK object in format `{r: red, g: green, b: blue}`.
+
+### Examples
+
+```js
+cmykObjToRgbObj({ c: 64, m: 21, y: 99, k: 2 });
+// { r: 90, g: 197, b: 2, a: 1 }
+
+cmykObjToRgbObj({ c: '-40', m: '-1', y: '+67', k: '69.3' });
+// { r: 79, g: 79, b: 26, a: 1 }
+
+cmykObjToRgbObj(() => ({ c: 100, m: 543, y: -10, k: 54 }));
+// { r: 0, g: 0, b: 117, a: 1 }
+
+cmykObjToRgbObj('John');
+// { r: 0, g: 0, b: 0, a: 1 }
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/cmykObjToRgbObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

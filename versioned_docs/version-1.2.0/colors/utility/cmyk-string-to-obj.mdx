@@ -1,0 +1,62 @@
+---
+sidebar_position: 3
+description: Convert CMYK color as an string to a format object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, string, color, cmyk]
+keywords: [shegit, cmyk, string, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { cmykStringToObj } from 'shegit-beta';
+
+# cmykStringToObj
+
+## Using
+
+Convert CMYK color `'cmyk(cyan%, magenta%, yellow%, key%)'` as an string to a format object `{c: cyan, m: magenta, y: yellow, k: key}`
+
+<LiveFunctionPreview
+  name="cmykStringToObj"
+  func={cmykStringToObj}
+  args={[{ name: 'string', initial: '"cmyk(85%, 91%, 19%, 56%)"' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                    | Example                     |
+| -------- | -------------------------- | ------------------------------ | --------------------------- |
+| `string` | `string` <br /> `function` | CMYK color string or function. | `"cmyk(15%, 76%, 13%, 4%)"` |
+
+### Returns
+
+`object` — Returns CMYK object in format `{c: cyan, m: magenta, y: yellow, k: key}`.
+
+### Examples
+
+```js
+cmykStringToObj('cmyk(15%, 76%, 75%, 50%)');
+// {c: 15, m: 76, y: 75, k: 50}
+
+cmykStringToObj(() => 'cmyk(500, 13%, -1000, -5%)');
+// {c: 100, m: 13, y: 0, k: 0}
+
+cmykStringToObj('99, 45, 0, 1');
+// {c: 99, m: 45, y: 0, k: 1}
+
+cmykStringToObj('cmyk(+99%, 245, 0%, 5.9)');
+// {c: 99, m: 100, y: 0, k: 5}
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/cmykStringToObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/cmykarraytoobj-rppnwn" /> */}
+</div>
