@@ -1,0 +1,64 @@
+---
+sidebar_position: 11
+description: Function that retrieves or resolves only string values. This function should handle various input types, resolving functions if encountered, and ultimately return an string if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [string, resolve, functions]
+keywords: [string, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveString
+
+## Using
+
+Function that retrieves or resolves only string values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an string if possible.
+
+If the final resolved value is not an string or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type                       | Description               | Example                                |
+| -------- | -------------------------- | ------------------------- | -------------------------------------- |
+| `value`  | `string` <br /> `function` | Value for resolve.        | `"text"` <br /> `() => () => "Shegit"` |
+| `depth`  | `number`                   | Depth of maximum resolve. | `2`                                    |
+
+### Returns
+
+`string` | `undefined` — Returns the resolved string otherwise `undefined`.
+
+### Examples
+
+```js
+resolveString('text');
+// "text"
+
+resolveString(() => () => 'name');
+// "name"
+
+resolveString(12);
+// undefined
+
+resolveString(() => 'Shegit', 1);
+// "Shegit"
+
+resolveString(() => 'Shegit', 2);
+// "Shegit"
+
+resolveString(() => 'Shegit', 0);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveString" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

@@ -1,0 +1,63 @@
+---
+sidebar_position: 1
+description: Convert RGB color as an object to a HEX color as an string
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, hex, color, rgb, string]
+keywords: [shegit, rgb, hex, object, color, string]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { rgbObjToHexString } from 'shegit-beta';
+
+# rgbObjToHexString
+
+## Using
+
+Convert RGB color `{r: red, g: green, b: blue}` as an object
+to a HEX color "#`red as 16*` `green as 16*` `blue as 16*`" as an string (`16*` - Hexagonal Calculus).
+
+<LiveFunctionPreview
+  name="rgbObjToHexString"
+  func={rgbObjToHexString}
+  args={[{ name: 'obj', initial: '{"r": 125, "g": 14, "b": 96}' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description                   | Example                    |
+| -------- | -------------------------- | ----------------------------- | -------------------------- |
+| `obj`    | `object` <br /> `function` | RGB color object or function. | `{r: 209, g: 205, b: 152}` |
+
+### Returns
+
+`object` — Returns HEX string in format "#`red as 16*` `green as 16*` `blue as 16*`" (`16*` - Hexagonal Calculus).
+
+### Examples
+
+```js
+rgbObjToHexString({ r: 64, g: 21, b: 99 });
+// '#401563'
+
+rgbObjToHexString({ r: 34.3, g: '+59.8', b: () => '-96.5' });
+// '#223B00'
+
+rgbObjToHexString(() => ({ r: () => '45.7', g: () => '+291.5', b: () => 0 }));
+// '#2DFF00'
+
+rgbObjToHexString('some');
+// '#000000'
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/rgbObjToHexString" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

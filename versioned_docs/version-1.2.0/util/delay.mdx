@@ -1,0 +1,58 @@
+---
+sidebar_position: 1
+description: Creates a delay for a specified number of milliseconds and returns a resolved promise after the delay.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [async, promise, delay]
+keywords: [async, promise, delay]
+version: 1.2.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# delay
+
+## Using
+
+Creates a delay for a specified number of milliseconds and returns a resolved promise after the delay.
+
+### Arguments
+
+| Argument | Type     | Description            | Example           |
+| -------- | -------- | ---------------------- | ----------------- |
+| `ms`     | `number` | The input milliseconds | `0` <br /> `1000` |
+
+### Returns
+
+`Promise` — Promise void
+
+### Examples
+
+```js
+delay(2000).then(() => {
+  console.log('2 seconds have passed');
+});
+// Wait for 2 seconds
+
+delay().then(() => {
+  console.log('No delay');
+});
+// Default delay (0 milliseconds)
+
+(async () => {
+  await delay(1000);
+  console.log('1 second has passed');
+})();
+// Wait for 1 second using async/await
+```
+
+### Since
+
+[1.2.0](https://github.com/or-temka/shegit/tree/v1.2.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/util/delay" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

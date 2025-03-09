@@ -1,0 +1,62 @@
+---
+sidebar_position: 3
+description: Convert CMYK color as an array to a format object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, array, color, cmyk]
+keywords: [shegit, cmyk, array, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { cmykArrayToObj } from 'shegit-beta';
+
+# cmykArrayToObj
+
+## Using
+
+Convert CMYK color `[cyan, magenta, yellow, key]` as an array to a format object `{c: cyan, m: magenta, y: yellow, k: key}`
+
+<LiveFunctionPreview
+  name="cmykArrayToObj"
+  func={cmykArrayToObj}
+  args={[{ name: 'array', initial: '[85, 91, 19, 56]' }]}
+/>
+
+### Arguments
+
+| Argument | Type                         | Description       | Example         |
+| -------- | ---------------------------- | ----------------- | --------------- |
+| `array`  | `number[]` <br /> `function` | CMYK color array. | `[15, 76, 213]` |
+
+### Returns
+
+`object` — Returns CMYK object in format `{c: cyan, m: magenta, y: yellow, k: key}`.
+
+### Examples
+
+```js
+cmykArrayToObj([15, 76, 75, 50]);
+// {c: 15, m: 76, y: 75, k: 50}
+
+cmykArrayToObj(() => [500, () => 13, -1000, '-5']);
+// {c: 100, m: 13, y: 0, k: 0}
+
+cmykArrayToObj(['99', '+45', false, true]);
+// {c: 99, m: 45, y: 0, k: 1}
+
+cmykArrayToObj([99, 245, 0, 5.9]);
+// {c: 99, m: 100, y: 0, k: 5}
+```
+
+### Since
+
+[1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/cmykArrayToObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/cmykarraytoobj-rppnwn" /> */}
+</div>
