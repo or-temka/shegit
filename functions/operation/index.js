@@ -24,3 +24,7 @@ __exportStar(require("./resolveDate"), exports);
 __exportStar(require("./resolveSet"), exports);
 __exportStar(require("./resolveMap"), exports);
 __exportStar(require("./resolveValue"), exports);
+__exportStar(require("./deepCopy"), exports);
+__exportStar(require("./mapObjectKeys"), exports);
+__exportStar(require("./compareObjects"), exports);
+__exportStar(require("./chunkArray"), exports);
