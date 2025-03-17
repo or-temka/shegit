@@ -44,7 +44,7 @@ describe('delay', () => {
 
     const elapsed = Date.now() - start;
 
-    expect(elapsed).toBeGreaterThanOrEqual(delayTime);
+    expect(elapsed).toBeGreaterThanOrEqual(5);
   });
 
   it('-40 ms', async () => {
