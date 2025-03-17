@@ -26,6 +26,24 @@ assignees: ''
 
 ```
 
-### Notes
+#### Example 3
+
+```javascript
+
+```
+
+#### Example 4
+
+```javascript
+
+```
+
+#### Example 5
+
+```javascript
+
+```
 
 ### Acceptance Criteria
+
+### Notes
