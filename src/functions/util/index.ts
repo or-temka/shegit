@@ -5,3 +5,4 @@ export * from './isEmpty';
 export * from './isNumber';
 export * from './isString';
 export * from './isBoolean';
+export * from './isArray';
