@@ -20,6 +20,9 @@
  * isPlainObject(Object.create(null))
  * // true
  *
+ * isPlainObject(Object.create({ value: "text" }))
+ * // false
+ *
  * isPlainObject(42)
  * // false
  *
