@@ -18,3 +18,8 @@ __exportStar(require("./noop"), exports);
 __exportStar(require("./delay"), exports);
 __exportStar(require("./getRandomValue"), exports);
 __exportStar(require("./isEmpty"), exports);
+__exportStar(require("./isNumber"), exports);
+__exportStar(require("./isString"), exports);
+__exportStar(require("./isBoolean"), exports);
+__exportStar(require("./isArray"), exports);
+__exportStar(require("./isPlainObject"), exports);

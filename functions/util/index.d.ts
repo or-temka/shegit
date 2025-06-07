@@ -2,3 +2,8 @@ export * from './noop';
 export * from './delay';
 export * from './getRandomValue';
 export * from './isEmpty';
+export * from './isNumber';
+export * from './isString';
+export * from './isBoolean';
+export * from './isArray';
+export * from './isPlainObject';
