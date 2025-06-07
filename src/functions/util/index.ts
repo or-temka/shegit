@@ -6,3 +6,4 @@ export * from './isNumber';
 export * from './isString';
 export * from './isBoolean';
 export * from './isArray';
+export * from './isPlainObject';
