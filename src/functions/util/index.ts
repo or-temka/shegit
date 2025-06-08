@@ -8,3 +8,4 @@ export * from './isBoolean';
 export * from './isArray';
 export * from './isPlainObject';
 export * from './isNull';
+export * from './isNaN';
