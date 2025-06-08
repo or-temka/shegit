@@ -7,3 +7,4 @@ export * from './isString';
 export * from './isBoolean';
 export * from './isArray';
 export * from './isPlainObject';
+export * from './isNull';
