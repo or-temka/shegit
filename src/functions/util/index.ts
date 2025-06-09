@@ -10,3 +10,4 @@ export * from './isPlainObject';
 export * from './isNull';
 export * from './isNaN';
 export * from './isDate';
+export * from './isSymbol';
