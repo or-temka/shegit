@@ -11,3 +11,4 @@ export * from './isNull';
 export * from './isNaN';
 export * from './isDate';
 export * from './isSymbol';
+export * from './isFunction';
