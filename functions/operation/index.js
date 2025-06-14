@@ -28,3 +28,4 @@ __exportStar(require("./deepCopy"), exports);
 __exportStar(require("./mapObjectKeys"), exports);
 __exportStar(require("./compareObjects"), exports);
 __exportStar(require("./chunkArray"), exports);
+__exportStar(require("./mergeObjects"), exports);

@@ -23,3 +23,8 @@ __exportStar(require("./isString"), exports);
 __exportStar(require("./isBoolean"), exports);
 __exportStar(require("./isArray"), exports);
 __exportStar(require("./isPlainObject"), exports);
+__exportStar(require("./isNull"), exports);
+__exportStar(require("./isNaN"), exports);
+__exportStar(require("./isDate"), exports);
+__exportStar(require("./isSymbol"), exports);
+__exportStar(require("./isFunction"), exports);
