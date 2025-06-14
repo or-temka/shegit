@@ -12,3 +12,4 @@ export * from './deepCopy';
 export * from './mapObjectKeys';
 export * from './compareObjects';
 export * from './chunkArray';
+export * from './mergeObjects';
