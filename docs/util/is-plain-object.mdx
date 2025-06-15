@@ -1,0 +1,80 @@
+---
+sidebar_position: 3
+description: This function determines whether the given value is a plain object.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [is, object, falsy]
+keywords: [is, object, falsy]
+version: 1.3.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import { isPlainObject } from 'shegit-beta';
+
+# isPlainObject
+
+## Using
+
+This function determines whether the given value is a **plain object**.
+
+- Returns `true` if the value is a regular object (created via `{}`, `new Object()`, `Object.create(null)`).
+- Returns `false` for arrays, functions, special objects (`Date`, `Map`, etc.), and non-object types.
+
+<LiveFunctionPreview
+  name="isPlainObject"
+  func={isPlainObject}
+  args={[{ name: 'value', initial: 'false', style: { width: 100 } }]}
+/>
+
+### Arguments
+
+| Argument | Type      | Description     | Example                                |
+| -------- | --------- | --------------- | -------------------------------------- |
+| `value`  | `unknown` | Can be any type | `"text"` <br /> `2` <br /> `undefined` |
+
+### Returns
+
+`boolean` — `true` if value is a plain object, `false` otherwise
+
+### Examples
+
+```js
+isPlainObject({});
+// true
+
+isPlainObject({ key: 'value' });
+// true
+
+isPlainObject(Object.create(null));
+// true
+
+isPlainObject(null);
+// false
+
+isPlainObject(Object.create({ value: 'text' }));
+// false
+
+isPlainObject(42);
+// false
+
+isPlainObject([]);
+// false
+
+isPlainObject(new Date());
+// false
+
+isPlainObject(() => {});
+// false
+```
+
+### Since
+
+[1.3.0](https://github.com/or-temka/shegit/tree/dev-v1.3.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/blob/dev-v1.3.0/src/functions/util/isPlainObject" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
