@@ -46,7 +46,8 @@
     "shegit-beta": "npm:shegit@beta",
     "shegit1.0.3": "npm:shegit@1.0.3",
     "shegit1.1.0": "npm:shegit@1.1.0",
-    "shegit1.2.0": "npm:shegit@1.2.0"
+    "shegit1.2.0": "npm:shegit@1.2.0",
+    "shegit1.3.0": "npm:shegit@1.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
