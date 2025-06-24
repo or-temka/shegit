@@ -1,0 +1,77 @@
+---
+sidebar_position: 3
+description: This function determines whether the given value is a real array.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [is, array, falsy]
+keywords: [is, array, falsy]
+version: 1.3.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { isArray } from 'shegit';
+
+# isArray
+
+## Using
+
+This function determines whether the given value is a **real array**.
+
+- Returns `true` if the value is an actual array created via `[]`, `new Array()`, `Array.from()`, etc.
+- Returns `false` for non-array types and array-like objects (e.g., `arguments`, `NodeList`, or `{ length: 2 }`).
+
+<LiveFunctionPreview
+  name="isArray"
+  func={isArray}
+  args={[{ name: 'value', initial: '[123, false]', style: { width: 200 } }]}
+/>
+
+### Arguments
+
+| Argument | Type      | Description     | Example                                |
+| -------- | --------- | --------------- | -------------------------------------- |
+| `value`  | `unknown` | Can be any type | `"text"` <br /> `2` <br /> `undefined` |
+
+### Returns
+
+`boolean` — `true` if value is an array, `false` otherwise
+
+### Examples
+
+```js
+isArray([]);
+// true
+
+isArray([1, 2, 3]);
+// true
+
+isArray(new Array());
+// true
+
+isArray('hello');
+// false
+
+isArray({ length: 2 });
+// false
+
+isArray(document.querySelectorAll('div'));
+// false
+
+isArray(Object.create(Array.prototype));
+// false
+
+isArray(() => [true]);
+// false
+```
+
+### Since
+
+[1.3.0](https://www.npmjs.com/package/shegit/v/1.3.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.3.0/src/functions/util/isArray" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
