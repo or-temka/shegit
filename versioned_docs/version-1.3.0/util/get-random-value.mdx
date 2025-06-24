@@ -7,9 +7,9 @@ keywords: [random, select, array, object, set, map]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
 import { getRandomValue } from 'shegit-beta';
 
 # getRandomValue
@@ -21,7 +21,9 @@ Function selects random items from array, object, map, set. If a primitive, it j
 <LiveFunctionPreview
   name="getRandomValue"
   func={getRandomValue}
-  args={[{ name: 'input', initial: '["value1", "value2", 3, "4", true, false]', style: { width: 400 } }]}
+  args={[
+    { name: 'input', initial: '["value1", "value2", 3, "4", true, false]', style: { width: 400 } },
+  ]}
 />
 
 ### Arguments
@@ -58,11 +60,11 @@ getRandomValue('text');
 
 ### Since
 
-[1.2.0](https://github.com/or-temka/shegit/tree/dev-v1.2.0)
+[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
 
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/util/getRandomValue" />
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.2.0/src/functions/util/getRandomValue" />
   {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
 </div>

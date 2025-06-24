@@ -7,9 +7,9 @@ keywords: [map, object, keys]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
 import { mapObjectKeys } from 'shegit-beta';
 
 # mapObjectKeys
@@ -65,10 +65,7 @@ const transformFunction2 = (key) => `user_${key}`;
 mapObjectKeys(object2, transformFunction2);
 // { user_id: 1, user_name: 'Alice' }
 
-const object3 = {
-  user: { id: 1, name: 'Alice' },
-  role: 'admin',
-};
+const object3 = { user: { id: 1, name: 'Alice' }, role: 'admin' };
 const transformFunction3 = (key) => key.toUpperCase();
 mapObjectKeys(object3, transformFunction3);
 // {
@@ -84,6 +81,6 @@ mapObjectKeys(object3, transformFunction3);
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/operation/mapObjectKeys" />
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.2.0/src/functions/operation/mapObjectKeys" />
   {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
 </div>
