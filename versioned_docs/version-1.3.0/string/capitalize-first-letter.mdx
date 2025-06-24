@@ -1,0 +1,62 @@
+---
+sidebar_position: 2
+description: Function takes a string and returns a new string with the first letter capitalized.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [string, capitalize, letter]
+keywords: [string, capitalize, letter]
+version: 1.2.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import { capitalizeFirstLetter } from 'shegit-beta';
+
+# capitalizeFirstLetter
+
+## Using
+
+Function takes a string and returns a new string with the first letter capitalized.
+
+<LiveFunctionPreview
+  name="capitalizeFirstLetter"
+  func={capitalizeFirstLetter}
+  args={[{ name: 'str', initial: '"any string"' }]}
+/>
+
+### Arguments
+
+| Argument | Type     | Description | Example                         |
+| -------- | -------- | ----------- | ------------------------------- |
+| `str`    | `string` | String      | `"some value"` <br /> `"hello"` |
+
+### Returns
+
+`string` | `undefined` — String with the first letter capitalized or `undefined` if `str` is not string.
+
+### Examples
+
+```js
+capitalizeFirstLetter('some value for function');
+// "Some value for function"
+
+capitalizeFirstLetter('hello');
+// "Hello"
+
+capitalizeFirstLetter('Any');
+// "Any"
+
+capitalizeFirstLetter('2ok');
+// "2ok"
+```
+
+### Since
+
+[1.2.0](https://github.com/or-temka/shegit/tree/dev-v1.2.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/string/capitalizeFirstLetter" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

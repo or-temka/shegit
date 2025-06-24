@@ -1,0 +1,64 @@
+---
+sidebar_position: 9
+description: Function that retrieves or resolves only object values. This function should handle various input types, resolving functions if encountered, and ultimately return an object if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, resolve, functions]
+keywords: [object, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveObject
+
+## Using
+
+Function that retrieves or resolves only object values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an object if possible.
+
+If the final resolved value is not an object or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type                       | Description               | Example                                     |
+| -------- | -------------------------- | ------------------------- | ------------------------------------------- |
+| `value`  | `object` <br /> `function` | Value for resolve.        | `{}` <br /> `() => () => { name: "Alina" }` |
+| `depth`  | `number`                   | Depth of maximum resolve. | `2`                                         |
+
+### Returns
+
+`object` | `undefined` — Returns the resolved object otherwise `undefined`.
+
+### Examples
+
+```js
+resolveObject({ some: true });
+// { some: true }
+
+resolveObject(() => () => ({ name: 'Alina' }));
+// { name: 'Alina' }
+
+resolveObject(['text', 12]);
+// undefined
+
+resolveObject(() => ({ package: shegit }), 1);
+// { package: shegit }
+
+resolveObject(() => ({ package: shegit }), 2);
+// { package: shegit }
+
+resolveObject(() => ({ package: shegit }), 0);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveObject" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

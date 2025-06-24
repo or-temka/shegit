@@ -1,0 +1,62 @@
+---
+sidebar_position: 1
+description: Convert RGB color as an object to a format array
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, array, color, rgb]
+keywords: [shegit, rgb, array, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { rgbObjToArray } from 'shegit-beta';
+
+# rgbObjToArray
+
+## Using
+
+Convert RGB color `{r: red, g: green, b: blue}` as an object to a format array `[red, green, blue]`
+
+<LiveFunctionPreview
+  name="rgbObjToArray"
+  func={rgbObjToArray}
+  args={[{ name: 'obj', initial: '{"r": 255, "g": 14, "b": 96}' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description       | Example                    |
+| -------- | -------------------------- | ----------------- | -------------------------- |
+| `obj`    | `object` <br /> `function` | Rgb color object. | `{r: 209, g: 205, b: 152}` |
+
+### Returns
+
+`array` — Returns RGB array in format `[red, green, blue]`.
+
+### Examples
+
+```js
+rgbObjToArray({ r: 15, g: 76, b: 213 });
+// [15, 76, 213]
+
+rgbObjToArray({ r: '+99', g: 300, b: -5 });
+// [99, 255, 0]
+
+rgbObjToArray({ r: () => true, g: false, b: 245.9 });
+// [1, 0, 245]
+
+rgbObjToArray(() => ({ r: 3.2, g: () => 55, b: '184' }));
+// [3, 55, 184]
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/rgbObjToArray" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

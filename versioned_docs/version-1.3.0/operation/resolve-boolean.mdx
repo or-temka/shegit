@@ -1,0 +1,64 @@
+---
+sidebar_position: 5
+description: Function that retrieves or resolves only boolean values. This function should handle various input types, resolving functions if encountered, and ultimately return an boolean if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [boolean, resolve, functions]
+keywords: [boolean, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveBoolean
+
+## Using
+
+Function that retrieves or resolves only boolean values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an boolean if possible.
+
+If the final resolved value is not an boolean or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type                        | Description               | Example                           |
+| -------- | --------------------------- | ------------------------- | --------------------------------- |
+| `value`  | `boolean` <br /> `function` | Value for resolve.        | `false` <br /> `() => () => true` |
+| `depth`  | `number`                    | Depth of maximum resolve. | `2`                               |
+
+### Returns
+
+`boolean` | `undefined` — Returns the resolved boolean otherwise `undefined`.
+
+### Examples
+
+```js
+resolveBoolean(false);
+// false
+
+resolveBoolean(() => () => true);
+// true
+
+resolveBoolean(14);
+// undefined
+
+resolveBoolean(() => true, 1);
+// true
+
+resolveBoolean(() => true, 2);
+// true
+
+resolveBoolean(() => true, 0);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveBoolean" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

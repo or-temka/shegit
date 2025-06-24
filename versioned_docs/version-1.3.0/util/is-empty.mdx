@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+description: This function to determine if a given value is empty.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [empty]
+keywords: [empty]
+version: 1.2.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import { isEmpty } from 'shegit-beta';
+
+# isEmpty
+
+## Using
+
+This function to determine if a given value is empty.
+
+- Return `true` if the value is considered empty.
+- Return `false` otherwise.
+
+<LiveFunctionPreview
+  name="isEmpty"
+  func={isEmpty}
+  args={[{ name: 'value', initial: '[ "any string", 12 ]' }]}
+/>
+
+### Arguments
+
+| Argument | Type  | Description     | Example                                 |
+| -------- | ----- | --------------- | --------------------------------------- |
+| `value`  | `any` | Can be any type | `"text"` <br /> `{}` <br /> `new Map()` |
+
+### Returns
+
+`boolean` — value is empty `true | false`
+
+### Examples
+
+```js
+isEmpty(undefined);
+// true
+
+isEmpty(34);
+// false
+
+isEmpty([]);
+// true
+
+isEmpty([1, 2]);
+// false
+
+isEmpty({});
+// true
+
+isEmpty({ name: 'Alina' });
+// false
+
+isEmpty(null);
+// true
+
+isEmpty('');
+// true
+
+isEmpty('some');
+// false
+```
+
+### Since
+
+[1.2.0](https://github.com/or-temka/shegit/tree/dev-v1.2.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/util/isEmpty" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

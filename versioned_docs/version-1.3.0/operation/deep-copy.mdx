@@ -1,0 +1,70 @@
+---
+sidebar_position: 1
+description: Function that creates a complete copy of anything.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [copy, deep, array, object, any]
+keywords: [copy, deep, array, object, any]
+version: 1.2.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import { deepCopy } from 'shegit-beta';
+
+# deepCopy
+
+## Using
+
+Function that creates a complete copy of anything.
+
+<LiveFunctionPreview
+  name="deepCopy"
+  func={deepCopy}
+  args={[{ name: 'value', initial: '{ "package": "shegit", "major-version": 1 }', style: { width: 400 } }]}
+/>
+
+### Arguments
+
+| Argument | Type  | Description | Example                                            |
+| -------- | ----- | ----------- | -------------------------------------------------- |
+| `value`  | `any` | Copy value. | `[13, false]` <br /> `23` <br /> `{ some: "any" }` |
+
+### Returns
+
+`any` — Copied value.
+
+### Examples
+
+```js
+const a = [12, null];
+const b = deepCopy(a);
+// b = [12, null]
+// a !== b
+
+const a = 4;
+const b = deepCopy(a);
+// b = 4
+// a !== b
+
+const a = { name: 'Alina', age: 20 };
+const b = deepCopy(a);
+// b = { name: 'Alina', age: 20 }
+// a !== b
+
+const a = () => { deep: 3, value: [14, { package: 'shegit', 'major-version': 1, new: true }] };
+const b = deepCopy(a);
+// b = () => { deep: 3, value: [14, { package: 'shegit', 'major-version': 1, new: true }] }
+// a !== b
+```
+
+### Since
+
+[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/operation/deepCopy" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

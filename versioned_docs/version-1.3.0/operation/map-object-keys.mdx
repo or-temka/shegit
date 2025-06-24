@@ -1,0 +1,89 @@
+---
+sidebar_position: 1
+description: Function accepts an object and a transformation function, applies the transformation function to each key in the object, and returns a new object with the modified keys.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [map, object, keys]
+keywords: [map, object, keys]
+version: 1.2.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import { mapObjectKeys } from 'shegit-beta';
+
+# mapObjectKeys
+
+## Using
+
+Function accepts an object and a transformation function,
+applies the transformation function to each key in the object,
+and returns a new object with the modified keys.
+
+If value is not `object` type - function return `undefined`.
+
+<LiveFunctionPreview
+  name="mapObjectKeys"
+  func={mapObjectKeys}
+  args={[
+    {
+      name: 'object',
+      initial: '{ "package": "shegit", "major-version": 1 }',
+      style: { width: 400 },
+    },
+    {
+      name: 'transformFn',
+      initial: '"(key) => `it new ${key}`"',
+      default: '"(key) => key"',
+      type: 'function',
+      style: { width: 250 },
+    },
+  ]}
+/>
+
+### Arguments
+
+| Argument      | Type       | Description                    | Example                          |
+| ------------- | ---------- | ------------------------------ | -------------------------------- |
+| `object`      | `object`   | Object for transform.          | `{ some: "any" }`                |
+| `transformFn` | `function` | Function for transform object. | `(value) => value.toUpperCase()` |
+
+### Returns
+
+`object` — Mapped object.
+
+### Examples
+
+```js
+const object1 = { firstName: 'John', lastName: 'Doe', age: 30 };
+const transformFunction1 = (key) => key.toUpperCase();
+mapObjectKeys(object1, transformFunction1);
+// { FIRSTNAME: 'John', LASTNAME: 'Doe', AGE: 30 }
+
+const object2 = { id: 1, name: 'Alice' };
+const transformFunction2 = (key) => `user_${key}`;
+mapObjectKeys(object2, transformFunction2);
+// { user_id: 1, user_name: 'Alice' }
+
+const object3 = {
+  user: { id: 1, name: 'Alice' },
+  role: 'admin',
+};
+const transformFunction3 = (key) => key.toUpperCase();
+mapObjectKeys(object3, transformFunction3);
+// {
+//    USER: { id: 1, name: 'Alice' },
+//    ROLE: 'admin',
+// }
+```
+
+### Since
+
+[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/operation/mapObjectKeys" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

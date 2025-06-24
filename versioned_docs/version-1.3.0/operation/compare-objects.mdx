@@ -1,0 +1,72 @@
+---
+sidebar_position: 1
+description: Function that compares two objects and returns either the differences between them or their common properties, based on a specified return type parameter.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [compare, object, difference, common]
+keywords: [compare, object, difference, common]
+version: 1.2.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import { compareObjects } from 'shegit-beta';
+
+# compareObjects
+
+## Using
+
+Function that compares two objects and returns either the differences between them or
+their common properties, based on a specified return type parameter.
+
+<LiveFunctionPreview
+  name="compareObjects"
+  func={compareObjects}
+  args={[
+    { name: 'obj1', initial: '{ "a": "value", "b": 100, "c": 10, "e": 4 }' },
+    { name: 'obj2', initial: '{ "a": 12, "b": 100, "c": 50, "d": 1 }' },
+    { name: 'returnType', initial: '"diff"', style: { width: 110 } },
+  ]}
+/>
+
+### Arguments
+
+| Argument     | Type     | Description                                                                                                                                                                                                       | Example                         |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `obj1`       | `object` | First object for compare.                                                                                                                                                                                         | `{ a: "value", b: 100, c: 10 }` |
+| `obj2`       | `object` | Second object for compare.                                                                                                                                                                                        | `{ a: 12, c: 50, d: 1 }`        |
+| `returnType` | `string` | returnType can be of two values:<br /> - `"diff"` - the function should return the differences between the two objects.<br /> - `"common"` - the function should return the common properties of the two objects. | `{ a: 12, c: 50, d: 1 }`        |
+
+### Returns
+
+`object` — Compared objects.
+
+### Examples
+
+```js
+const obj1 = { a: 1, b: 2, c: { d: 3 } };
+const obj2 = { a: 1, b: 3, c: { d: 4 } };
+compareObjects(obj1, obj2);
+// { b: 3, c: { d: 4 } }
+
+const obj1 = { a: 1, b: 2, c: { d: 3 } };
+const obj2 = { a: 1, b: 3, c: { d: 3 } };
+compareObjects(obj1, obj2, 'common');
+// { a: 1, c: { d: 3 } }
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { a: 1 };
+compareObjects(obj1, obj2);
+// { b: undefined }
+```
+
+### Since
+
+[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/dev-v1.2.0/src/functions/operation/compareObjects" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

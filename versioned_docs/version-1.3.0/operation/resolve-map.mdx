@@ -1,0 +1,90 @@
+---
+sidebar_position: 7
+description: Function that retrieves or resolves only Map values. This function should handle various input types, resolving functions if encountered, and ultimately return an Map if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [map, resolve, functions]
+keywords: [map, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveMap
+
+## Using
+
+Function that retrieves or resolves only Map values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an Map if possible.
+
+If the final resolved value is not an Map or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type                    | Description               | Example                                                        |
+| -------- | ----------------------- | ------------------------- | -------------------------------------------------------------- |
+| `value`  | `Map` <br /> `function` | Value for resolve.        | `new Map()` <br /> `() => () => new Map([["key1", "value1"]])` |
+| `depth`  | `number`                | Depth of maximum resolve. | `2`                                                            |
+
+### Returns
+
+`Map` | `undefined` — Returns the resolved Map otherwise `undefined`.
+
+### Examples
+
+```js
+resolveMap(
+  new Map([
+    ['key1', 'value1'],
+    ['key2', 'value2'],
+  ]),
+);
+// Map { "key1" => "value1", "key2" => "value2" }
+
+resolveMap(() => () => new Map([['name', 'Alina']]));
+// Map { "name" => "Alina" }
+
+resolveMap('text');
+// undefined
+
+resolveMap(
+  () =>
+    new Map([
+      ['name', 'Alina'],
+      ['age', '23'],
+    ]),
+  1,
+);
+// Map { "name" => "Alina", "age" => 23 }
+
+resolveMap(
+  () =>
+    new Map([
+      ['name', 'Alina'],
+      ['age', '23'],
+    ]),
+  2,
+);
+// Map { "name" => "Alina", "age" => 23 }
+
+resolveMap(
+  () =>
+    new Map([
+      ['name', 'Alina'],
+      ['age', '23'],
+    ]),
+  0,
+);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveMap" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

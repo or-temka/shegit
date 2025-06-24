@@ -1,0 +1,194 @@
+---
+sidebar_position: 1
+description: Convert a color of one type to another.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, array, color, rgb, hex, hsv, cmyk]
+keywords: [shegit, rgb, hex, hsv, cmyk, array, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import Details from '../../src/components/Details';
+import { toColor } from 'shegit-beta';
+
+export const DETAILS_DEFAULT_STYLES = {
+  content: { paddingBottom: 0 },
+  wrapper: {
+    marginBottom: 'var(--ifm-leading)',
+  },
+};
+
+# toColor
+
+## Using
+
+Convert a color of one type to another.
+
+<LiveFunctionPreview
+  name="toColor"
+  func={toColor}
+  args={[
+    { name: 'color', initial: '{"r": 242, "g": 52, "b": 11}', style: { width: 300 } },
+    {
+      name: 'to',
+      optional: true,
+      initial: '"cmyk-string"',
+      default: '"rgb-object"',
+      style: { width: 160 },
+    },
+    { name: 'fromColorType', optional: true, initial: '', default: '"rgb"', style: { width: 150 } },
+  ]}
+/>
+
+### Arguments
+
+| Argument        | Type                                     | Description                                                                                 | Possible Values                                                                                                                                                                                                          | Example                                                                                                                           |
+| --------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| `color`         | `number[]` <br/> `object` <br/> `string` | Any color in any format.                                                                    |                                                                                                                                                                                                                          | `[15, 76, 213]` <br/> `{r: 255, g: 14, b: 148 }` <br/> `"cmyk(63, 69, 5.5, 34)"` <br/> `"#F33333"` <br/> `{h: 200, s: 50, v: 45}` |
+| `to`            | `string`                                 | Return type.                                                                                | `"object"` <br/> `"rgb-object"` <br/> `"rgb-array"` <br/> `"rgb-string"` <br/> `"cmyk-object"` <br/> `"cmyk-array"` <br/> `"cmyk-string"`<br/> `"hex-string"`<br/> `"hsv-object"`<br/> `"hsv-array"`<br/> `"hsv-string"` | `"hsv-array"`                                                                                                                     |
+| `fromColorType` | `string`                                 | The color from which we will get the result. Can help when the source value is not defined. | `"rgb"` <br/> `"cmyk"` <br/> `"hex"` <br/> `"hsv"`                                                                                                                                                                       | `"cmyk"`                                                                                                                          |
+
+### Returns
+
+`number[]` | `object` | `string` — Returns the color in one of the formats.
+
+### Examples
+
+#### Quick view
+
+```js
+toColor([93, 255, 101], 'rgb-object');
+// { r: 93, g: 255, b: 101 }
+
+toColor({ c: 64, m: 21, y: 99, k: 2 }, 'rgb-array');
+// [90, 197, 2]
+
+toColor({ r: 9.8, g: 32, b: 11 }, 'rgb-string');
+// rgb(9, 32, 11)
+
+toColor('rgb(190,88,17)', 'cmyk-string');
+// 'cmyk(0%, 54%, 91%, 25%)'
+
+toColor({ c: 242, m: 52, y: 11, k: 10 }, 'hsv-object');
+// { h: 208, s: 100, v: 80 }
+```
+
+<Details headerText='To RGB' style={DETAILS_DEFAULT_STYLES}>
+
+:::caution
+Use `"rgb-object"` instead of `"object"`, as `"object"` will soon become obsolete.
+:::
+
+```js
+toColor(['+53', false, true], 'object');
+// {r: 53, g: 0, b: 1}
+
+toColor([500, 177, -100], 'rgb-object');
+// {r: 255, g: 177, b: 0}
+
+toColor([0, 0, 66], 'object', fromColorType: 'cmyk');
+// { r: 0, g: 0, b: 0, a: 1 }
+
+toColor(['+53', false, true], 'rgb-array');
+// [53, 0, 1]
+
+toColor(() => ({ r: 185, g: '+63', b: () => 260 }), 'rgb-array');
+// [185, 63, 255]
+
+toColor('rgb(45, 29, 118.2)', 'rgb-string');
+// rgb(45, 29, 118)
+
+toColor({ m: 63, k: 99 }, 'rgb-string');
+// rgb(3, 1, 3)
+
+toColor('cmyk(64%, 21%, 99%, 2%)', 'rgb-string');
+// rgb(90, 197, 2)
+
+toColor('some', 'rgb-string');
+// rgb(0, 0, 0)
+```
+
+</Details>
+
+<Details headerText='To CMYK' style={DETAILS_DEFAULT_STYLES}>
+
+```js
+toColor({ r: 244, g: 233, b: 221, a: 1 }, 'cmyk-object');
+// { c: 0, m: 5, y: 9, k: 4 }
+
+toColor('rgb(64, 21, 99)', 'cmyk-object');
+// { c: 35, m: 79, y: 0, k: 61 }
+
+toColor(() => [-500, 500, '58.8'], 'cmyk-object');
+// { c: 100, m: 0, y: 77, k: 0 }
+
+toColor(() => ['+506', 11.5, 34, -50], 'cmyk-array', fromColorType: 'cmyk');
+// [100, 11, 34, 0]
+
+toColor(() => `cmyk(1, 1%, 1, 1%)`, 'cmyk-array');
+// [1, 1, 1, 1]
+
+toColor('some', 'cmyk-array');
+// [0, 0, 0, 100]
+
+toColor({ r: 251.9, g: 158, b: 44.1 }, 'cmyk-string');
+// cmyk(0%, 37%, 82%, 2%)
+
+toColor([64, 21, 99], 'cmyk-string');
+// cmyk(35%, 79%, 0%, 61%)
+```
+
+</Details>
+
+<Details headerText='To HEX' style={DETAILS_DEFAULT_STYLES}>
+
+```js
+toColor({ r: 242, g: 52, b: 11 }, 'hex-string');
+// '#F2340B'
+
+toColor('#fff', 'hex-string');
+// '#FFFFFF'
+
+toColor({ c: 242, m: 52, y: 11, k: 11 }, 'hex-string');
+// '#006DCA'
+```
+
+</Details>
+
+<Details headerText='To HSV' style={DETAILS_DEFAULT_STYLES}>
+
+```js
+toColor({ r: '34.3', g: '+59.8', b: -96.5 }, 'hsv-object');
+// { h: 85, s: 100, v: 23 }
+
+toColor({ c: '-40', m: '-1', y: '+67', k: '69.3' }, 'hsv-object');
+// { h: 60, s: 67, v: 31 }
+
+toColor('hsv(-200, 99.999%, +39.2)', 'hsv-array');
+// [0, 99, 39]
+
+toColor('#FA4', 'hsv-array');
+// [33, 73, 100]
+
+toColor({ c: 12, m: 44, y: 55, k: 63 }, 'hsv-string');
+// 'hsv(16, 49%, 33%)'
+```
+
+</Details>
+
+### Since
+
+[1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
+
+### Updated
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/toColor" />
+  <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/tocolor-rnlpvf" />
+</div>

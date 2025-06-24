@@ -1,0 +1,61 @@
+---
+sidebar_position: 3
+description: Function that retrieves or resolves only function values. This function should handle various input types, resolving functions if encountered, and ultimately return an function if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [resolve, functions]
+keywords: [resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveFunction
+
+## Using
+
+Function that retrieves or resolves only function values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an function if possible.
+
+If the final resolved value is not an function or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type       | Description               | Example                                   |
+| -------- | ---------- | ------------------------- | ----------------------------------------- |
+| `value`  | `function` | Value for resolve.        | `() => 13` <br /> `() => () => undefined` |
+| `depth`  | `number`   | Depth of maximum resolve. | `2`                                       |
+
+### Returns
+
+`function` | `undefined` — Returns the resolved function otherwise `undefined`.
+
+### Examples
+
+```js
+resolveFunction(() => 55);
+// () => 55
+
+resolveFunction(() => () => () => 'some');
+// () => "some"
+
+resolveFunction('text');
+// undefined
+
+resolveFunction(() => () => () => () => () => [0, false], 2);
+// () => () => () => [0, false]
+
+resolveFunction(() => ['text'], 2);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveFunction" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

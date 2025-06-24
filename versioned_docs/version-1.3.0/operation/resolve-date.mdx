@@ -1,0 +1,64 @@
+---
+sidebar_position: 6
+description: Function that retrieves or resolves only date values. This function should handle various input types, resolving functions if encountered, and ultimately return an date if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [date, resolve, functions]
+keywords: [date, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveDate
+
+## Using
+
+Function that retrieves or resolves only date values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an date if possible.
+
+If the final resolved value is not an date or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type                     | Description               | Example                                                  |
+| -------- | ------------------------ | ------------------------- | -------------------------------------------------------- |
+| `value`  | `date` <br /> `function` | Value for resolve.        | `new Date()` <br /> `() => () => new Date('2024-05-01')` |
+| `depth`  | `number`                 | Depth of maximum resolve. | `2`                                                      |
+
+### Returns
+
+`date` | `undefined` — Returns the resolved date otherwise `undefined`.
+
+### Examples
+
+```js
+resolveDate(new Date('2024-12-25'));
+// Date object for 2024-12-25
+
+resolveDate(() => () => new Date('2025-01-13'));
+// Date object for 2025-01-13
+
+resolveDate('text');
+// undefined
+
+resolveDate(() => new Date('1990-07-03'), 1);
+// Date object for 1990-07-03
+
+resolveDate(() => new Date('1990-07-03'), 2);
+// Date object for 1990-07-03
+
+resolveDate(() => new Date('1990-07-03'), 0);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveDate" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
