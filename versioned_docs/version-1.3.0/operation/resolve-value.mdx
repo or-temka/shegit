@@ -1,0 +1,75 @@
+---
+sidebar_position: 2
+description: Function that retrieves or resolves only values. This function should handle various input types, resolving functions if encountered, and ultimately return an value if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [array, resolve, functions]
+keywords: [array, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { resolveValue } from 'shegit-beta';
+
+# resolveValue
+
+## Using
+
+Function that retrieves or resolves only values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an value if possible.
+
+If the final resolved value is a function remains unresolved within the specified depth, the function return `undefined`.
+
+<LiveFunctionPreview
+  name="resolveValue"
+  func={resolveValue}
+  args={[
+    { name: 'value', initial: '["name"]' },
+    { name: 'depth', initial: '0', default: '0', style: { width: 80 } },
+  ]}
+/>
+
+### Arguments
+
+| Argument | Type     | Description               | Example                                                                                                                 |
+| -------- | -------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `value`  | `any`    | Value for resolve.        | `[13, false]` <br /> `() => () => "text"` <br /> `() => { name: "Alina" }` <br /> `12` <br /> `() => () => () => false` |
+| `depth`  | `number` | Depth of maximum resolve. | `2`                                                                                                                     |
+
+### Returns
+
+`any` — Returns the resolved value otherwise `undefined`.
+
+### Examples
+
+```js
+resolveValue([12, null]);
+// [12, null]
+
+resolveValue(() => () => ({ name: 'Alina' }));
+// { name: 'Alina' }
+
+resolveValue('text');
+// 'text'
+
+resolveValue(() => false, 0);
+// () => false
+
+resolveValue(() => false, 1);
+// false
+
+resolveValue(() => false, 2);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveValue" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

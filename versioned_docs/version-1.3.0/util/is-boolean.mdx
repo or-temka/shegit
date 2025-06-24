@@ -1,0 +1,83 @@
+---
+sidebar_position: 3
+description: This function determines whether the given value is a primitive boolean.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [is, boolean, bool, falsy]
+keywords: [is, boolean, bool, falsy]
+version: 1.3.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { isBoolean } from 'shegit';
+
+# isBoolean
+
+## Using
+
+This function determines whether the given value is a **primitive boolean**.
+
+- Returns `true` only if the value is the primitive `true` or `false`.
+- Returns `false` for any non-boolean type or boolean object (e.g., `new Boolean(true)`).
+
+<LiveFunctionPreview
+  name="isBoolean"
+  func={isBoolean}
+  args={[{ name: 'value', initial: 'false', style: { width: 100 } }]}
+/>
+
+### Arguments
+
+| Argument | Type      | Description     | Example                                |
+| -------- | --------- | --------------- | -------------------------------------- |
+| `value`  | `unknown` | Can be any type | `"text"` <br /> `2` <br /> `undefined` |
+
+### Returns
+
+`boolean` — `true` if value is a boolean primitive, `false` otherwise
+
+### Examples
+
+```js
+isBoolean(true);
+// true
+
+isBoolean(false);
+// true
+
+isBoolean(new Boolean(true));
+// false
+
+isBoolean('true');
+// false
+
+isBoolean(Boolean(0));
+// true
+
+isBoolean(1 === 1);
+// true
+
+isBoolean(() => true);
+// false
+
+isBoolean(null);
+// false
+
+isBoolean({});
+// false
+
+isBoolean([true]);
+// false
+```
+
+### Since
+
+[1.3.0](https://www.npmjs.com/package/shegit/v/1.3.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.3.0/src/functions/util/isBoolean" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

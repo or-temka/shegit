@@ -1,0 +1,66 @@
+---
+sidebar_position: 3
+description: This function determines whether the given value is a real function.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [is, func, function, falsy]
+keywords: [is, func, function, falsy]
+version: 1.3.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# isFunction
+
+## Using
+
+This function determines whether the given value is a **real function**.
+
+- Returns `true` for standard functions, arrow functions, async, generator, class constructors, built-ins, and `Function` instances.
+- Returns `false` for all non-function values, including objects with `.call`, arrays, primitives, and browser-specific quirks like `document.all`.
+
+### Arguments
+
+| Argument | Type      | Description     | Example                                |
+| -------- | --------- | --------------- | -------------------------------------- |
+| `value`  | `unknown` | Can be any type | `"text"` <br /> `2` <br /> `undefined` |
+
+### Returns
+
+`boolean` — `true` if value is a function, `false` otherwise
+
+### Examples
+
+```js
+isFunction(() => {});
+// true
+
+isFunction(async function () {});
+// true
+
+isFunction(class {});
+// true
+
+isFunction({ call: () => {} });
+// false
+
+isFunction(null);
+// false
+
+isFunction(() => () => {});
+// true
+
+isFunction('function');
+// false
+```
+
+### Since
+
+[1.3.0](https://www.npmjs.com/package/shegit/v/1.3.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.3.0/src/functions/util/isFunction" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

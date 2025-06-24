@@ -1,0 +1,64 @@
+---
+sidebar_position: 4
+description: Function that retrieves or resolves only array values. This function should handle various input types, resolving functions if encountered, and ultimately return an array if possible.
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [array, resolve, functions]
+keywords: [array, resolve, functions]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+
+# resolveArray
+
+## Using
+
+Function that retrieves or resolves only array values.
+This function should handle various input types, resolving functions if encountered, and ultimately return an array if possible.
+
+If the final resolved value is not an array or if a function remains unresolved within the specified depth, the function return `undefined`.
+
+### Arguments
+
+| Argument | Type                      | Description               | Example                                        |
+| -------- | ------------------------- | ------------------------- | ---------------------------------------------- |
+| `value`  | `array` <br /> `function` | Value for resolve.        | `[13, false]` <br /> `() => () => [undefined]` |
+| `depth`  | `number`                  | Depth of maximum resolve. | `2`                                            |
+
+### Returns
+
+`array` | `undefined` — Returns the resolved array otherwise `undefined`.
+
+### Examples
+
+```js
+resolveArray([12, null]);
+// [12, null]
+
+resolveArray(() => () => [false, { name: 'Alina' }]);
+// [false, { name: 'Alina' }]
+
+resolveArray('text');
+// undefined
+
+resolveArray(() => ['text'], 1);
+// ['text']
+
+resolveArray(() => ['text'], 2);
+// ['text']
+
+resolveArray(() => ['text'], 0);
+// undefined
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveArray" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>

@@ -1,0 +1,62 @@
+---
+sidebar_position: 1
+description: Convert RGB color as an string to a format object
+authors: [Shchegortzov Artem Mikhailovich]
+tags: [object, string, color, rgb]
+keywords: [shegit, rgb, string, object, color]
+version: 1.1.0
+---
+
+import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
+import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { rgbStringToObj } from 'shegit-beta';
+
+# rgbStringToObj
+
+## Using
+
+Convert RGB color `"rgb(red, greed, blue)"` as an string to a format object `{r: red, g: green, b: blue, a: alpha}`
+
+<LiveFunctionPreview
+  name="rgbStringToObj"
+  func={rgbStringToObj}
+  args={[{ name: 'string', initial: '"rgb(85, 15, 15)"' }]}
+/>
+
+### Arguments
+
+| Argument | Type                       | Description       | Example               |
+| -------- | -------------------------- | ----------------- | --------------------- |
+| `string` | `string` <br /> `function` | Rgb color string. | `"rgb(210, 193, 54)"` |
+
+### Returns
+
+`object` — Returns RGB object in format `{r: red, g: green, b: blue, a: alpha}`.
+
+### Examples
+
+```js
+rgbStringToObj('rgb(15, 24, 99)');
+// {r: 15, g: 24, b: 99, a: 1}
+
+rgbStringToObj(() => 'rgb(-20, 1000, 7.3, 0.5)');
+// {r: 0, g: 255, b: 7, a: 0.5}
+
+rgbStringToObj('rgba(202.9, -2, 7, -100)');
+// {r: 202, g: 0, b: 7, a: 0}
+
+rgbStringToObj('87, 135, 245, 2');
+// {r: 87, g: 135, b: 245, a: 1}
+```
+
+### Since
+
+[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
+
+## Resources
+
+<div style={{ display: 'flex', gap: 20 }}>
+  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/rgbStringToObj" />
+  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+</div>
