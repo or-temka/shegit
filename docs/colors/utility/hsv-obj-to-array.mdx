@@ -4,15 +4,16 @@ description: Convert HSV color as an object to a format array
 authors: [Shchegortzov Artem Mikhailovich]
 tags: [object, array, color, hsv]
 keywords: [shegit, hsv, array, object, color]
-created: 1.1.0
-updated: 1.1.0
-available: 1.3.0
 ---
 
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import Versions from '../../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from './constants';
 import { hsvObjToArray } from 'shegit';
+
+export const constants = FUNCTIONS_CONFIG['hsvObjToArray'];
 
 # hsvObjToArray
 
@@ -51,10 +52,8 @@ hsvObjToArray('some');
 
 ## Resources
 
-- 📦 **Since:** [`1.1.0`](https://www.npmjs.com/package/shegit/v/1.1.0)
-- 📦 **Last updated:** [`1.1.0`](https://www.npmjs.com/package/shegit/v/1.1.0)
-- 📦 **Available in:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
+<Versions {...constants.versions} />
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/colors/utility/hsvObjToArray" />
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>

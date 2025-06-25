@@ -4,13 +4,14 @@ description: This function determines whether the given value is a symbol primit
 authors: [Shchegortzov Artem Mikhailovich]
 tags: [is, symbol, falsy]
 keywords: [is, symbol, falsy]
-created: 1.3.0
-updated: 1.3.0
-available: 1.3.0
 ---
 
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import Versions from '../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from './constants';
+
+export const constants = FUNCTIONS_CONFIG['isSymbol'];
 
 # isSymbol
 
@@ -58,10 +59,8 @@ isSymbol(() => Symbol());
 
 ## Resources
 
-- 📦 **Since:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
-- 📦 **Last updated:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
-- 📦 **Available in:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
+<Versions {...constants.versions} />
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/util/isSymbol" />
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>
