@@ -10,7 +10,10 @@ version: 1.0.3
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { FUNCTIONS_CONFIG } from '../../../docs/colors/constants';
 import { toColor } from 'shegit1.0.3';
+
+export const constants = FUNCTIONS_CONFIG['toColor'];
 
 # toColor
 
@@ -64,6 +67,6 @@ toColor({ r: 55, g: 55, b: 199 }, 'object');
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.0.3/src/functions/toColor" />
-  <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/tocolor-rnlpvf" />
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
+  <CodeSandboxResourceButton link={constants.codeSandboxLink} />
 </div>

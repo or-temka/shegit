@@ -9,6 +9,9 @@ version: 1.1.0
 
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import { FUNCTIONS_CONFIG } from '../../../docs/operation/constants';
+
+export const constants = FUNCTIONS_CONFIG['resolveObject'];
 
 # resolveObject
 
@@ -59,6 +62,5 @@ resolveObject(() => ({ package: shegit }), 0);
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveObject" />
-  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>

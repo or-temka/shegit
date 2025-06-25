@@ -10,7 +10,10 @@ version: 1.2.0
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import { FUNCTIONS_CONFIG } from '../../../docs/string/constants';
 import { toCamelCase } from 'shegit1.3.0';
+
+export const constants = FUNCTIONS_CONFIG['toCamelCase'];
 
 # toCamelCase
 
@@ -60,6 +63,5 @@ toCamelCase(55);
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.2.0/src/functions/string/toCamelCase" />
-  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>

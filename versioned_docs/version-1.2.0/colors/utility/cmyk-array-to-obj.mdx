@@ -10,7 +10,10 @@ version: 1.1.0
 import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import { FUNCTIONS_CONFIG } from '../../../../docs/colors/utility/constants';
 import { cmykArrayToObj } from 'shegit1.2.0';
+
+export const constants = FUNCTIONS_CONFIG['cmykArrayToObj'];
 
 # cmykArrayToObj
 
@@ -57,6 +60,5 @@ cmykArrayToObj([99, 245, 0, 5.9]);
 ## Resources
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/cmykArrayToObj" />
-  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/cmykarraytoobj-rppnwn" /> */}
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>
