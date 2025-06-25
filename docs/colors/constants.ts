@@ -11,6 +11,6 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}toColor`,
-    codeSandboxLink: 'https://codesandbox.io/p/sandbox/tocolor-rnlpvf',
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/tocolor-lchcyv',
   },
 };
