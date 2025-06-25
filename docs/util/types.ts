@@ -1,0 +1,16 @@
+export enum FunctionNames {
+  delay = 'delay',
+  getRandomValue = 'getRandomValue',
+  isArray = 'isArray',
+  isBoolean = 'isBoolean',
+  isDate = 'isDate',
+  isEmpty = 'isEmpty',
+  isFunction = 'isFunction',
+  isNaN = 'isNaN',
+  isNull = 'isNull',
+  isNumber = 'isNumber',
+  isPlainObject = 'isPlainObject',
+  isString = 'isString',
+  isSymbol = 'isSymbol',
+  noop = 'noop',
+}

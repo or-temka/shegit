@@ -1,0 +1,17 @@
+export enum FunctionNames {
+  chunkArray = 'chunkArray',
+  compareObjects = 'compareObjects',
+  deepCopy = 'deepCopy',
+  mapObjectKeys = 'mapObjectKeys',
+  mergeObjects = 'mergeObjects',
+  resolveArray = 'resolveArray',
+  resolveBoolean = 'resolveBoolean',
+  resolveDate = 'resolveDate',
+  resolveFunction = 'resolveFunction',
+  resolveMap = 'resolveMap',
+  resolveNumber = 'resolveNumber',
+  resolveObject = 'resolveObject',
+  resolveSet = 'resolveSet',
+  resolveString = 'resolveString',
+  resolveValue = 'resolveValue',
+}

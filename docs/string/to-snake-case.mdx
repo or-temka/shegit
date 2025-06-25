@@ -4,15 +4,16 @@ description: Сonverts a string into `snake_case` format.
 authors: [Shchegortzov Artem Mikhailovich]
 tags: [string, snake case]
 keywords: [string, snake case]
-created: 1.2.0
-updated: 1.2.0
-available: 1.3.0
 ---
 
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import Versions from '../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from './constants';
 import { toSnakeCase } from 'shegit';
+
+export const constants = FUNCTIONS_CONFIG['toSnakeCase'];
 
 # toSnakeCase
 
@@ -57,10 +58,8 @@ toSnakeCase(55);
 
 ## Resources
 
-- 📦 **Since:** [`1.2.0`](https://www.npmjs.com/package/shegit/v/1.2.0)
-- 📦 **Last updated:** [`1.2.0`](https://www.npmjs.com/package/shegit/v/1.2.0)
-- 📦 **Available in:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
+<Versions {...constants.versions} />
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/string/toSnakeCase" />
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>

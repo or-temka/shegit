@@ -4,15 +4,16 @@ description: This function determines whether the given value is exactly null.
 authors: [Shchegortzov Artem Mikhailovich]
 tags: [is, 'null', falsy]
 keywords: [is, 'null', falsy]
-created: 1.3.0
-updated: 1.3.0
-available: 1.3.0
 ---
 
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import Versions from '../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from './constants';
 import { isNull } from 'shegit';
+
+export const constants = FUNCTIONS_CONFIG['isNull'];
 
 # isNull
 
@@ -66,10 +67,8 @@ isNull(() => null);
 
 ## Resources
 
-- 📦 **Since:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
-- 📦 **Last updated:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
-- 📦 **Available in:** [`1.3.0`](https://www.npmjs.com/package/shegit/v/1.3.0)
+<Versions {...constants.versions} />
 
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/util/isNull" />
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>
