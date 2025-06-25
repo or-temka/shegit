@@ -10,7 +10,7 @@ version: 1.2.0
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
-import { chunkArray } from 'shegit-beta';
+import { chunkArray } from 'shegit';
 
 # chunkArray
 
@@ -23,7 +23,14 @@ Function that splits an array into smaller arrays ("chunks") of a specified size
   func={chunkArray}
   args={[
     { name: 'array', initial: '[1, 2, 3, 4, "text"]' },
-    { name: 'size', initial: '3', default: '2', optional: true, type: 'number', style: { width: 80 } },
+    {
+      name: 'size',
+      initial: '3',
+      default: '2',
+      optional: true,
+      type: 'number',
+      style: { width: 80 },
+    },
   ]}
 />
 

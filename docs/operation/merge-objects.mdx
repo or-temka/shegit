@@ -10,7 +10,7 @@ version: 1.3.0
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
-import { mergeObjects } from 'shegit-beta';
+import { mergeObjects } from 'shegit';
 
 # mergeObjects
 
@@ -52,33 +52,21 @@ Returns a new merged object without mutating the inputs.
 
 ```js
 // Basic merge:
-mergeObjects(
-  { a: 1, b: 2 },
-  { b: 3, c: 4 }
-);
+mergeObjects({ a: 1, b: 2 }, { b: 3, c: 4 });
 // { a: 1, b: 2, c: 4 }
 
 // Deep merge nested objects:
-mergeObjects(
-  { nested: { x: 10, y: 20 } },
-  { nested: { y: 30, z: 40 }, extra: 5 }
-);
+mergeObjects({ nested: { x: 10, y: 20 } }, { nested: { y: 30, z: 40 }, extra: 5 });
 // { nested: { x: 10, y: 20, z: 40 }, extra: 5 }
 
 // Merge arrays and additional properties:
-mergeObjects(
-  { list: [1, 2] },
-  { list: [3, 4], meta: { valid: true }
-});
+mergeObjects({ list: [1, 2] }, { list: [3, 4], meta: { valid: true } });
 // { list: [1, 2], meta: { valid: true } }
 
 // Merge with Map and Set:
 const map1 = new Map([['a', 1]]);
 const set2 = new Set([2, 3]);
-mergeObjects(
-  { data: map1, tags: new Set(['x']) },
-  { data: new Map([['b', 2]]), tags: set2 }
-);
+mergeObjects({ data: map1, tags: new Set(['x']) }, { data: new Map([['b', 2]]), tags: set2 });
 // { data: Map { 'a' => 1, 'b' => 2 }, tags: Set { 'x', 2, 3 } }
 
 // Deep merge with multi-level nesting and arrays:
