@@ -1,7 +1,7 @@
 import { FunctionsConfig } from '@site/src/types';
 import { FunctionNames } from './types';
 
-const RESOLVE_LINK_PATH_CATEGORY = 'number/';
+const RESOLVE_LINK_PATH_CATEGORY = 'util/';
 
 export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
   delay: {

@@ -9,6 +9,10 @@ version: 1.1.0
 
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import Versions from '../../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from '../../../docs/operation/constants';
+
+export const constants = FUNCTIONS_CONFIG['resolveString'];
 
 # resolveString
 
@@ -52,13 +56,10 @@ resolveString(() => 'Shegit', 0);
 // undefined
 ```
 
-### Since
-
-[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
-
 ## Resources
 
+<Versions {...constants.versions} />
+
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/operation/resolveString" />
-  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>

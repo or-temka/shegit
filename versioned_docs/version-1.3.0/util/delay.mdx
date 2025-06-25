@@ -9,6 +9,10 @@ version: 1.2.0
 
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import Versions from '../../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from '../../../docs/util/constants';
+
+export const constants = FUNCTIONS_CONFIG['delay'];
 
 # delay
 
@@ -46,13 +50,10 @@ delay().then(() => {
 // Wait for 1 second using async/await
 ```
 
-### Since
-
-[1.2.0](https://github.com/or-temka/shegit/tree/v1.2.0)
-
 ## Resources
 
+<Versions {...constants.versions} />
+
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/main/src/functions/util/delay" />
-  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>

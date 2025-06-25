@@ -10,7 +10,11 @@ version: 1.1.0
 import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import Versions from '../../../../src/components/mdx/Versions';
+import { FUNCTIONS_CONFIG } from '../../../../docs/colors/utility/constants';
 import { rgbObjToHsvObj } from 'shegit1.3.0';
+
+export const constants = FUNCTIONS_CONFIG['rgbObjToHsvObj'];
 
 # rgbObjToHsvObj
 
@@ -51,13 +55,10 @@ rgbObjToHsvObj('some');
 // { h: 0, s: 0, v: 0 }
 ```
 
-### Since
-
-[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
-
 ## Resources
 
+<Versions {...constants.versions} />
+
 <div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton link="https://github.com/or-temka/shegit/tree/v1.1.0/src/functions/colors/utility/rgbObjToHsvObj" />
-  {/* <CodeSandboxResourceButton link="https://codesandbox.io/p/sandbox/rgbarraytoobj-rppnwn" /> */}
+  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
 </div>
