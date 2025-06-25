@@ -10,6 +10,7 @@ version: 1.1.0
 import GitHubResourceButton from '../../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../../src/components/LiveFunctionPreview';
+import Versions from '../../../../src/components/mdx/Versions';
 import { FUNCTIONS_CONFIG } from '../../../../docs/colors/utility/constants';
 import { cmykObjToArray } from 'shegit1.3.0';
 
@@ -53,11 +54,9 @@ cmykObjToArray(() => ({ c: 3.2, m: () => 55, y: '84', k: '-7' }));
 // [3, 55, 84, 0]
 ```
 
-### Since
-
-[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
-
 ## Resources
+
+<Versions {...constants.versions} />
 
 <div style={{ display: 'flex', gap: 20 }}>
   <GitHubResourceButton linkPath={constants.resourceLinkPath} />

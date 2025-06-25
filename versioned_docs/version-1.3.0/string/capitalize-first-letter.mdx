@@ -10,6 +10,7 @@ version: 1.2.0
 import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import Versions from '../../../src/components/mdx/Versions';
 import { FUNCTIONS_CONFIG } from '../../../docs/string/constants';
 import { capitalizeFirstLetter } from 'shegit1.3.0';
 
@@ -53,11 +54,9 @@ capitalizeFirstLetter('2ok');
 // "2ok"
 ```
 
-### Since
-
-[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
-
 ## Resources
+
+<Versions {...constants.versions} />
 
 <div style={{ display: 'flex', gap: 20 }}>
   <GitHubResourceButton linkPath={constants.resourceLinkPath} />
