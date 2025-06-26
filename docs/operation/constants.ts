@@ -11,6 +11,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}chunkArray`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/chunkarray-m6m7rx',
   },
 
   compareObjects: {
@@ -20,6 +21,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}compareObjects`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/compareobjects-3dzc24',
   },
 
   deepCopy: {
@@ -29,6 +31,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}deepCopy`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/deepcopy-sp4krp',
   },
 
   mapObjectKeys: {
@@ -38,6 +41,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}mapObjectKeys`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/mapobjectkeys-5ct7gh',
   },
 
   mergeObjects: {
@@ -47,6 +51,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}mergeObjects`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/mergeobjects-q9ryyx',
   },
 
   resolveArray: {
@@ -56,6 +61,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveArray`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvearray-qzxnjq',
   },
 
   resolveBoolean: {
@@ -65,6 +71,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveBoolean`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolveboolean-39zwxl',
   },
 
   resolveDate: {
@@ -74,6 +81,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveDate`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvedate-7nxxt8',
   },
 
   resolveFunction: {
@@ -83,6 +91,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveFunction`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvefunction-tcyfc3',
   },
 
   resolveMap: {
@@ -92,6 +101,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveMap`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvemap-kv3c99',
   },
 
   resolveNumber: {
@@ -101,6 +111,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveNumber`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvenumber-yk72xx',
   },
 
   resolveObject: {
@@ -110,6 +121,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveObject`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolveobject-d89psg',
   },
 
   resolveSet: {
@@ -119,6 +131,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveSet`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolveset-q959q2',
   },
 
   resolveString: {
@@ -128,6 +141,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveString`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvestring-yrm88q',
   },
 
   resolveValue: {
@@ -137,5 +151,6 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}resolveValue`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/resolvevalue-2wqckz',
   },
 };
