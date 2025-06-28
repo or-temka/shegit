@@ -11,6 +11,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}capitalizeFirstLetter`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/capitalizefirstletter-vnc737',
   },
 
   toCamelCase: {
@@ -20,6 +21,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}toCamelCase`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/tocamelcase-mkrdwc',
   },
 
   toSnakeCase: {
@@ -29,5 +31,6 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}toSnakeCase`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/tosnakecase-7rrd5d',
   },
 };
