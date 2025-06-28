@@ -11,6 +11,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}delay`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/delay-kyvhqp',
   },
 
   getRandomValue: {
@@ -20,6 +21,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}getRandomValue`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/getrandomvalue-vtj795',
   },
 
   isArray: {
@@ -29,6 +31,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isArray`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isarray-4khd9h',
   },
 
   isBoolean: {
@@ -38,6 +41,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isBoolean`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isboolean-mnyy3r',
   },
 
   isDate: {
@@ -47,6 +51,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isDate`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isdate-695pdx',
   },
 
   isEmpty: {
@@ -56,6 +61,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isEmpty`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isempty-zz5l7v',
   },
 
   isFunction: {
@@ -65,6 +71,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isFunction`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isfunction-5m4zhn',
   },
 
   isNaN: {
@@ -74,6 +81,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isNaN`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isnan-n4whhp',
   },
 
   isNull: {
@@ -83,6 +91,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isNull`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isnull-yzy6jm',
   },
 
   isNumber: {
@@ -92,6 +101,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isNumber`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isnumber-9d9mpp',
   },
 
   isPlainObject: {
@@ -101,6 +111,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isPlainObject`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isplainobject-vj9cdk',
   },
 
   isString: {
@@ -110,6 +121,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isString`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/isstring-3pkvpp',
   },
 
   isSymbol: {
@@ -119,6 +131,7 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}isSymbol`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/issymbol-thtrty',
   },
 
   noop: {
@@ -128,5 +141,6 @@ export const FUNCTIONS_CONFIG: FunctionsConfig<FunctionNames> = {
       available: '1.3.0',
     },
     resourceLinkPath: `${RESOLVE_LINK_PATH_CATEGORY}noop`,
+    codeSandboxLink: 'https://codesandbox.io/p/sandbox/noop-yy7z7j',
   },
 };
