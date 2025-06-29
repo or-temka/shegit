@@ -7,10 +7,8 @@ keywords: [chunk, array]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
-import Versions from '../../../src/components/mdx/Versions';
+import Resources from '../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from '../../../docs/operation/constants';
 import { chunkArray } from 'shegit1.3.0';
 
@@ -64,8 +62,4 @@ chunkArray([[1, 2, 3], 4, 5, 6, [7, 8]], 3);
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />

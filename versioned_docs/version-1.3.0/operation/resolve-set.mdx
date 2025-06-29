@@ -7,9 +7,6 @@ keywords: [set, resolve, functions]
 version: 1.1.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import Versions from '../../../src/components/mdx/Versions';
 import { FUNCTIONS_CONFIG } from '../../../docs/operation/constants';
 
 export const constants = FUNCTIONS_CONFIG['resolveSet'];
@@ -58,8 +55,4 @@ resolveSet(() => new Set(['name', 0]), 0);
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />

@@ -6,10 +6,8 @@ tags: [object, array, color, cmyk]
 keywords: [shegit, cmyk, array, object, color]
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
-import Versions from '../../../src/components/mdx/Versions';
+import Resources from '../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from './constants';
 import { cmykArrayToObj } from 'shegit';
 
@@ -55,9 +53,4 @@ cmykArrayToObj([99, 245, 0, 5.9]);
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-  <CodeSandboxResourceButton link={constants.codeSandboxLink} />
-</div>
+<Resources constants={constants} />

@@ -8,7 +8,7 @@ keywords: [map, resolve, functions]
 
 import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
 import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import Versions from '../../src/components/mdx/Versions';
+import Resources from '../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from './constants';
 
 export const constants = FUNCTIONS_CONFIG['resolveMap'];
@@ -83,9 +83,4 @@ resolveMap(
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-  <CodeSandboxResourceButton link={constants.codeSandboxLink} />
-</div>
+<Resources constants={constants} />
