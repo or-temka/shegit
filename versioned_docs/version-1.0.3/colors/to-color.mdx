@@ -7,9 +7,8 @@ keywords: [shegit, rgb, array, object, color]
 version: 1.0.3
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import Resources from '../../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from '../../../docs/colors/constants';
 import { toColor } from 'shegit1.0.3';
 
@@ -60,13 +59,6 @@ toColor({ r: 55, g: 55, b: 199 }, 'object');
 // {r: 55, g: 55, b: 199}
 ```
 
-### Since
-
-[1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
-
 ## Resources
 
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-  <CodeSandboxResourceButton link={constants.codeSandboxLink} />
-</div>
+<Resources constants={constants} />

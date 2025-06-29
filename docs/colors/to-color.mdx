@@ -6,11 +6,9 @@ tags: [object, array, color, rgb, hex, hsv, cmyk]
 keywords: [shegit, rgb, hex, hsv, cmyk, array, object, color]
 ---
 
-import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
+import Resources from '../../src/widgets/Resources';
 import Details from '../../src/components/Details';
-import Versions from '../../src/components/mdx/Versions';
 import { FUNCTIONS_CONFIG } from './constants';
 import { toColor } from 'shegit';
 
@@ -183,9 +181,4 @@ toColor({ c: 12, m: 44, y: 55, k: 63 }, 'hsv-string');
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-  <CodeSandboxResourceButton link={constants.codeSandboxLink} />
-</div>
+<Resources constants={constants} />

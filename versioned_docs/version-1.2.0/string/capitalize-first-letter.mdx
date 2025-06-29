@@ -7,9 +7,8 @@ keywords: [string, capitalize, letter]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import Resources from '../../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from '../../../docs/string/constants';
 import { capitalizeFirstLetter } from 'shegit1.2.0';
 
@@ -53,12 +52,6 @@ capitalizeFirstLetter('2ok');
 // "2ok"
 ```
 
-### Since
-
-[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
-
 ## Resources
 
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />

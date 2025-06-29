@@ -7,9 +7,8 @@ keywords: [shegit, rgb, hex, hsv, cmyk, array, object, color]
 version: 1.1.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import Resources from '../../../src/widgets/Resources';
 import Details from '../../../src/components/Details';
 import { FUNCTIONS_CONFIG } from '../../../docs/colors/constants';
 import { toColor } from 'shegit1.1.0';
@@ -175,17 +174,6 @@ toColor({ c: 12, m: 44, y: 55, k: 63 }, 'hsv-string');
 
 </Details>
 
-### Since
-
-[1.0.1](https://www.npmjs.com/package/shegit/v/1.0.1)
-
-### Updated
-
-[1.1.0](https://www.npmjs.com/package/shegit/v/1.1.0)
-
 ## Resources
 
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-  <CodeSandboxResourceButton link={constants.codeSandboxLink} />
-</div>
+<Resources constants={constants} />

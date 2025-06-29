@@ -6,10 +6,8 @@ tags: [string, snake case]
 keywords: [string, snake case]
 ---
 
-import GitHubResourceButton from '../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../src/components/LiveFunctionPreview';
-import Versions from '../../src/components/mdx/Versions';
+import Resources from '../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from './constants';
 import { toSnakeCase } from 'shegit';
 
@@ -58,8 +56,4 @@ toSnakeCase(55);
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />

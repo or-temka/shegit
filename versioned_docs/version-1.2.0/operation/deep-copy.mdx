@@ -7,9 +7,8 @@ keywords: [copy, deep, array, object, any]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
 import LiveFunctionPreview from '../../../src/components/LiveFunctionPreview';
+import Resources from '../../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from '../../../docs/operation/constants';
 import { deepCopy } from 'shegit1.2.0';
 
@@ -67,12 +66,6 @@ const b = deepCopy(a);
 // a !== b
 ```
 
-### Since
-
-[1.2.0](https://www.npmjs.com/package/shegit/v/1.2.0)
-
 ## Resources
 
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />

@@ -7,9 +7,7 @@ keywords: [async, promise, delay]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
-import Versions from '../../../src/components/mdx/Versions';
+import Resources from '../../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from '../../../docs/util/constants';
 
 export const constants = FUNCTIONS_CONFIG['delay'];
@@ -52,8 +50,4 @@ delay().then(() => {
 
 ## Resources
 
-<Versions {...constants.versions} />
-
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />

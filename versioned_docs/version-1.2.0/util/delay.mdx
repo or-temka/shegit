@@ -7,8 +7,7 @@ keywords: [async, promise, delay]
 version: 1.2.0
 ---
 
-import GitHubResourceButton from '../../../src/components/mdx/buttons/GitHubResourceButton';
-import CodeSandboxResourceButton from '../../../src/components/mdx/buttons/CodeSandboxResourceButton';
+import Resources from '../../../src/widgets/Resources';
 import { FUNCTIONS_CONFIG } from '../../../docs/util/constants';
 
 export const constants = FUNCTIONS_CONFIG['delay'];
@@ -49,12 +48,6 @@ delay().then(() => {
 // Wait for 1 second using async/await
 ```
 
-### Since
-
-[1.2.0](https://github.com/or-temka/shegit/tree/v1.2.0)
-
 ## Resources
 
-<div style={{ display: 'flex', gap: 20 }}>
-  <GitHubResourceButton linkPath={constants.resourceLinkPath} />
-</div>
+<Resources constants={constants} />
